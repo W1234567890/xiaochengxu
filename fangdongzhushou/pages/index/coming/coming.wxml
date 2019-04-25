@@ -1,0 +1,64 @@
+<!-- 使用wxs 手机号码中间四位显示为*号 -->
+<wxs module="phone">
+var toHide = function(array) {
+  var mphone = array.substring(0, 3) + '****' + array.substring(7);
+  return mphone;
+}
+module.exports.toHide = toHide;
+</wxs>
+<!---->
+<view class="reservePd">
+  <view class="{{reserve0?'':'cur'}}" bindtap='allTab' data-id='1'>全部来电<text></text></view>
+  <view class="{{reserve0?'cur':''}}" bindtap='allTab' data-id='0'>未接来电<text></text></view>
+</view>
+<view class='noMessagePd'> <!--wx:if="{{noList==0}}"-->
+  <image src='/images/coming/renter_phone_def_pic.png'></image>
+  ~暂无来电~
+</view>
+<view class='w30'>
+  <view class='comingList'>
+    <view class='comingLeft'>
+      <image src='/images/coming/renter_phone_no.png'></image>
+      <text class='red'>未接通</text>
+    </view>
+    <view class='comingRight'>
+      <view class='comingTitle'>租客昵称<text>15:30</text></view>
+      <view class='comingMiddle'>静安豪景苑三房一厅巴拉巴拉</view>
+      <view class='comingLast'>
+        <view class='blue'>查看房源</view>
+        <view class='blue'>再次回拨</view>
+        <text class='greyDark'>已回拨</text>
+      </view>
+    </view>
+  </view>
+  <view class='comingList'>
+    <view class='comingLeft'>
+      <image src='/images/coming/renter_phone_yes.png'></image>
+      <text class='grey'>已接通</text>
+    </view>
+    <view class='comingRight'>
+      <view class='comingTitle'>租客昵称<text>15:30</text></view>
+      <view class='comingMiddle'>静安豪景苑三房一厅巴拉巴拉</view>
+      <view class='comingLast'>
+        <view class='blue'>查看房源</view>
+        <view class='blue'>回拨</view>
+        <text class='greyLight'>未回拨</text>
+      </view>
+    </view>
+  </view>
+  <view class='comingList'>
+    <view class='comingLeft'>
+      <image src='/images/coming/renter_phone_yes.png'></image>
+      <text class='grey'>已接通</text>
+    </view>
+    <view class='comingRight'>
+      <view class='comingTitle'>租客昵称<text>15:30</text></view>
+      <view class='comingMiddle'>静安豪景苑三房一厅巴拉巴拉</view>
+      <view class='comingLast'>
+        <view class='blue'>查看房源</view>
+        <view class='blueLight'>回拨</view>
+        <text class='greyDark'>已回拨</text>
+      </view>
+    </view>
+  </view>
+</view>

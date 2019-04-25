@@ -1,0 +1,111 @@
+.cw50{margin: 0 50rpx;}/* padding-bottom: 260rpx;*/
+.uploadLine{ padding: 40rpx 0 30rpx; border-bottom: 1px solid #EEF0F4; position: relative;}
+.uploadLineFlex{display: flex; flex-direction: row;}
+.upLoadTitleText{ color:#001629; font-size: 24rpx; display: block; margin-bottom: 20rpx;}
+.threeWidth{ margin: 0 50rpx; width: 200rpx;}
+.threeWidth text{ text-align: center;}
+.picker{ color: #C0C2C7; font-size: 32rpx; height: 37rpx; line-height: 37rpx; position: relative;}
+.picker image{ position: absolute; right: 0; top: 0; width: 32rpx; height: 32rpx;}
+input,.phcolorPreHover,textarea{color: #5C6068; font-size: 32rpx; }
+picker.pickerPay{ position: absolute; left: 0; top: 0; background: rgba(0,0,0,0.5); width: 100%; opacity: 0;  }
+/*上传房源文字颜色*/
+.uploadplaceholder{ color: #C0C2C7;}
+switch{ position: absolute; right: 0; top: 20rpx;}
+.areaView{position: relative;}
+.areaView text{ position: absolute; right: 0; top:8rpx; font-size: 22rpx; color:#001629;}
+.flowView{ display: flex; flex-direction: row;}
+.flowView view{ color:#5C6068; font-size: 22rpx; line-height: 52rpx; margin-right: 120rpx; display: flex; flex-direction: row;}
+.flowView view input{ text-align: center; display: inline-block; width: 132rpx;height: 52rpx; margin: 0 12rpx; border: none; background:rgba(243,244,247,0.5);border-radius:4px;}
+.flowView.flowViewWhith3 view{ width: 33.33333%; margin-right: 0;}
+.btnPd{text-align: center; position: relative; padding: 90rpx 0; }/*position: fixed; right:50rpx; bottom: 90rpx; z-index: 99;*/
+.btn{width:518rpx;height:72rpx; line-height: 72rpx; background:rgba(88,118,171,1);box-shadow:0px 8rpx 20rpx 0px rgba(96,147,236,0.5);border-radius:36rpx; color: #fff; font-size: 32rpx;}
+.resetBtn{ display: inline-block;width:188rpx;height:72rpx;background:#EAEEF2;
+border-radius:36rpx; margin-right: 30rpx; text-align: center;line-height: 72rpx;color: #94AABD; font-size: 32rpx; position: absolute; top:90rpx; right: 218rpx;}/*border:1px solid rgba(148,170,189,1);*/
+.resetBtn image{ width: 32rpx; height: 32rpx; display: inline-block; margin:-5rpx  6rpx 0 0; vertical-align: middle;}
+.cityView{ position: relative;}
+.cityView image{position:absolute;right:0;top:10rpx;width:32rpx;height:32rpx;}
+.citypicker{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: #ff0;
+    z-index: 99;
+}
+.citypickers{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+    z-index: 999;
+}
+
+
+.citybody {
+  position: fixed;
+  bottom: 0px;
+   background: #fff;
+   z-index: 99;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+   border-top: 1px solid #d8d8d8;
+   border-bottom: 1px solid #d8d8d8;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #828282;
+  font-size: 30rpx;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #5876AB;
+  font-size: 30rpx;
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 2px #cccccc solid;
+  border-top: 2px #d9d9d9 solid;
+  padding: 20rpx;
+}
+.input{ vertical-align: middle; position: relative;}
+.input input{ display: inline-block; width:637rpx; padding-right: 35rpx;} 
+.informationRight image.bottomBlack{ width: 28rpx; height: 15rpx; vertical-align: top; margin-left: 10rpx; margin-top: 30rpx;}
+.informationRight image.rightBlack{width: 15rpx; height: 28rpx; vertical-align: middle; margin-top: -13rpx;}
+.quit{ padding: 20rpx 0; text-align: center; font-size: 26rpx; color: #f92131; display: block;}
+button.submit{ padding: 10rpx 0; text-align: center; font-size: 26rpx; background: none; color: #2dca4e; display: block; border: none; box-shadow: none;}
+.bottomBlack{ position: absolute;right: 0; top: 0; height: 15rpx; width: 28rpx; margin-top: 13rpx;}
+
+/*时间段*/
+.timeList{ margin-top: 20rpx;}
+.timeList text{width:104rpx;height:38rpx; line-height:38rpx; text-align: center; color:#94AABD; font-size: 22rpx; display: inline-block; border-radius:4px;border:1px solid rgba(148,170,189,1); margin-right: 24rpx;}
+.timeList text.timeListCur{ background:#94AABD; color: #fff;}
+/*添加其他费用*/
+.costListPd{margin: 0 0 0 30rpx;}
+.costTitle{ color: #001629; font-size: 24rpx; margin-top: 10rpx;}
+.addRegister{ color: #5876AB; font-size: 28rpx; margin-bottom: 30rpx; position: relative;}
+.addRegister image{ width: 20rpx; height: 20rpx; display:inline-block; vertical-align: middle; margin:-5rpx 10rpx 0 0;}
+.addCost{ margin-top: 24rpx; position: relative; color: #C0C2C7; font-size: 28rpx;}
+.addCost view{ position: absolute; right: 0; top: 0; color: #94AABD; font-size: 22rpx;}
+.addCost view image{ vertical-align: middle; margin-right:11rpx; width: 20rpx; height: 20rpx;}
+.costList{ height: 58rpx; line-height: 58rpx; position:relative; color: #5C6068; font-size: 32rpx; padding: 38rpx 0; border-bottom: 1px solid #EEF0F4;}
+.costList view.costGrey{ position: absolute; right: 0; top:38rpx;}
+.costList view.costGrey input{ font-size: 32rpx; width: 152rpx; height: 58rpx; line-height: 58rpx; background:rgba(243,244,247,0.5);border-radius:4px;display: inline-block;vertical-align: middle; padding: 0 20rpx; }
+.costList view.costGrey text{ margin:0 22rpx 0 26rpx;color: #001629; font-size: 24rpx; display: inline-block; vertical-align: middle;}
+.costList view.costGrey image{width: 40rpx;height: 40rpx; vertical-align: middle; line-height: 58rpx;}
+
+/*two*/
+.registerTwo{ display: flex; flex-direction: row;}
+.registerTwo .uploadLine{ width: 50%;}
+.registerTwo .uploadLine .picker image{ position: inherit;}

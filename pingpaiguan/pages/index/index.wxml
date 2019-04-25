@@ -1,0 +1,139 @@
+<!--index.wxml-->
+<import src="/pages/template/tabBar.wxml" />
+<view class='bannerTop'>
+  <swiper style='height:370rpx;'>
+    <swiper-item wx:for="{{bannerList}}" wx:for-item="item" wx:for-index="index" data-adnum='-1' data-posterimg="{{item.poster}}" data-url='{{item.action}}' data-adent='{{item.action_type}}' bindtap='hotHouseTap'>
+      <image src='{{item.poster}}' class='bannerImg'></image>
+    </swiper-item>  
+  </swiper>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style='width:50%;'>
+    <view class="picker">
+      {{array[index]}}<image src='/images/index/downBlack.png'></image>
+    </view>
+  </picker>
+  <view class='joinBtn' bindtap='joinBtnTap'><image src='/images/index/enteringIcon.png'></image>入驻</view>
+</view>
+<view class='logoListWidth'>
+  <view class='logoList' style="overflow-x:{{brandLogos.length<=3?'hidden':'auto'}}">
+    <view class='logoListPd'>
+      <block wx:for="{{brandLogos}}" wx:for-item="item" wx:for-index="index">
+        <view class='logoViewWIDTH'>
+          <navigator class='logoView' hover-class="none"  target="miniProgram" path="{{item.action_type==2?'/pages/list/listDetail/listDetail?id=':'/pages/list/search/search?communityid='}}{{item.action}}" app-id="wxc29624069daf8890" wx:if="{{item.action_type==2||item.action_type==3}}"  data-adnum='0' data-url='{{item.action}}' data-adent='{{item.action_type}}' bindtap='hotHouseTap'><!-- version="trial"-->
+            <image src='{{item.logo}}'></image>
+            <text class='logoTitle'>{{item.title}}</text>
+            <view class='logoMessage'>
+              <view class='logoMessageList'>
+                <view>{{item.house_total}}<text>套</text></view>
+                <text class='logoMessageTitle'>总房源</text>
+              </view>
+              <view class='logoMessageList rightMessage'>
+                <view>{{item.house_online}}<text>套</text></view>
+                <text class='logoMessageTitle'>在租</text>
+              </view>
+            </view>
+          </navigator>
+          <view class='logoView' data-adnum='0' data-url='{{item.action}}' data-adent='{{item.action_type}}' bindtap='hotHouseTap' wx:else>
+            
+            <image src='{{item.logo}}'></image>
+            <text class='logoTitle'>{{item.title}}</text>
+            <view class='logoMessage'>
+              <view class='logoMessageList'>
+                <view>{{item.house_total}}<text>套</text></view>
+                <text class='logoMessageTitle'>总房源</text>
+              </view>
+              <view class='logoMessageList rightMessage'>
+                <view>{{item.house_online}}<text>套</text></view>
+                <text class='logoMessageTitle'>在租</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='logoTotalMessage'>
+  本地区已入驻<text>{{total}}</text>家品牌
+  <view bindtap='brandListTap'>查看全部<image src='/images/index/greyRight.png'></image></view>
+</view>
+<navigator target="miniProgram" hover-class="none" path="/pages/list/search/search?areaCode={{area_codeCity}}&brandType=3" app-id="wxc29624069daf8890" class='brandListLine'><!-- version="trial"-->
+  爆款房源<view>更多品牌房源<image src='/images/index/greyRight.png'></image></view>
+</navigator>
+<view class='hotHouseList'>
+<block wx:for="{{recToday}}" wx:for-item="item" wx:for-index="index">
+  <view class='hotHoudeListPdWidth'>
+    <navigator class='hotHoudeListPd' hover-class="none" target="miniProgram" path="{{item.action_type==2?'/pages/list/listDetail/listDetail?id=':'/pages/list/search/search?communityid='}}{{item.action}}" app-id="wxc29624069daf8890"  data-adnum='1' data-url='{{item.action}}' data-adent='{{item.action_type}}' bindtap='hotHouseTap' wx:if="{{item.action_type==2||item.action_type==3}}"><!--version="trial" -->
+      <view class='hotHouseListBanner'>
+        <image src='/images/brand/listxj.png'wx:if="{{item.status=='下架'}}" class='titSta'></image>
+        <image src='/images/brand/listyz.png' wx:if="{{item.status=='已租'}}" class='titSta'></image>
+        <image src='{{imgUrl}}{{item.poster}}{{imgUrlLast}}'></image>
+        <view>{{recTodayPrice[index]}}<text>/月</text></view>
+      </view>
+      <text class='hotHouseListTitle'>{{item.title}}</text>
+      <text class='hotHouseListMessage'>{{item.subtitle}}</text>
+      <view class='hotHouseListCard'><text wx:for="{{item.tag}}" wx:for-item="item1">{{item1}}</text></view>
+    </navigator>
+    <view class='hotHoudeListPd' bindtap='hotHouseTap' data-adnum='1' data-url='{{item.action}}' data-adent='{{item.action_type}}' wx:else>
+      <view class='hotHouseListBanner'>
+        <image src='{{imgUrl}}{{item.poster}}{{imgUrlLast}}'></image>
+        <view>{{recTodayPrice[index]}}<text>/月</text></view>
+      </view>
+      <text class='hotHouseListTitle'>{{item.title}}</text>
+      <text class='hotHouseListMessage'>{{item.subtitle}}</text>
+      <view class='hotHouseListCard'><text wx:for="{{item.tag}}" wx:for-item="item1">{{item1}}</text></view>
+    </view>
+  </view>
+ </block> 
+</view>
+  <view >
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view wx:for="{{brandFilter}}" wx:for-item="item" wx:for-index="index" class="tab-item {{currentTab==index?'active':''}}"  data-current="{{index}}" data-brandlistid='{{item.brand_list_id}}'  bindtap="swichNav">{{item.name}}</view>
+    </scroll-view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+     style="height:{{winHeight}}rpx;">
+        <swiper-item wx:for="{{brandFilter.length}}">
+          <scroll-view scroll-y="true" class="scoll-h" bindscrolltolower="scrollTap" lower-threshold="0" enable-back-to-top="true" style='display:flex!important;' bouncs='no' scroll-with-animation="true">
+                <view class='cw30'>
+                  <block wx:for="{{brandList}}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+                    <view class='brandChangeList'>
+                        <view class='brandChangeBanner' bindtap='hotHouseTap' data-adnum='1' data-url='{{item.action}}' data-adent='{{item.action_type}}'>                     
+                          <image src='{{item.logo}}'></image>
+                          <view class='brandChangeMessage'>
+                            <view>{{item.title}}</view><text>{{item.subtitle}}</text>
+                          </view>
+                          <view class='brandChangeEnter'>
+                            <text>进入</text>在租{{item.online}}套
+                          </view>
+                        </view>
+                        <view class='brandChangeHouseListPd'>
+                          <block wx:for="{{item.rec_house}}" wx:for-item="item1" wx:for-index="index1"> 
+                            <navigator class='brandChangeHouseList' hover-class="none" target="miniProgram" path="{{item1.action_type==2?'/pages/list/listDetail/listDetail?id=':'/pages/list/search/search?communityid='}}{{item1.action}}" app-id="wxc29624069daf8890" wx:if="{{item1.action_type==2||item1.action_type==3}}"  data-adnum='2' data-url='{{item1.action}}' data-adent='{{item1.action_type}}' bindtap='hotHouseTap'><!-- version="trial"-->
+                              <image src='/images/brand/listxj.png' wx:if="{{item1.status=='下架'}}" class='titStat'></image>
+                              <image src='/images/brand/listyz.png' wx:if="{{item1.status=='已租'}}" class='titStat'></image>
+                              <image src='{{imgUrl}}{{item1.poster}}{{imgUrlLast}}' class='logoImg'></image>
+                              <view class='changeTitle'>{{item1.title}}</view>
+                              <view class='changePrice'>{{item1.price}}</view>
+                            </navigator>
+                            <view class='brandChangeHouseList' bindtap='hotHouseTap' data-adnum='1' data-url='{{item.action}}' data-adent='{{item.action_type}}' wx:else >
+                              
+                              <image src='{{imgUrl}}{{item1.poster}}{{imgUrlLast}}' class='logoImg'></image>
+                              <view class='changeTitle'>{{item1.title}}</view>
+                              <view class='changePrice'>{{item1.price}}<!--<text>/月</text>--></view>
+                            </view>
+                          </block>
+                        </view>
+                    </view>
+                  </block>
+                <view hidden="{{hidden1}}" style='margin:-10rpx 0 0;color:#333;text-align:center; font-size:30rpx; height:{{tabBar.isIpx?220:160}}rpx;'>别扯啦，到底了...</view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
+ <view class="body-view">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+</view>
+  <template is="tabBar" data="{{tabBar:tabBar}}" />
+

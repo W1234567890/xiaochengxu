@@ -1,0 +1,4 @@
+<view>
+  <image src="{{imgUrl}}{{src}}{{imgUrlLast}}" mode='aspectFill' class='imageList'></image>
+  <view class="{{imageShow?'imageBtnCur':'imageBtn'}}" bindtap='imageBtnTap'>{{imageShow?'取消封面':'设为封面'}}</view>
+</view>

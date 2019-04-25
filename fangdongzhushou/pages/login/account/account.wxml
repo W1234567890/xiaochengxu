@@ -1,0 +1,9 @@
+<form bindsubmit="formSubmit">
+  <view class='loginConaiver'>
+    <input class='inputTel' type='number' placeholder='输入手机号' name="mobile"></input>
+    <input class='inputPassword' type='password' placeholder='输入密码' name="password"></input>
+    <!--<text class='forgetPassword' bindtap='forgetBtn'>忘记密码，点此找回</text>
+    <text class='registerCenter' bindtap='registerBtn'>注册公寓家</text>-->
+    <view style='margin:50rpx 0rpx 0;'><button class='button-hover' formType="submit">登 录</button></view>
+  </view>
+</form>

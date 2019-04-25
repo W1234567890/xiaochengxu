@@ -1,0 +1,25 @@
+page{background-color: #f5f5f5;}
+.noInformation{ text-align: center; padding-top: 100rpx; color: #000; font-size: 30rpx;}
+.searchConaiver{display: flex; flex-direction: column;}
+.searchList{ position: relative; margin: 15rpx 28rpx 0; padding-bottom:15rpx;border-bottom: 1px solid #d8d8d8;}
+.searchList input{ background: #f6f6f6;width: 602rpx; padding:15rpx 18rpx; border-radius: 4px; color: #000; font-size: 30rpx;}
+.searchList icon{ position: absolute; right: 0; top: 8rpx;}
+.listImgList {padding: 30rpx 0 20rpx;position: relative;width: 100%;background-color: #fff;margin-top: 22rpx;}
+.listBanner {position: relative;width: 100%;height: 220rpx;margin: 25rpx 0 25rpx 0;}
+.listBanner image {width: 260rpx;height: 220rpx;border-radius: 10rpx;margin-left: 3.7%;}
+.listBanner .soldOut{width: 72rpx;height: 36rpx;position: absolute;left: 0;top: -16rpx;}
+.listNumText {text-align: left;padding:20rpx 0 0;
+font-size: 30rpx;color: #20b7b6; display: flex; flex-direction: row;}
+.listNumText text {font-size: 26rpx;margin-left: 5rpx;}
+.listNumText view.priceStyle{ font-weight: bold; font-size: 30rpx;}
+.listNumText view.priceStyle text{ font-size: 24rpx; margin-left: 5rpx;}
+.compare{color: #333;font-size: 26rpx;display: inline-block;margin-right: 25rpx;}
+.nub{color: #20b7b6;font-weight: 600;}
+.listBrand {position: absolute; width:416rpx;height: 220rpx;right: 0;top: 60rpx;color: #000;margin-right: 3.7%;}
+.listTitle {color: #333;font-size: 34rpx;display: block;font-family:600;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.listBrandText {font-size: 22rpx;color: #000;float: right;padding: 8rpx 15rpx;border: 1px solid #000;}
+.listAddress {color: #666;font-size: 26rpx;margin-top: 20rpx;}
+.listAddGPS{color: #c4c4c4;font-size: 26rpx;margin-top: 20rpx;white-space: nowrap;overflow: hidden;
+text-overflow: ellipsis;}
+.listAddGPS image{width: 22rpx; height: 28rpx; vertical-align: middle; margin-right:12rpx; margin-top: -4rpx; }
+.statusText{color: #fff; font-size: 30rpx;}

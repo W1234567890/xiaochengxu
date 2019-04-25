@@ -1,0 +1,11 @@
+<!--地图容器-->
+  <map id="myMap"
+    markers="{{markers}}"
+    style="width:100%;height:{{mapHight}}px;"
+    longitude="116.313972"
+    latitude="39.980014" coord_type='3' include-points='{{markers}}' page_size='20' scale='16'>
+  </map>
+<!--绑定点击事件-->
+<view class='mapList'>
+  <button class="{{idx!=item.id?'':'greenColor'}}" wx:for="{{mapImgNam}}" wx:for-item="item" wx:for-index="index" bindtap="nearby_search" data-name='{{item.title}}' data-src='/images/listDetail/{{item.srcTop}}.png' data-ind='{{index}}'> <image src='/images/listDetail/{{idx!=item.id?item.src:item.srcH}}.png'></image>{{item.title}}</button>
+</view>

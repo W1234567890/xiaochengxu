@@ -1,0 +1,17 @@
+.reserviceImg{ width:690rpx; height: 460rpx; margin: 30rpx 0;border-radius:4px; }
+.detailTitle{ color: #001629; font-size: 36rpx; display: block; font-weight: bold;}
+.detailMessage{ color: #8A8E98; font-size: 28rpx; margin: 16rpx 0 28rpx; display: block;}
+.detailPrice{ color: #B2161A; font-size: 36rpx; font-weight: bold;}
+.detailPrice text{ font-size:20rpx; }
+
+.reserveDetailPd{ margin-top: 30rpx; padding-top: 25rpx; border-top: 1px solid #EEF0F4; position: relative;}
+.reserveDetailList{ margin: 9rpx 0; color: #8A8E98; font-size: 30rpx;}
+.reserveDetailList text{ color: #5C6068; font-size: 22rpx; width: 110rpx; font-weight: bold;}
+.telBtn{ text-align: center; position: absolute; bottom: 0; right: 0; color: #94AABD; font-size: 22rpx;width:146rpx; line-height: 42rpx;height:42rpx;border-radius:4px;border:1px solid rgba(148,170,189,1);}
+.telBtn image{ width: 28rpx; height: 28rpx; vertical-align: middle; margin-right: 8rpx;}
+
+.reserveDetailBtn{width:750rpx;height:88rpx;line-height:88rpx;background:#fff; position: fixed; bottom: 0;left: 0;}
+.reserveDetailBtn text{box-shadow:0px -5rpx 20rpx 0px rgba(96,147,236,0.2); text-align: center; width: 50%; height: 88rpx; display: inline-block; color:#94AABD; font-size: 32rpx;}
+.reserveDetailBtn text.blueBg{ background:#5876AB; color: #fff; }
+
+.cancleImg{ position: absolute; right: -30rpx; top:7rpx; width: 184rpx; height: 184rpx;}

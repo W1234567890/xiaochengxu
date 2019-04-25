@@ -1,0 +1,25 @@
+/* pages/login/role/role.wxss */
+.roleTitle{ color: #001629; font-size: 40rpx; margin: 60rpx 20rpx 24rpx; display: block; font-weight: bold;}
+.roleBorder{ padding: 12rpx; border-radius:8px;border:4rpx solid #fff;}
+.roleBg{ padding: 20rpx 40rpx 20rpx 50rpx;border-radius:8px; text-align: right; position: relative; height: 160rpx;}
+.messagePd{ position:absolute; left: 50rpx; top:60rpx; text-align: left; }
+.messagePd text{ display: block;}
+.roleName{ color: #fff; font-size: 30rpx; margin-bottom: 16rpx; font-weight: bold; position: relative; display: inline-block;} 
+.roleBg .roleName image{ width: 74rpx; height: 30rpx; display: inline-block; position: absolute;top:-16rpx; right: -74rpx; }
+.roleMessage{ color: #fff; font-size: 24rpx; width: 415rpx;}
+.roleBg image{ width: 160rpx; height: 160rpx;}
+.blueBg{background:#5876AB;}
+.blueLightBg{background:#A8D3E6;}
+.pinkLightBg{background:#EFBFBF;}
+.yellowBg{background:#E4D1B3;}
+
+.roleBorder.blue.cur{border:4rpx solid #5876AB;}
+.roleBorder.blueLight.cur{border:4rpx solid #A8D3E6;}
+.roleBorder.pinkLight.cur{border:4rpx solid #EFBFBF;}
+.roleBorder.yellow.cur{border:4rpx solid #E4D1B3;}
+.roleBorder.blue.cur .blueBg{box-shadow:0px 0px 24rpx 0px rgba(96,147,236,0.5);}
+.roleBorder.blueLight.cur .blueLightBg{box-shadow:0px 0px 24rpx 0px rgba(168,211,230,0.5);}
+.roleBorder.pinkLight.cur .pinkLightBg{box-shadow:0px 0px 24rpx 0px rgba(239,191,191,0.5);}
+.roleBorder.yellow.cur .yellowBg{box-shadow:0px 0px 24rpx 0px rgba(228,209,179,0.5);}
+
+.roleZhao{ position: absolute; right: 60rpx; top: 40rpx;line-height:120rpx; text-align: center; width:120rpx;height:120rpx;background:rgba(0,22,41,0.6); border-radius: 100%; color: #fff; font-size: 22rpx;}

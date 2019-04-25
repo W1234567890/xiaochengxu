@@ -1,0 +1,13 @@
+diff a/pages/list/listDetail/listDetail.js b/pages/list/listDetail/listDetail.js	(rejected hunks)
+@@ -1,8 +1,9 @@
+ var app = getApp();
++var headerData = app.globalHeaderData;
+ var imgUrl = app.globalDataImg.gyjProductBase;
+ var url = app.globalDataApp.gyjProductBase + "miniapi/houses/house_detail";
+-//var url2 = app.globalData.gyjProductBase + "home/user/collectAdd";
+-//var url3 = app.globalData.gyjProductBase + "home/user/collectCancel";
++var url2 = app.globalDataApp.gyjProductBase + "miniapi/Collection/user_collect";
++var url3 = app.globalDataApp.gyjProductBase + "miniapi/Collection/cancel_collect";
+ var token = wx.getStorageSync('token');
+ // 引入SDK核心类
+ var QQMapWX = require('../../../utils/qqmap-wx-jssdk.js');

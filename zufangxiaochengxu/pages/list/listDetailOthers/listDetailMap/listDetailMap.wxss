@@ -1,0 +1,5 @@
+.mapList{ position: fixed; left: 0; bottom: 0; width: 100%; background: #fff; z-index: 100; height: 90rpx; padding-top: 15rpx; border-top: 1px solid #f6f6f6;}
+.mapList button{ display: inline-block; background: none; width: 14.2857%; font-size: 18rpx; border:none;outline: none; text-align: center; color: #333;}
+.mapList button.greenColor{ color: #08b7b7;}
+.mapList button::after{ border: none; }
+.mapList button image{display: block; margin: 0 auto 5rpx; width: 42rpx; height: 42rpx;}

@@ -1,0 +1,88 @@
+<scroll-view scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" bindscrolltolower="getMore" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+<view class="w60">
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>入住房源</text>
+    <view class='enterHouse'>
+      <view class='uploadplaceholder' bindtap='enterHouseTap' wx:if="{{!houseId}}">请选择<image src="/images/register/arrow_list.png"/></view>
+      <view class='phcolorPreHover' bindtap='enterHouseTap' wx:else>{{house_name}}({{houseId}})<image src="/images/register/arrow_list.png"/></view>
+    </view>
+    <view class='pointText' hidden='{{houseIdShow}}'>请选择</view>
+  </view>
+  <view class='twoLinePd'>
+    <view class='twoLeft'>
+      <view class='uploadLine'>
+        <text class='upLoadTitleText'>姓名</text>
+        <view><input type='text' bindinput="tenantNameTap" placeholder='请填写租客姓名' placeholder-class="uploadplaceholder" value='{{tenant_name}}' disabled='{{!identify_pic?false:true}}'></input></view>
+        <view class='pointText' hidden='{{tenantNameShow}}'>请填写</view>
+      </view>
+      <view class='uploadLine'>
+        <text class='upLoadTitleText'>身份证号码</text>
+        <view><input type='text' bindinput="identifyNumTap" placeholder='请输入租客身份证' placeholder-class="uploadplaceholder" value='{{identify_num}}' disabled='{{!identify_pic?false:true}}'></input></view>
+        <view class='pointText' hidden='{{identifyNumShow}}'>请填写</view>
+        <view class='pointText' hidden='{{identifyNumShow18}}'>身份证号码必须为18位</view>
+      </view>
+      <view class='uploadLine'>
+        <text class='upLoadTitleText'>身份证照片（选填）</text>
+        <view class='photoPd'>
+            <view class='photoConatiner'>
+              <view class='photoList' wx:if="{{identify_pic}}">
+                <image src='{{imgUrl}}{{identify_pic}}' mode='aspectFill' class='photoImgBig' data-src='{{identify_pic}}' bindtap='photoImgBigTap'></image>
+                <image src='/images/upload/house_message_delete.png' class='photoClose' data-id='{{idx}}' data-num='0' data-src='{{identify_pic}}' bindtap='imgCloseTap'></image>
+              </view>
+              <view class='photoList' data-num='2' bindtap='uploadImgTap' wx:else>
+                <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image></view>
+              </view>
+            </view>
+          </view>
+      </view>
+    </view>
+    <view class='formLogoPd' data-num='1' bindtap='uploadImgTap'><image src='/images/register/idcard_photograph.png'></image></view>
+  </view>   
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>手机号码</text>
+    <view><input type='number' bindinput="mobileTap" placeholder='请输入租客的手机号码' placeholder-class="uploadplaceholder" value='{{mobile}}'></input></view>
+    <view class='pointText' hidden='{{mobileShow}}'>请填写</view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>起租日期</text>
+    <view>
+      <picker mode="date" name="s" value="{{latest_date}}" start="2019-01-01" end="2030-01-01" bindchange="bindDateStartChange">
+        <view class="picker uploadplaceholder" wx:if="{{timestampStart=='请选择'}}">
+          {{timestampStart}}
+          <image src='/images/upload/house_mg_down_arrow.png'></image>
+        </view>
+        <view class="picker phcolorPreHover" wx:else>
+          {{timestampStart}}
+          <image src='/images/upload/house_mg_down_arrow.png'></image>
+        </view>
+      </picker>
+      <input type='text' name="checkin_time" value='{{rent_start}}' hidden='true'></input>
+    </view>
+    <view class='pointText' hidden='{{rentStartShow}}'>请选择</view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>到租日期</text>
+    <view>
+      <picker mode="date" name="s" value="{{latest_date1}}" start="2019-01-01" end="2030-01-01" bindchange="bindDateStartChange1">
+        <view class="picker uploadplaceholder" wx:if="{{timestampEnd=='请选择'}}">
+          {{timestampEnd}}
+          <image src='/images/upload/house_mg_down_arrow.png'></image>
+        </view>
+        <view class="picker phcolorPreHover" wx:else>
+          {{timestampEnd}}
+          <image src='/images/upload/house_mg_down_arrow.png'></image>
+        </view>
+      </picker>
+      <input type='text' name="checkin_time" value='{{rent_end}}' hidden='true'></input>
+    </view>
+    <view class='timeList'>
+      <text bindtap='timeListTap' data-timenum='3' class="{{timeListNum==3?'timeListCur':''}}">3个月</text>
+      <text bindtap='timeListTap' data-timenum='6' class="{{timeListNum==6?'timeListCur':''}}">半年</text>
+      <text bindtap='timeListTap' data-timenum='12' class="{{timeListNum==12?'timeListCur':''}}">一年</text>
+      <text bindtap='timeListTap' data-timenum='24' class="{{timeListNum==24?'timeListCur':''}}">两年</text>
+    </view>
+    <view class='pointText' hidden='{{rentEndShow}}'>请选择</view>
+  </view>
+  <view class='registerBtn' bindtap='idCardVerificationTap'><text>下一步</text></view>
+</view>
+</scroll-view>

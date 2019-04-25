@@ -1,0 +1,4 @@
+/* pages/personal/setting/about/about.wxss */
+.aboutPd{ margin: 90rpx auto 36rpx;}
+.aboutPd image{ width: 240rpx; height: 240rpx; display: block; margin: 0 auto;}
+.aboutMessagePd{ margin: 0 60rpx; font-size: 28rpx; color: #8A8E98;line-height: 46rpx;}

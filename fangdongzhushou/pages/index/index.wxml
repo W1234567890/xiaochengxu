@@ -1,0 +1,117 @@
+<!--index.wxml-->
+<view class='bannerBg'>
+  <image src='/images/index/homepage_bg_banner.png' class='bannerImg'></image>
+  <view class='bannerMessage'>
+    <view class='w30'>
+      <text class='bannerTitle'>{{timeWord}}好！{{nickname}}</text>
+      <view class='weatherPd'>
+      <image src='/images/weather/homepage_weather_sun.png' wx:if="{{weatherStatues=='晴天'}}"/>
+      <image src='/images/weather/homepage_weather_cloudy.png' wx:elif="{{weatherStatues=='多云'}}"/>
+      <image src='/images/weather/homepage_weather_brume.png' wx:elif="{{index==11}}"/>
+      <image src='/images/weather/homepage_weather_shower.png' wx:elif="{{weatherStatues=='阵雨'}}"/>
+      <image src='/images/weather/homepage_weather_thunder_rain.png' wx:elif="{{weatherStatues=='雷阵雨'}}"/>
+      <image src='/images/weather/homepage_weather_thunder_rain_ice.png' wx:elif="{{weatherStatues=='雷阵雨伴有冰雹'}}"/>
+      <image src='/images/weather/homepage_weather_rain_snow.png' wx:elif="{{index==21}}"/>
+      <image src='/images/weather/homepage_weather_thunder_rain_ice.png' wx:elif="{{weatherStatues=='小雨'}}"/>
+      <image src='/images/weather/homepage_weather_mild_rain.png' wx:elif="{{index==31}}"/>
+      <image src='/images/weather/homepage_weather_heavy_rain.png' wx:elif="{{index==41}}"/>
+      <image src='/images/weather/homepage_weather_thunder_ice.png' wx:elif="{{weatherStatues=='阵雪'}}"/>
+      <image src='/images/weather/homepage_weather_snow_small.png' wx:elif="{{weatherStatues=='小雪'}}"/>
+      <image src='/images/weather/homepage_weather_snow_middle.png' wx:elif="{{index==51}}"/>
+      <image src='/images/weather/homepage_weather_snow_big.png' wx:elif="{{index==61}}"/>
+      <image src='/images/weather/homepage_weather_fc.png' wx:elif="{{index==71}}"/>
+      <image src='/images/weather/homepage_weather_overcast.png' wx:elif="{{weatherStatues=='阴'}}"/>
+      <image src='/images/weather/homepage_weather_sun.png' wx:else /><view>{{weatherData}}{{weatherMessage}}</view></view>
+    </view>
+  </view>
+</view>
+<view class='upcomingPd'>
+  <view class='w30'>
+    <text class='upcomingTitle'>我的待办</text>
+    <view class='threeList'>
+      <view class='threeMessage' bindtap='buildTap'>
+        <image src='/images/index/homepage_telephone.png'></image>
+        <text class='threeName'>租客来电</text>
+      </view>
+      <view class='threeMessage' bindtap='reserveTap'>
+        <text class='threeRedCard' hidden='{{waitConfirm==0}}'>{{wait_confirm}}</text> 
+        <image src='/images/index/homepage_precontract.png'></image>
+        <text class='threeName'>租客预约</text>
+      </view>
+      <view class='threeMessage' bindtap='registerTap'><!--buildTap-->
+        <image src='/images/index/homepage_register.png'></image>
+        <text class='threeName'>租约管理</text>
+      </view>
+      <view class='threeMessage' bindtap='BillTap'><!--buildTap-->
+        <text class='threeRedCard' hidden='{{wait_bill==0}}'>{{wait_bill}}</text> 
+        <image src='/images/index/bill_manage_icon.png'></image>
+        <text class='threeName'>账单管理</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='w30'>
+  <text class='managementTitle'>房源管理</text>
+  <view class='managementList'>
+    <view data-type="0" bindtap='listTap'>
+      <image src='/images/index/oval_copyH.png'></image>
+      <view class='managementNei top30'>
+        <text class='numWhite'>{{total}}</text>
+        <text class='numNameWhite'>总房源</text>
+      </view>
+    </view>
+    <view data-type="1" bindtap='listTap'>
+      <image src='/images/index/rent_bg.png'></image>
+      <view class='managementNei top20'>
+        <text class='numBlack'>{{on_rent}}</text>
+        <text class='numNameBlack'>在租</text>
+      </view>
+    </view>
+    <view data-type="2" bindtap='listTap'>
+      <image src='/images/index/leased_bg.png'></image>
+      <view class='managementNei top20'>
+        <text class='numBlack'>{{had_rent}}</text>
+        <text class='numNameBlack'>已租</text>
+      </view>
+    </view>
+    <view data-type="3" bindtap='listTap'>
+      <image src='/images/index/auditing_bg.png'></image>
+      <view class='managementNei top20'>
+        <text class='numBlack'>{{wait_check}}</text>
+        <text class='numNameBlack'>待审核</text>
+      </view>
+    </view>
+    <view data-type="4" bindtap='listTap'>
+      <image src='/images/index/pass_no_bg.png'></image>
+      <view class='managementNei top20'>
+        <text class='numBlack'>{{reject_check}}</text>
+        <text class='numNameBlack'>未通过</text>
+      </view>
+    </view>
+    <view data-type="5" bindtap='listTap'>
+      <image src='/images/index/undercarriage_bg.png'></image>
+      <view class='managementNei top20'>
+        <text class='numBlack'>{{down}}</text>
+        <text class='numNameBlack'>下架</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='recruitBg' wx:for="{{pos}}" wx:for-item="item">
+  <view class='w40' data-url='{{item.action}}' data-adnum='{{item.action_type}}' data-img='{{item.pic_url}}' data-title='{{item.title}}' bindtap='newsListTap'>
+    <view class='recruitPd'>
+      <image src='/images/index/homepage_notice.png'></image>
+      <view class='recruitMessage'>
+        <text class='recruitMessageTitle'>{{item.title}}</text>
+        <text class='recruitTime'>{{item.create_time}}</text>
+      </view>
+      <image src='/images/index/homepage_arrow.png '></image>
+    </view>
+  </view>
+</view>
+<!--页面建设中-->
+<view class='maskLayer' hidden='{{agentShow}}' bindtap='hideAgent'></view>
+<view class='ts' hidden='{{agentShow}}'>
+  <view class='title'><image src='/images/login/middleman_developing.png' style='width:220rpx;height:220rpx;'></image></view>
+  <text class='messageTs'>页面正在紧张开发中 敬请期待！</text>
+</view>

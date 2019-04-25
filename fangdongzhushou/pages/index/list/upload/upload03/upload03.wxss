@@ -1,0 +1,34 @@
+@import "/pages/index/list/upload/upload02/upload02.wxss";
+.upLoadTitleText text{ display: block; color: #94AABD; font-size: 20rpx; margin-top: 12rpx;}
+.photoConatiner{ margin:20rpx -7rpx;}
+.photoList{ border: 1px solid #5876AB;  border-radius:4rpx; width:150rpx;height:112rpx; display:inline-block; margin:10rpx 7rpx; position: relative; line-height: 112rpx;}
+.photoList1{width:142rpx;height:190rpx; text-align: center; position: relative;border: 1px solid #5876AB;  border-radius:4rpx;display:inline-block; margin:10rpx 7rpx;}
+.photoList1 .photoImg{ top: 58rpx;}
+.photoList1 .photoImgBig{ width: 142rpx; height:190rpx;}
+.photoList1 .photoImgView{ width: 142rpx; height:190rpx; position: relative; display: inline-block;}
+.photoList1 text{ display: block; width: 94%; text-align: center; position: absolute; left:3%; top: 100rpx; color:#5876AB; font-size: 20rpx;}
+.photoListBorder{ border: 1px solid #5876AB;  border-radius:4rpx; text-align: center; line-height: 114rpx;}
+.pt40{ padding-top: 40rpx;}
+.pt60{ padding-top: 60rpx;}
+.photoImgBig{ width: 150rpx; height:112rpx;}
+.photoImgView{ width: 150rpx; height:112rpx; position: relative; display: inline-block;}
+.photoImg{ width: 36rpx; height: 36rpx;position: absolute; left: 50%; top: 38rpx; margin: 0 0 0 -18rpx;}
+.photoFm{ width: 36rpx; height: 38rpx; position: absolute; left:8rpx; top: 0;}
+.photoClose{ position: absolute; right:-11rpx; top:-17rpx; width: 34rpx; height: 34rpx;}
+.textList{ margin: 0 -12rpx;}
+.textList text{ display: inline-block; font-size: 22rpx; color:#94AABD; text-align: center;line-height: 38rpx; margin:0 12rpx 19rpx; width:104rpx;height:38rpx;border-radius:4rpx;border:1px solid rgba(148,170,189,1);overflow: hidden;white-space: nowrap;text-overflow:ellipsis;}
+.textList text.cur{ background: #94AABD; color: #fff;}
+.lineView{ border-bottom:1px solid #EEF0F4; width: 80%; padding-bottom: 20rpx; margin-bottom: 40rpx;}
+.upload03title{ color:#E3C190; font-size: 20rpx;}
+.upload03title text{width:118rpx;height:38rpx; line-height: 38rpx; text-align: center;  display: inline-block; border-radius:4rpx; font-size: 22rpx; color: #94AABD;border:1px solid rgba(148,170,189,1); margin-right: 10rpx;}
+.upload03title text.cur{background:rgba(148,170,189,1);color: #fff;}
+.checkbox{ display: block; margin:18rpx 0;}
+.descriptionPd view.textareaBorder{ padding: 16rpx; border:1px solid #EEF0F4; height: 152rpx; overflow: hidden; }
+.textareaBorder textarea{ line-height: 38rpx; height:152rpx; font-size: 28rpx;z-index: 2;}
+.descriptionPd view.descriptionBtn{width:128rpx;height:48rpx;background:rgba(88,118,171,1);border-radius:4rpx; text-align: center; line-height: 48rpx; font-size: 24rpx; color: #fff; display: block; margin-top: 20rpx;}
+.helpIcon{ width:36rpx;height: 36rpx; vertical-align: middle; margin-left:12rpx;}
+.zmxyMessageWidth{ width: 70%; position: fixed; left: 15%; top: 20%; background: #fff;border-radius:20rpx; z-index: 999;}
+.zmxyBgPd{ padding: 44rpx 30rpx;}
+.zmxyTitle{ color:#001629; font-size: 32rpx; margin-bottom: 16rpx; }
+.zmxyBgPd text{ display: block; color: #8A8E98; font-size: 28rpx; line-height: 46rpx;}
+.zmxyMessageWidth image{ position: absolute; left: 50%; bottom:-124rpx; width: 54rpx; height: 54rpx; margin-left: -27rpx;}

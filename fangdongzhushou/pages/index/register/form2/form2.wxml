@@ -1,0 +1,139 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="cw50">
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>付款方式</text>
+      <view>
+        <picker bindchange="bindDateLookChange" value="{{lookIndex}}" range="{{lookData}}">
+          <view class="picker uploadplaceholder" wx:if="{{lookIndex==0||!lookIndex}}">{{lookData[0]}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+          <view class="picker phcolorPreHover" wx:else>{{lookData[lookIndex]}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+        </picker>
+        <input type="text" name="pay_type" value="{{lookIndex}}" hidden='true' />
+      </view>
+      <view class='pointText' hidden='{{payTypeShow}}'>请选择</view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText' style='font-size:24rpx;'>每期租金</text>
+      <view>
+        <input type='text' name="price" placeholder='请输入' bindinput='priceTap' placeholder-class="uploadplaceholder" value='{{price}}'></input>
+      </view>
+      <view class='pointText' hidden='{{priceShow}}'>请填写</view>
+    </view>
+    <view class='registerTwo'>
+      <view class='uploadLine'>
+        <text class='upLoadTitleText' style='margin-bottom:28rpx;'>押金方式</text>
+        <view>
+          <picker bindchange="bindDateDepositChange" value="{{depositIndex}}" range="{{depositData1}}" wx:if="{{lookIndex==1}}">
+            <view class="picker uploadplaceholder" wx:if="{{depositIndex==0}}">{{depositData1[depositIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png'></image>
+            </view>
+            <view class="picker phcolorPreHover" wx:else>{{depositData1[depositIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png'></image>
+            </view>
+          </picker>
+          <picker bindchange="bindDateDepositChange" value="{{depositIndex}}" range="{{depositData}}" wx:else>
+            <view class="picker uploadplaceholder" wx:if="{{depositIndex==0}}">{{depositData[depositIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png'></image>
+            </view>
+            <view class="picker phcolorPreHover" wx:else>{{depositData[depositIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png'></image>
+            </view>
+          </picker>
+          <input type="text" name="deposit_type" value="{{depositIndex}}" hidden='true' />
+        </view>
+        <view class='pointText' hidden='{{depositTypeShow}}'>请选择</view>
+      </view>
+      <view class='uploadLine'>
+        <text class='upLoadTitleText' style='font-size:24rpx;'>押金金额</text>
+        <view>
+          <input type='text' name="deposit_price" placeholder='请输入' placeholder-class="uploadplaceholder" value='{{deposit_price}}'></input>
+        </view>
+        <view class='pointText' hidden='{{depositPriceShow}}'>请填写</view>
+      </view>
+    </view>
+    <view class='uploadLine' style='padding-bottom:0; border-bottom:none;'>
+      <view class='addRegister' bindtap="addRegisterTap">
+        <image src='/images/upload/pic_add.png' />添加其他费用
+        <picker class='pickerPay' mode="multiSelector" bindchange="bindMultiPickerChange1" bindcolumnchange="bindMultiPickerColumnChange1" bindtap='bindMultiPickerTap1' value="{{multiIndexOthers}}" range="{{multiArrayOthers}}">
+          <view class="picker">
+            {{multiArrayOthers[0][multiIndexOthers[0]]}}{{multiArrayOthers[1][multiIndexOthers[1]]}}
+          </view>
+        </picker>
+      </view>
+
+      <view class='costListPd'>
+        <view hidden="{{othersListCircle.length==0?true:false}}">
+          <view class='costTitle'>周期性费用</view>
+          <view class='costList' wx:for="{{othersListCircle}}" wx:for-item="item" wx:for-index="index">{{multiArrayOthers[1][item]}}
+            <view class='costGrey'>
+              <view>
+                <input type="number" placeholder='请输入' placeholder-class="uploadplaceholder" bindinput="costCircleTap" data-index='{{index}}' value='{{circlePriceList[index]}}' />
+                <text>元</text>
+                <image src='/images/register/house_message_delete.png' bindtap="costCircleDelTap" data-index='{{index}}'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden="{{othersListOne.length==0?true:false}}"><!---->
+          <view class='costTitle'>一次性费用</view>
+          <view class='costList' wx:for="{{othersListOne}}" wx:for-item="item1" wx:for-index="index1">{{multiArrayOthers[1][item1]}}
+            <view class='costGrey'>
+              <view>
+                <input type="number" placeholder='请输入' placeholder-class="uploadplaceholder" bindinput='costOneTap' data-index='{{index1}}' value='{{onePriceList[index1]}}' />
+                <text>元</text>
+                <image src='/images/register/house_message_delete.png' bindtap="costOneDelTap" data-index='{{index1}}'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>收租日</text>
+      <view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <block wx:if="{{!receive_date&&!receive_type}}">
+            <view class="picker phcolorPreHover" wx:if="{{receive_date==0&&receive_type==0}}">
+              {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
+              <image src='/images/upload/house_mg_down_arrow.png'></image>
+            </view>
+            <view class="picker uploadplaceholder" wx:else>
+              请选择
+              <image src='/images/upload/house_mg_down_arrow.png'></image>
+            </view>
+          </block>
+          <view class="picker phcolorPreHover" wx:else>
+            {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+        </picker>
+        <input type='text' name="receive_type" value='{{receive_type}}' hidden='true'></input>
+        <input type='text' name="receive_date" value='{{receive_date}}' hidden='true'></input>
+      </view>
+       <view class='pointText' hidden='{{receiveShow}}'>请选择</view>
+    </view>
+    <view class='btnPd'>
+      <button class='btn' formType="submit">保存</button>
+    </view>
+  </view>
+  <view wx:if="{{condition}}" class='maskLayer1' bindtap="open"></view>
+  <view wx:if="{{condition}}" class="citypickers">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="cityTap" class="citybody">
+      <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+      </view>
+      <picker-view-column>
+        <view wx:for="{{cityArray}}" wx:key="item" wx:for-index="index" style="line-height: 50px;padding-left:10px;text-align:center;">{{item.label}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <block wx:for="{{cityArray[index].children}}" wx:for-item="item1">
+          <view style="line-height: 50px;padding-left:10px;text-align:center;">{{item1.label}}</view>
+        </block>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</form>

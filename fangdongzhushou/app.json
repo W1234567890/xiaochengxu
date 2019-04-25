@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/list/list",
+    "pages/index/bill/billDetail/billDetail",
+    "pages/index/bill/recede/recede",
+    "pages/index/register/registerView/registerView",
+    "pages/index/bill/billDetail/receipt/receipt",
+    "pages/index/register/form1/form1",
+    "pages/index/bill/bill",
+    "pages/index/register/register",
+    "pages/index/register/form2/form2",
+    "pages/index/list/upload/upload02/upload02",
+    "pages/index/register/form3/form3",
+    "pages/login/account/account",
+    "pages/index/list/upload/upload01",
+    "pages/index/list/upload/upload03/upload03",
+    "pages/login/login",
+    "pages/login/role/role",
+    "pages/login/agent/agent",
+    "pages/login/owner/owner",
+    "pages/index/coming/coming",
+    "pages/login/landlord/landlord",
+    "pages/index/list/upload/upload04/upload04",
+    "pages/personal/personal",
+    "pages/index/reserve/reserve",
+    "pages/personal/setting/edit/edit",
+    "pages/index/list/again/again",
+    "pages/index/reserve/reserveDetail/reserveDetail",
+    "pages/personal/setting/setting",
+    "pages/personal/setting/about/about",
+    "pages/personal/suggest/suggest",
+    "pages/index/h5/h5"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxc29624069daf8890"
+  ],
+  "window": {
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "公寓家房东助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "color": "#94AABD",
+    "selectedColor": "#5876AB",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index/homepage_tab_icon_select.png",
+        "selectedIconPath": "images/index/homepage_tab_icon_selectH.png"
+      },
+      {
+        "pagePath": "pages/index/list/upload/upload01",
+        "text": "发布",
+        "iconPath": "images/index/homepage_tab_icon_def.png",
+        "selectedIconPath": "images/index/homepage_tab_icon_defH.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "images/index/homepage_tab_icon_own.png",
+        "selectedIconPath": "images/index/homepage_tab_icon_ownH.png"
+      }
+    ]
+  }
+}

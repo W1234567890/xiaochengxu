@@ -1,0 +1,70 @@
+/*banner*/
+.bannerTop{ position: relative;}
+.bannerTop picker{ position: absolute; left:30rpx; top:35rpx; z-index: 10; }
+.bannerTop .picker{ color: #333; font-size: 30rpx; width: 100%;}
+.picker image{ width: 21rpx; height: 14rpx; vertical-align: middle; margin-left:10rpx; display: inline-block; margin-top: -4rpx;}
+.bannerImg{ width: 100%; height: 370rpx; display: block;}
+/**index.wxss**/
+.joinBtn{ width:123rpx; height: 50rpx; line-height: 50rpx; text-align: center; color: #333; font-size: 26rpx; background: #efdcb8; position:absolute; right: 0; top: 30rpx; border-top-left-radius: 100px; border-bottom-left-radius: 100px; z-index: 20;  }
+.joinBtn image{ vertical-align: middle; width:29rpx; height: 29rpx; margin:-5rpx 8rpx 0 0;  }
+.logoListWidth{ width: 750rpx; margin: 0 30rpx 0rpx 0; height: 214rpx;}
+.logoList{ overflow-x: auto; margin: 0rpx 0 0rpx 0; padding-left: 30rpx; position: relative; top: -50rpx; left: 0;}
+.logoListPd{display: flex; flex-direction: row;  }
+.logoViewWIDTH{ width: 240rpx;}
+.logoView{ width: 210rpx; text-align: center; background: #fff; padding:18rpx 0 23rpx;box-shadow: 0px 0rpx 15rpx rgba(134,134,134,0.3); margin:0 30rpx 0 0rpx; position: relative; z-index: 1; border-radius:10px; margin-bottom: 10px; display: block;}
+.logoView image{ width: 120rpx; height: 60rpx; margin: 0 auto 10rpx; display: block;}
+.logoView text.logoTitle{ color: #333333; font-size: 28rpx; text-align: center; display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; width: 210rpx;}
+.logoView .logoMessage{ display:flex; flex-direction: row; margin: 55rpx 20rpx 0; text-align: center;}
+.logoView .logoMessage view.logoMessageList.rightMessage{ position: absolute; right: 20rpx; bottom:23rpx;}
+.logoView .logoMessage view.logoMessageList view{ color: #666; font-size: 26rpx; vertical-align: bottom; display: flex; flex-direction: row;}
+.logoView .logoMessage view.logoMessageList view text{font-size: 20rpx; display: inline-block; margin-left: 5rpx; margin-top: 5rpx; }
+.logoView .logoMessage view.logoMessageList text.logoMessageTitle{ font-size: 20rpx; color: #999; display: block;}
+
+.logoTotalMessage{ color: #333; font-size: 30rpx; position: relative; padding:35rpx 30rpx 33rpx;}
+.logoTotalMessage text{ color: #20b7b6; font-size: 36rpx; display: inline-block; margin: 0 10rpx;}
+.logoTotalMessage view{ vertical-align: middle; position: absolute; right:30rpx; top:40rpx; color: #999; font-size: 26rpx;}
+.logoTotalMessage view image{ vertical-align: middle; margin:-6rpx 0 0 10rpx; width: 14rpx; height: 26rpx;}
+
+/*爆款房源*/
+.brandListLine view{ vertical-align: middle; position: absolute; right:30rpx; top:55rpx; color: #999; font-size: 26rpx;}
+.brandListLine view image{ vertical-align: middle; margin:-6rpx 0 0 10rpx; width: 14rpx; height: 26rpx;}
+.brandListLine{ border-top:20rpx solid #f5f5f5; padding:40rpx 30rpx 20rpx; color: #333; font-size: 42rpx; position: relative; }
+
+.hotHouseList{ display: flex; flex-direction: row; overflow-x: auto; margin-bottom: 78rpx; padding-left: 30rpx;}
+.hotHoudeListPdWidth{ width: 640rpx;}
+.hotHoudeListPd{ margin-right: 30rpx; width: 610rpx; padding-top: 20rpx;}
+.hotHouseListBanner{ display: block;  position: relative; z-index: 5;}
+.titStat{width:73rpx;height:36rpx;position:absolute;top:-15rpx;}
+.hotHouseListBanner image{ width: 610rpx; height: 323rpx; display: block; border-radius:4px;}
+.hotHouseListBanner view{ display: block; position: absolute; left: 0; bottom: 0; width: 100%; padding:15rpx 0rpx; background: rgba(0,0,0,0.3);color: #fff; text-align: right; font-size: 30rpx; border-bottom-left-radius:4px; border-bottom-right-radius:4px;}
+.hotHouseListBanner view text{ padding-right: 40rpx; font-size: 24rpx;}
+.hotHouseListTitle{ color: #333; font-size: 30rpx; margin-top: 30rpx; display: block;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.hotHouseListMessage{ color: #929292; font-size: 26rpx; margin:20rpx 0;display: block;}
+.hotHouseListCard{ height: 54rpx; width: 100%; overflow:hidden;}
+.hotHouseListCard text{ display: inline-block; background: #f2f1f1; padding:9rpx 7rpx; color: #858585; font-size: 20rpx; margin-right:15rpx; margin-bottom: 6rpx;}
+
+/*品牌分类*/
+.tab-h{
+    width: 100%; box-sizing: border-box;overflow: hidden;background: #fff; font-size: 32rpx; white-space: nowrap; }
+.tab-h.cur{position: fixed;top: 0; left: 0; z-index: 99;}
+.tab-item{margin:0 30rpx;display: inline-block; color: #333;line-height: 48rpx;}
+.tab-item.active{color:#20b7b6;position: relative;border-bottom:5rpx solid #20b7b6;}
+.tab-item.active:after{ content: "";display: block; border-bottom:5rpx solid #20b7b6;  position: absolute; bottom: 0;left: 5rpx;border-radius: 16rpx;}
+.brandChangeBanner{ background: #f4f4f4; padding: 35rpx 30rpx; display: flex; flex-direction: row;vertical-align: middle;}
+.brandChangeBanner image{ width: 100rpx; height:100rpx;vertical-align: middle; margin-top: 8rpx;}
+.brandChangeMessage{ width: 350rpx; color: #333; font-size: 30rpx; margin-left: 30rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; padding-top: 15rpx;}
+.brandChangeMessage view{color: #333; font-size: 30rpx;}
+.brandChangeMessage text{ color: #666; font-size: 22rpx; display: block; overflow: hidden;white-space: nowrap;text-overflow: ellipsis; margin-top: 10rpx;}
+.brandChangeEnter{ width:120rpx; margin-left: 10rpx; color: #20b7b6; font-size: 22rpx; text-align: center; margin-top:10rpx;}
+.brandChangeEnter text{ color: #666; font-size: 28rpx; border:1px solid #e4e4e4; width: 116rpx; height: 40rpx; line-height: 40rpx; display: block; margin-bottom:8rpx;}
+.brandChangeHouseListPd{ margin:30rpx 0 70rpx; display: flex; flex-direction: row; }
+.brandChangeHouseListPd .brandChangeHouseList{ width: 335rpx; position: relative; padding-bottom: 40rpx;box-shadow: 0px 0rpx 10rpx rgba(134,134,134,0.3); margin: 0 10rpx;background: #fff; border-radius:10px; }
+.brandChangeHouseListPd .brandChangeHouseList image.logoImg{ width: 335rpx; height: 252rpx; display: block; border-top-left-radius:10px; border-top-right-radius:10px;}
+.brandChangeHouseList view.changeTitle{ color: #333; font-size: 30rpx; margin: 30rpx 20rpx 20rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; }
+.brandChangeHouseList view.changePrice{ color: #626262; font-size: 30rpx; margin: 0 20rpx;}
+.brandChangeHouseList view.changePrice text{ font-size: 24rpx;}
+
+
+.tab-content{margin-top: 40rpx; background: #fff;}
+.scoll-h{height: 100%;}
+.cw30 {background: #fff;}

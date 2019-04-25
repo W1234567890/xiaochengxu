@@ -1,0 +1,45 @@
+<!-- 使用wxs 手机号码中间四位显示为*号 -->
+<wxs module="phone">
+var toHide = function(array) {
+  var mphone = array.substring(0, 3) + '****' + array.substring(7);
+  return mphone;
+}
+module.exports.toHide = toHide;
+</wxs>
+<!---->
+<view class="personalHead">
+  <image src='/images/personal/personal_centrality_tab_bg.png' style='width:100%; height:256rpx;'></image>
+  <view class='personalMessage'>
+    <view class='headPd'>
+      <block wx:if="{{avatar==''}}">
+        <image src='/images/login/middleman_head.png' class='headLogo' bindtap='editTap' wx:if="{{num==2}}"></image>
+        <image src='/images/login/individual_landlordI_head.png' class='headLogo' bindtap='editTap' wx:elif="{{num==3}}"></image>
+        <image src='/images/login/specialty_landlordI_head.png' class='headLogo' bindtap='editTap' wx:elif="{{num==4}}"></image>
+      </block>
+      <block wx:else>
+        <image src='{{imgUrl}}{{avatar}}' mode='aspectFill' class='headLogo' bindtap='editTap'></image>
+      </block>
+      <view class='headMessagePd'>
+        <text class='headMessageTitle' bindtap='editTap'>{{nickname}}</text>
+        <text class='headMessagePhone' bindtap='editTap'>{{phone.toHide(mobile)}}</text>
+        <view class='headIconList' bindtap='editTap'>
+          <block wx:for="{{have_roles}}" wx:for-item="item">
+            <image src='/images/personal/renter_tag.png' wx:if="{{item==1}}"></image>
+            <image src='/images/personal/proprietor_tag.png' wx:elif="{{item==3}}"></image>
+            <image src='/images/personal/profession_landlord_tag.png' wx:elif="{{item==4}}"></image>
+            <image src='/images/personal/broker_tag.png' wx:elif="{{item==2}}"></image>
+          </block>
+        </view>
+        <text class='identityPd' bindtap='identityTap'>{{name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='w45'>
+  <view class='personalList'>
+    <view bindtap='suggestTap'>意见反馈<image src='/images/personal/personal_suggestion_re.png'></image></view>
+    <view bindtap='telTap'>客服电话<image src='/images/personal/personal_custom_service.png'></image></view>
+    <view bindtap='settingTap'>设置<image src='/images/personal/personal_set.png'></image></view>
+    <view bindtap='logOutTap'>退出登录<image src='/images/personal/personal_secede.png'></image></view>
+  </view>
+</view>

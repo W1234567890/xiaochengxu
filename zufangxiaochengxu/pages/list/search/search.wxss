@@ -1,0 +1,288 @@
+page{ border-top: none;}
+/*banner*/
+.bannersListImg{width: 750rpx; height: 500rpx; }
+
+.houseListMd{ margin: 0 28rpx;}
+.searchConaiver{display: flex; flex-direction: column; /*border-top: 1px solid #eaeaea; padding-top: 85rpx;*/}
+.searchList{ position: relative; margin: 15rpx 28rpx 0; /*padding-bottom:15rpx;border-bottom: 1px solid #eaeaea;*/text-align: center}
+.searchList input{ border-radius:45rpx; background: #f6f6f6;width: 87%; padding:15rpx 0; color: #333; font-size: 30rpx; padding-left: 13%; text-align: left;}
+.searchList .searchListImg/*icon*/{ position:absolute;top:50%; margin-top:-16rpx;color:#B2B2B2;z-index:10;left:5%; width: 31rpx; height:33rpx; }
+.factorList{ padding:0 28rpx; margin: 20rpx 0;}
+.factorList view{ width: 24%; text-align: center; display: inline-block;}
+.factorList view.borderRight{border-right: 1px solid #eaeaea;}
+.factorList view text{ font-size: 26rpx; color: #666;}
+.factorList view image{ width: 28rpx; height: 14rpx; margin-left:10rpx; vertical-align: middle;}
+.setsNum{padding:0; background: #f6f6f6; margin-top:225rpx;}
+.setsNumColor{color: #333; font-size: 30rpx; width:50%; display: inline-block;}
+.setsNumColor text{ margin-left:15rpx; color: #b69a80;}
+.factorListLa{ padding: 20rpx 28rpx;border-top: 1px solid #eaeaea; background: #fff; position: absolute; top:200rpx; width: 694rpx;  z-index: 10;}
+.factorListLa text{ padding: 15rpx 0; border-bottom: 1px solid #eaeaea; display: block; font-size: 30rpx; color: #666;}
+.selectList{/*border-top: 1px solid #eaeaea;*/ position: fixed; left: 0; top: 0; width: 100%; z-index: 10; background: #fff;}
+
+.srcListPd{margin-top: 8rpx; height: 54rpx; width: 100%; overflow: hidden;}
+.srcListPd text{ display: inline-block; margin-right: 10rpx; padding:8rpx 6rpx; background: #f2f1f1; color: #858585; font-size: 20rpx; }
+
+/*条件选择*/
+.product-list {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  position: relative;border-bottom: 1px solid #eaeaea;
+}
+.choice-bar {
+  display: flex;
+  width: 100vw;
+  font-size: 16px;
+  background-color: #fff;
+  z-index: 9;
+}
+
+.chioce-item {
+  background-color: #fff;
+  display:inline-block;
+  align-items: center;
+  /*justify-content: space-between;*/
+  padding: 0 5rpx;
+  width: 22%;
+  margin: 20rpx 0;
+  font-size: 26rpx;
+  color: #666;
+  height: 73rpx;
+  line-height: 73rpx;
+  overflow: hidden;
+  z-index: 10;
+  text-align: center;
+}
+
+.chioce-item-last {
+  width: 8%;
+}
+
+.chioce-item-first {
+  width: 12%;
+}
+
+.icon-chioce {
+  width: 14rpx;
+  height: 7rpx;
+  vertical-align: middle; margin-left: 5rpx;
+}
+.icon-chioces {
+  width:30rpx;
+  height:25rpx;
+
+}
+.mask{
+  position:fixed;
+  top:220rpx;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.5;
+}
+.district-list,.sorting-list,.filter-list {
+  margin-top: 2rpx;
+  position: absolute;
+  top: 105rpx;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 8;
+  font-size: 14px;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.chioce-list-show {border-top: 1px solid #eaeaea;
+  top: 105rpx;
+  animation: slide 500ms;
+  text-align:center;
+}
+
+@keyframes slide {
+  0% {
+    top: 75rpx;
+  }
+
+  100% {
+    top: 101rpx;
+  }
+}
+
+.chioce-list-hide {
+  display: none !important;
+}
+
+/*区域位置*/
+
+.district-list {
+  display: flex;
+}
+
+.district-left {
+   width: 20%;
+}
+
+.district-right {
+   width: 35%;
+}
+.district-right2 {
+   width: 35%;
+} 
+.scroll-district{
+  height: 500rpx;
+}
+.othersList{display: flex;flex-direction: row;}
+.district-parent {
+  line-height: 40rpx;
+  padding:20rpx 10rpx;
+  border-bottom: 1rpx solid #eaeaea;
+  border-right: 1rpx solid #eaeaea;
+  background-color: #f0f0f0;
+}
+
+.district-parent-active {
+  color: #20b7b6;
+}
+
+.district-children {
+  line-height: 40rpx;
+  padding:20rpx 10rpx;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+/*综合排序*/
+
+.sorting-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+/*筛选*/
+  /*区域地铁显示隐藏样式*/
+  .qsWidth50{ width: 50%;}
+  .qsWidth80{ width: 80%;}
+  .qsWidth100{ width:100%;}
+  /**/
+.filter-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-selected {
+  width: 28rpx;
+   height: 14rpx;
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-footer button {
+  margin: 20rpx 80rpx;
+  border-radius: 0 !important;
+}
+
+.button-reset {
+  border: 1rpx solid #eaeaea !important;
+  color: #666 !important;
+}
+
+.noHouseList{ background: #f6f6f6; font-size: 30rpx; padding: 30rpx 0 20rpx; text-align: center; color: #666;}
+.tit{width: 100%;height: 113rpx;background-color: #f4f6f8;position: fixed;bottom: 0;z-index: 50;}
+.sketch{color:#b6b6b6;font-size:26rpx;width:68%;padding:25rpx 0 0 3.7%;font-weight: 550;line-height: 40rpx;display: inline-block;}
+.sketch text{color:#20b7b6;}
+.login{width:15%;height:38rpx;float:right;color:#20b7b6;font-size:28rpx;padding:12rpx;position:absolute;bottom:18rpx;right:38rpx;border:1rpx solid #20b7b6;text-align:center;}
+.quit{position:absolute;top:-10rpx;right:10rpx;color:#b6b6b6;width:20rpx;}
+
+.bt{padding-top: 230rpx;}
+.listImgList {padding: 30rpx 28rpx 20rpx;display: flex;flex-direction: row; border-bottom: 1px solid #ededed;}
+.listBanner {position: relative;width: 290rpx; height: 230rpx;}
+.listBanner image {width:100%;height: 230rpx;display: block;border-radius:10px;}
+.listBanner image.listStatusImg{ position: absolute; left: 0; top:-22rpx; width:73rpx; height: 36rpx; border-radius: 0; z-index: 2; }
+.listBanner image.maskBg {width:100%;height: 166rpx;display: none;position: absolute; left: 0; bottom: 0;}
+.listBanner image.collect{width: 50rpx;height: 50rpx;position: absolute;top: 15rpx;left:15rpx;}
+.collectPd{ width:80rpx; height: 80rpx;position: absolute;top: 0;left:0;}
+.compare{color: #333;float: right;font-size: 26rpx;}
+.nub{color: #20b7b6;font-weight: 600;}
+.listBrand {width: 380rpx; margin-left: 24rpx;}
+.listTitle text{ background:#d7ba82; display: inline-block; font-size: 22rpx; color: #fff; margin-right: 12rpx; border-radius:4px; padding:2rpx 6rpx; }
+.listTitle {color: #333;font-size: 30rpx;display: block;font-family:600;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.listBrandText {font-size: 22rpx;color: #000;float: right;padding: 8rpx 15rpx;border: 1px solid #000;}
+.listAddress {position: relative;color: #666;font-size: 22rpx;margin-top:8rpx;}
+.listAddressWidth{font-size: 22rpx; width: 100%;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.classHouePd{ margin:10rpx 0 0;}
+.listAddress image{width: 22rpx; height: 27rpx; vertical-align: middle; margin-right:12rpx; margin-top: -4rpx; }
+.statusText{ width: 100%; text-align: center; color: #fff; font-size: 30rpx; padding:15rpx 0;  background:rgba(0, 0, 0, 0.6); position: absolute; left: 0; top:200rpx; z-index: 3; }
+
+/*房源列表页样式*/
+
+
+.classHoue{
+  float:left;
+  color:#20b7b6;
+  position: absolute;
+  bottom: 18rpx;
+  border: 1px solid #20b7b6;
+  padding: 5rpx 10rpx;
+  font-size: 28rpx;
+}
+.listNum{ display: none;
+position:absolute;
+z-index:2;
+right:0;
+top: 0;
+color: #333;
+font-size: 28rpx;
+}
+.houseNub{
+  color: #20b7b6;
+  font-size: 28rpx;
+}
+.listNumText{
+color:#20b7b6;
+font-size:30rpx;
+display: flex;
+flex-direction: row;
+}
+.listNumText view.listPrice {
+color:#20b7b6;
+font-size:29rpx!important;
+display: flex;
+flex-direction: row; font-weight: bold; margin: 0!important;
+}
+.listNumText view.listPrice text{ 
+color:#20b7b6;font-size: 24rpx; display: inline-block; margin: 5rpx 0 0 5rpx; }
+.listNumText view {
+  font-size: 24rpx;
+  color: #666; margin:5rpx 10rpx 0 5rpx;
+}
+.listNumText view text{
+  color: #333;
+}
+
+.classHoue{
+  float:left;
+  color:#20b7b6;
+  position: absolute;
+  bottom: 18rpx;
+  border: 1px solid #20b7b6;
+  padding: 5rpx 10rpx;
+  font-size: 28rpx;
+}
+.houseNub{
+  color: #20b7b6;
+  font-size: 28rpx;
+}
+
+.statusText{ width: 100%; text-align: center; color: #fff; font-size: 30rpx; padding:15rpx 0;  background:rgba(0, 0, 0, 0.6); position: absolute; left: 0; top:200rpx; z-index: 3; 
+}
+.hiddenSearchView{ position:fixed;z-index: 22; left: 0; top: 35%; width: 100%; text-align: center;}
+.hiddenSearchView text{ padding: 30rpx 20rpx; border-radius:10px; background: rgba(0, 0, 0, 0.7);  color: #fff; font-size: 30rpx; display: inline-block; margin: 0 auto;}

@@ -1,0 +1,34 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+.w30{ padding: 0 30rpx;}
+.w60{ padding: 0 60rpx;}
+.w40{ padding: 0 30rpx 0 40rpx;}
+page{ border-top:1px solid rgba(0,0,0,0.12);}
+/*发布房源提示弹框*/
+.maskLayer{background:rgba(0,0,0,0.7);  position:fixed; left: 0; top: 0; z-index:10; width: 100%; height: 100%;}
+.maskLayer1{background:rgba(0,0,0,0.5);  position:fixed; left: 0; top: 0; z-index:10; width: 100%; height: 100%;}
+.ts{ width: 448rpx; padding: 42rpx 30rpx; background: #fff; position: fixed; left:121rpx; top: 30%; border-radius:8rpx;  text-align: center; z-index: 11;}
+.ts .title image{ width:36rpx; height: 36rpx; vertical-align: middle; margin-right:10rpx; margin-top: -8rpx;}
+.ts .title{ color: #001629; font-size: 32rpx; font-weight: bold;}
+.messageTs{ margin:28rpx 0 40rpx; color: #5C6068; font-size: 28rpx; line-height: 46rpx; display: block; }
+.tsBtn{ color: #fff; font-size: 24rpx;width:128rpx;height:48rpx; line-height: 48rpx; background:rgba(88,118,171,1);
+border-radius:4px; display: inline-block;}
+
+.placeholdercss{ color: #C0C2C7!important;}
+
+/*表单提示框*/
+.pointText{ position: absolute; bottom: 5rpx; left: 0; color: #ff0000; font-size: 20rpx;}
+.pointText3{position: absolute; bottom: -40rpx; left: 50%; margin-left: -66rpx; color: #ff0000; font-size: 20rpx;}
+.pointText2{position: absolute; bottom: -29rpx; left: 0; width: 100%; text-align: center; display: block; color: #ff0000; font-size: 20rpx;}
+.pointText22{position: absolute; bottom: -40rpx; left: 0; width: 100%; text-align: center; display: block; color: #ff0000; font-size: 20rpx;}
+
+
+/*上传房源文字颜色*/
+input,.phcolorPreHover,textarea{color: #5C6068!important; font-size: 32rpx; }
+.uploadplaceholder{ color: #C0C2C7!important;}
+

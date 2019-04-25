@@ -1,0 +1,16 @@
+/* pages/personal/personal.wxss */
+.w45{ margin: 0 45rpx;}
+.personalHead{ position: relative;}
+.personalMessage{position: absolute; left: 0; top: 0;width: 100%;}
+.headPd{ margin:48rpx 0 0 20rpx; display: flex; flex-direction: row;}
+.headLogo{ width:120rpx; height: 120rpx; border-radius:100px; margin: 20rpx; }
+.headMessagePd{ margin-left:9rpx; display: flex;flex-direction: column; margin-top: 14rpx; }
+.headMessageTitle{font-size: 32rpx; color: #fff;}
+.headMessagePhone{ color: #fff; font-size: 24rpx; margin: 12rpx 0 7rpx; display: block; opacity: 0.6;}
+.headIconList{ display: flex; flex-direction: row;}
+.headIconList image{width: 36rpx; height: 36rpx; display: inline-block; margin-right: 4rpx;}
+.identityPd{ display: inline-block; position: absolute; right: 0;width:135rpx;height:45rpx;background:rgba(255,255,255,0.1);border-radius:100px 0px 0px 100px;border:1px solid rgba(255,255,255,0.3); font-size: 24rpx; color: #fff; text-align: center; line-height: 45rpx;}
+
+.personalList{ margin-top: 14rpx;}
+.personalList view{ position: relative; border-bottom: 1px solid #EEF0F4; padding: 50rpx 0 20rpx 5rpx; color: #001629; font-size: 26rpx;}
+.personalList view image{ width:40rpx; height: 40rpx; position: absolute; right:3rpx; bottom:20rpx; }

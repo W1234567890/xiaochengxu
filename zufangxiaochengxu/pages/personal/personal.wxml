@@ -1,0 +1,44 @@
+
+<import src="/pages/template/tabBar.wxml" />
+<!--<view class="changeMessage" hidden='{{token?false:true}}'>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      切换身份
+    </view>
+  </picker>
+</view>-->
+<view class='personalConatiner'>
+  <view class='personalBg'>
+    <view class='headBg'>
+      <image src='/images/personal/headBgImg.jpg' class='headBgImg'></image>
+      <view class='headBgPd'>
+        <image wx:if="{{avatar}}" src='{{avatar}}' class='headLogo' catchtap='onPersonalBtn'></image>
+        <image wx:else src='/images/personal/logo.png' class='headLogo' catchtap='onPersonalBtn'></image>
+        <text wx:if="{{!mobile}}" class='dz' catchtap='onLoginBtn'>点击注册/登录</text>
+        <view wx:else class='names' catchtap='onPersonalBtn'>
+          <view>{{mobile}}</view><!--<text>{{array[index]}}</text>-->
+          <!--<image src='/images/personal/right.png' catchtap='onPersonalBtn' ></image>-->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='personalListPd'>
+    <view class='personalList' catchtap='onCollectBtn' style='border-top:none;'>
+      <image src='/images/personal/collectIcon.png' class='personalIcon'></image>
+      <text>我的收藏</text>
+      <image src='/images/listDetail/right.png' class='personalRight'></image>
+    </view>
+    <view class='personalList' catchtap='onSuggestBtn'>
+      <image src='/images/personal/suggestIcon.png' class='personalIcon'></image>
+      <text>投诉与建议</text>
+      <image src='/images/listDetail/right.png' class='personalRight'></image>
+    </view>
+    <view class='personalList' catchtap='onAboutBtn'>
+      <image src='/images/personal/aboutIcon.png' class='personalIcon'></image>
+      <text>关于公寓家</text>
+      <image src='/images/listDetail/right.png' class='personalRight'></image>
+    </view>
+  </view>
+  <view class='editBtnPd' catchtap='logout' hidden='{{token?false:true}}'><button>退出当前账户</button></view>
+</view>
+<template is="tabBar" data="{{tabBar:tabBar}}" />

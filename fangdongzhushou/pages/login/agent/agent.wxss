@@ -1,0 +1,100 @@
+.cw50{margin: 0 50rpx;}/* padding-bottom: 260rpx;*/
+.uploadLine{ padding: 40rpx 0 30rpx; border-bottom: 1px solid #EEF0F4; position: relative;}
+.uploadLineFlex{display: flex; flex-direction: row;}
+.upLoadTitleText{ color:#001629; font-size: 24rpx; display: block; margin-bottom: 20rpx;}
+.threeWidth{ margin: 0 50rpx; width: 200rpx;}
+.threeWidth text{ text-align: center;}
+.picker{ color: #C0C2C7; font-size: 32rpx; height: 37rpx; line-height: 37rpx; position: relative;}
+.picker image{ position: absolute; right: 0; top: 0; width: 32rpx; height: 32rpx;}
+input,.phcolorPreHover,textarea{color: #5C6068; font-size: 32rpx; }
+/*上传房源文字颜色*/
+.uploadplaceholder{ color: #C0C2C7;}
+switch{ position: absolute; right: 0; top: 20rpx;}
+.areaView{position: relative;}
+.areaView text{ position: absolute; right: 0; top:8rpx; font-size: 22rpx; color:#001629;}
+.flowView{ display: flex; flex-direction: row;}
+.flowView view{ color:#5C6068; font-size: 22rpx; line-height: 52rpx; margin-right: 120rpx; display: flex; flex-direction: row;}
+.flowView view input{ text-align: center; display: inline-block; width: 132rpx;height: 52rpx; margin: 0 12rpx; border: none; background:rgba(243,244,247,0.5);border-radius:4px;}
+.flowView.flowViewWhith3 view{ width: 33.33333%; margin-right: 0;}
+.btnPd{text-align: center; position: relative; padding: 90rpx 0; }/*position: fixed; right:50rpx; bottom: 90rpx; z-index: 99;*/
+.btn{width:518rpx;height:72rpx;background:rgba(88,118,171,1);box-shadow:0px 8rpx 20rpx 0px rgba(96,147,236,0.5);border-radius:36rpx; font-size: 32rpx; color: #fff; line-height: 72rpx;}
+.resetBtn{ display: inline-block;width:188rpx;height:72rpx;background:#EAEEF2;
+border-radius:36rpx; margin-right: 30rpx; text-align: center;line-height: 72rpx;color: #94AABD; font-size: 32rpx; position: absolute; top:90rpx; right: 218rpx;}/*border:1px solid rgba(148,170,189,1);*/
+.resetBtn image{ width: 32rpx; height: 32rpx; display: inline-block; margin:-5rpx  6rpx 0 0; vertical-align: middle;}
+.cityView{ position: relative;}
+.cityView image{position:absolute;right:0;top:10rpx;width:32rpx;height:32rpx;}
+.citypicker{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: #ff0;
+    z-index: 99;
+}
+.citypickers{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+    z-index: 999;
+}
+
+
+.citybody {
+  position: fixed;
+  bottom: 0px;
+   background: #fff;
+   z-index: 99;
+}
+
+.cityheader {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+   border-top: 1px solid #d8d8d8;
+   border-bottom: 1px solid #d8d8d8;
+}
+
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #828282;
+  font-size: 30rpx;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #5876AB;
+  font-size: 30rpx;
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 2px #cccccc solid;
+  border-top: 2px #d9d9d9 solid;
+  padding: 20rpx;
+}
+.input{ vertical-align: middle; position: relative;}
+.input input{ display: inline-block; width:637rpx; padding-right: 35rpx;} 
+.informationRight image.bottomBlack{ width: 28rpx; height: 15rpx; vertical-align: top; margin-left: 10rpx; margin-top: 30rpx;}
+.informationRight image.rightBlack{width: 15rpx; height: 28rpx; vertical-align: middle; margin-top: -13rpx;}
+.quit{ padding: 20rpx 0; text-align: center; font-size: 26rpx; color: #f92131; display: block;}
+button.submit{ padding: 10rpx 0; text-align: center; font-size: 26rpx; background: none; color: #2dca4e; display: block; border: none; box-shadow: none;}
+.bottomBlack{ position: absolute;right: 0; top: 0; height: 15rpx; width: 28rpx; margin-top: 13rpx;}
+
+/*业主*/
+.ownerTitle{ color: #001629; font-size: 40rpx; padding: 50rpx 0 30rpx;}
+.ownerTitle text{ color: #E3C190; font-size: 20rpx;}
+.photoList{ width: 200rpx; height:125rpx; border: 1px solid #5876AB; border-radius:4px;position: relative; display: inline-block; margin-right: 40rpx; }
+.photoList image.photoImgBig{width: 200rpx; height:125rpx; border-radius:4px;}
+.photoList1{ width: 160rpx; height:120rpx; border: 1px solid #5876AB; border-radius:4px;position: relative; display: inline-block; margin-right: 40rpx; }
+.photoList1 image.photoImgBig{ width: 160rpx; height:120rpx; border-radius:4px;}
+.photoImg{ width:34rpx; height: 34rpx; position: absolute; left: 50%; top: 28rpx; margin-left: -17rpx;}
+.photoImg1{ width:34rpx; height: 34rpx; position: absolute; left: 50%; top: 27rpx; margin-left: -17rpx;}
+.photoList text{display: block; width: 100%; text-align: center; position: absolute; left: 0; top: 79rpx; color:#5876AB; font-size: 20rpx;}
+.photoList1 text{display: block; width: 100%; text-align: center; position: absolute; left: 0; top:78rpx; color:#5876AB; font-size: 20rpx;}
+.ownerPhotoText{ color:#94AABD; font-size: 20rpx; margin-top: 20rpx;}

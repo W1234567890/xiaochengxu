@@ -1,0 +1,5 @@
+/* pages/personal/setting/setting.wxss */
+.settingPd view{ padding: 50rpx 0 20rpx; border-bottom: 1px solid #EEF0F4; position: relative; color: #8A8E98; font-size: 28rpx;}
+.settingPd image{ width: 40rpx; height: 40rpx; vertical-align: middle;}
+.settingPd image.icon{ margin-right: 18rpx;}
+.settingPd image.right{ position: absolute; right: 0; top:50rpx;}

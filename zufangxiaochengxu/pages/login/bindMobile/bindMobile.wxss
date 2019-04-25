@@ -1,0 +1,4 @@
+@import "../login/login.wxss";
+.login-top1{ position: relative;} 
+.login-top1 input{width: 415rpx;}
+.login-top1 button{width: 250rpx; position: absolute; right: 0; top:15rpx; font-size: 24rpx; height: 60rpx;}

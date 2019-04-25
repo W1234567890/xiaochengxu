@@ -1,0 +1,7 @@
+/* pages/personal/suggest/suggest.wxss */
+.telBg{height:88rpx;background:rgba(238,240,244,0.7); padding:0 30rpx;  line-height: 88rpx;color: #8A8E98; font-size: 26rpx; position: relative;}
+.telBg image{ vertical-align: middle; width: 36rpx; height: 36rpx;margin-right: 10rpx; margin-top: -5rpx; }
+.telBg text{ position: absolute; right:30rpx; top: 0rpx; color: #8A8E98; font-size: 26rpx; }
+.telTextarea{ border: 1PX solid #EEF0F4;margin-top: 30rpx; padding: 15rpx 15rpx 100rpx; border-radius: 4px;}
+.telTextarea textarea{ width: 100%; color: #666; font-size: 28rpx; line-height: 38rpx; height: 190rpx;}
+.submitBtn{width:518rpx;height:72rpx;background:rgba(88,118,171,1);box-shadow:0px 8px 20px 0px rgba(96,147,236,0.5);border-radius:36px; margin-top: 300rpx;font-size: 32rpx; color: #fff; text-align: center; line-height: 72rpx;}

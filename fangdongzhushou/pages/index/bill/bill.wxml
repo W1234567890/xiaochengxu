@@ -1,0 +1,50 @@
+<view class='noMessagePd' wx:if="{{total==0}}"><!-- -->
+  <image src='/images/bill/bill_manage_default_pic_empty.png'></image>
+  ~~ 暂无账单记录 ~~
+</view>
+<view wx:else>
+  <view class='redTop'>
+    <image src='/images/bill/bill_manage_bg.png'></image>
+    <view class='redTopPd'>
+      <view class='redTopView'><view>总额<text>{{total}}</text></view></view>
+      <view class='redTopView'><view>已收<text>{{had}}</text></view></view>
+      <view class='redTopView'><view>待收<text>{{wait}}</text></view></view>
+    </view>
+  </view>
+  <!---->
+  <view class="reservePd">
+    <view class="{{reserve0?'cur':''}}" bindtap='allTab' data-id='0'>全部<text></text></view>
+    <view class="{{reserve1?'cur':''}}" bindtap='allTab' data-id='1'>待收款<text></text></view>
+    <view class="{{reserve2?'cur':''}}" bindtap='allTab' data-id='2'>已收款<text></text></view>
+  </view>
+  <view class='noMessagePd' wx:if="{{noCommunityList==0}}"><!-- -->
+    <image src='/images/bill/bill_manage_default_pic_empty.png'></image>
+    ~~ 暂无账单记录 ~~
+  </view>
+  <view class='w30' style='padding-bottom:90rpx;' wx:else>
+    <block wx:for="{{communityList}}" wx:for-item="item" wx:for-index="index">
+      <view class='registerTitle' data-num='{{index}}' bindtap='registerShowTap'>{{item.community}}<view>{{item.bill_list.length}}个<image src="/images/list/{{index==registerShowNum?'renter_arrow_off':'renter_arrow_open'}}.png"></image></view></view>
+      <view class='registerPd' bindtap='billDetailTap' wx:for="{{item.bill_list}}" wx:for-item="item1" wx:for-index="index1" data-id='{{item1.bill_id}}' data-name='{{item1.house_name}}' data-paystatus='{{item1.pay_status}}' data-status='{{item1.status}}' style="display:{{index==registerShowNum?'block':'none'}}"> <!---->
+        <view class='rightTitle'>
+          <text class='leftBorder'></text>
+          {{item1.house_name}}
+          <view class='dataTime' hidden='{{!item1.period_num}}'>
+            <image src='/images/bill/bill_manage_tab.png'></image><text>第{{item1.period_num}}期</text>
+          </view>
+          <view class='dataBillRight billImage' wx:if="{{item1.pay_status==1}}"><image src='/images/bill/bill_manage_defray.png'></image></view>
+          <block wx:else>
+            <view class='dataBillRight billGrey' wx:if="{{item1.status==1}}">已作废</view>
+            <view class='dataBillRight billRed' hidden="{{item1.overdue==0?true:false}}" wx:else>逾期{{item1.overdue}}天</view>
+          </block>
+        </view>
+        <view class='registerList'>
+          <view class='registerLeft'>{{item1.family}}</view>
+          <view class='registerRight'>
+            <view class='rightData'>{{item1.tenant_name}}</view>
+            <view class='rightAddressBill'>收租日：{{item1.bill_date}}<view>{{item1.price}}</view></view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

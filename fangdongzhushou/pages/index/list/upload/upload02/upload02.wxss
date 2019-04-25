@@ -1,0 +1,6 @@
+@import "/pages/index/list/upload/upload01.wxss";
+radio,label{color: #8A8E98; font-size: 28rpx; }
+label{ margin-left: 10rpx;}
+.radioPd{ position: absolute; right: 0; top:30rpx;}
+.threeWidth{ margin: 0 20rpx; width: 234rpx;}
+.upLoadTitleText text{ color:#E3C190; font-size: 20rpx; display: block; margin-top: 12rpx;}

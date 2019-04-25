@@ -1,0 +1,14 @@
+.loginConaiver{ margin: 20rpx 70rpx; display: flex; flex-direction: column;}
+.loginConaiver input{ border-bottom: 1px solid #d8d8d8; padding: 10rpx 0; margin: 10rpx 0; font-size: 30rpx; color: #000;}
+.loginConaiver input:placeholder{ color: #888;}
+.forgetPassword{ color: #888; font-size: 30rpx; width: 100%; text-align: right; margin: 10rpx 0 20rpx;}
+.registerCenter{ text-align: center; margin-top: 20rpx;color: #888; font-size: 30rpx;}
+.loginConaiver button{ width: 100%; text-align: center;  color: #fff; font-size: 30rpx;
+  background-color: #5876AB;}
+.button-hover {
+  color: #fff;
+  background-color: #5876AB;
+}
+.other-button-hover {
+  background-color: #5876AB;
+}

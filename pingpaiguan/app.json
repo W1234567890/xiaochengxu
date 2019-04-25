@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/personal/login/login",
+    "pages/brand/brandDetail/brandDetail",
+    "pages/brand/brand",
+    "pages/personal/personal",
+    "pages/template/tabBar",
+    "pages/h5",
+    "pages/active/joinBrand/joinBrand"
+  ],
+  "navigateToMiniProgramAppIdList":[
+    "wxc29624069daf8890"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "公寓家品牌馆",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  }
+}

@@ -1,0 +1,9 @@
+<template name="tabBar">
+  <view class="tabBarList {{tabBar.isIpx?'fix-iphonex-button':''}}" style="color: {{tabBar.color}};">
+    <block wx:for="{{tabBar.list}}" wx:for-index="index">
+      <view  style="{{item.active?'color: '+(item.selectedColor?item.selectedColor : tabBar.selectedColor) : ''}}" bindtap='tabBarTap' data-url="{{item.pagePath}}" data-index="{{index}}">
+          <image wx:if="{{item.active}}" src="{{item.selectedIconPath}}"></image><image wx:if="{{!item.active}}" src="{{item.iconPath}}"></image>{{item.text}}
+      </view>
+    </block>
+  </view>
+</template>

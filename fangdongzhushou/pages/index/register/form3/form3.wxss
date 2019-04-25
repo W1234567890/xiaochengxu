@@ -1,0 +1,38 @@
+@import '/pages/index/register/form2/form2.wxss';
+.twoLinePd{ position: relative;}
+.twoLeft{ width: 420rpx;}
+.formLogoPd{ width: 140rpx; position: absolute; right: 0; top:215rpx; text-align: center; color: #001629; font-size: 22rpx;}
+.formLogoPd image{ width: 140rpx; height: 97rpx; display: block; margin-bottom:20rpx;}
+
+/*表单样式*/
+.uploadLine{ padding: 40rpx 0 30rpx; border-bottom: 1px solid #EEF0F4; position: relative;}
+.uploadLineFlex{display: flex; flex-direction: row;}
+.upLoadTitleText{ color:#001629; font-size: 24rpx; display: block; margin-bottom: 20rpx;}
+.threeWidth{ margin: 0 50rpx; width: 200rpx;}
+.threeWidth text{ text-align: center;}
+input,.phcolorPreHover,textarea{color: #5C6068; font-size: 32rpx; }
+.uploadplaceholder{ color: #C0C2C7;}
+
+.numForm{ position: absolute; right: 0; top:33rpx;}
+.numForm image{ width: 32rpx; height: 32rpx; vertical-align: middle;}
+.numForm text{ margin: 0 22rpx; color: #5C6068; font-size: 26rpx;}
+
+.photoConatiner{ margin:20rpx -3rpx;}
+.photoList{ border: 1px solid #5876AB;  border-radius:4rpx; width:150rpx;height:112rpx; display:inline-block; margin:5rpx 3rpx; position: relative; line-height: 112rpx;}
+.photoImgBig{ width: 150rpx; height:112rpx;}
+.photoImgView{ width: 150rpx; height:112rpx; position: relative; display: inline-block;}
+.photoImg{ width: 36rpx; height: 36rpx;position: absolute; left: 50%; top: 38rpx; margin: 0 0 0 -18rpx;}
+.photoFm{ width: 36rpx; height: 38rpx; position: absolute; left:8rpx; top: 0;}
+.photoClose{ position: absolute; right:-11rpx; top:-17rpx; width: 34rpx; height: 34rpx;}
+
+.registerBtn{ text-align: right; margin-top: 90rpx;}
+.registerBtn text{ float: right; display: block; width:188rpx;height:72rpx; line-height: 72rpx; text-align: center;background:rgba(88,118,171,1);box-shadow:0px 8rpx 20rpx 0px rgba(96,147,236,0.5);border-radius:36rpx; color: #fff; font-size: 32rpx;}
+
+/*入住房源*/
+.enterHouse view{  font-size:32rpx; position: relative; }
+.enterHouse view image{ vertical-align: middle; width: 40rpx;height: 40rpx; position: absolute; right: 0; top: 0;}
+
+.imageListPd{ padding: 47rpx 0 120rpx; text-align: center;}
+.imageListPd image{ width: 630rpx; height: 394rpx;}
+.imageListPd view{ display: block; text-align: center; color: #8A8E98;font-size: 24rpx; margin-top: 22rpx;}
+.imageListPd view text{ color: #5876AB;}

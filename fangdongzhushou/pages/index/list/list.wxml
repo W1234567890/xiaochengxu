@@ -1,0 +1,186 @@
+<swiper bindchange="swiperChange" style='width:750rpx; height:500rpx;' hidden='{{is_show==1?false:true}}'>
+  <swiper-item wx:for="{{bannersList}}" wx:for-item="item" data-id="{{item.action_type}}" data-action="{{item.action}}" data-img="{{item.poster}}" bindtap="bannersListTap">
+    <image src='{{item.poster}}' class='bannersListImg'></image>
+  </swiper-item>
+</swiper>
+<view class="searchConaiver {{tanShowNum?'':'cur'}}">
+  <view class='selectList' hidden='{{is_show==1?true:false}}'>
+    <view class='searchList' style="margin-bottom:{{type==6?'15rpx':'0'}};">
+      <input class='searchInput' type='text' name="keywords" id="keywords" placeholder='请输入小区 / 地址 / 房源编号' placeholder-style='color:#ccc;' value="{{keywords}}11111" bindinput="keywordsInputEvent" bindconfirm="onSearchBtn" confirm-type="search" bindfocus="searchFocus"></input>
+      <image src='/images/list/publish_house_manage_search_icon.png' bindtap='onSearchBtn' class='searchListImg'></image>
+      <!--<icon type='search' color='#ccc' bindtap='onSearchBtn'></icon>-->
+    </view>
+    <view class="product-list" hidden='{{type==6}}'>
+      <!--条件选择-->
+      <view class="choice-bar">
+        <view bindtap="choiceItem" data-item="1" class="chioce-item {{idxPrice==0?'':'cur'}}" hover-class="click-once-opaque" style='text-align:left; padding-left:70rpx;'>
+          {{activePriceName}}
+          <image class="icon-chioce" src="{{timeChioceIcon}}"></image>
+        </view>
+        <view bindtap="choiceItem" data-item="2" class="chioce-item {{idxHl==-1?'':'cur'}}" hover-class="click-once-opaque">
+          {{activeHlName}}
+          <image class="icon-chioce" src="{{typeChioceIcon}}"></image>
+        </view>
+        <view bindtap="choiceItem" data-item="3" class="chioce-item" hover-class="click-once-opaque" style='text-align:right; padding-right:70rpx;'>
+          {{activeTimeName}}
+          <image class="icon-chioce" src="{{priceChioceIcon}}"></image>
+        </view>
+        <view class="sorting-list {{chiocePrice?'chioce-list-show':'chioce-list-hide'}}">
+          <view wx:for="{{priceList}}" catchtap="selectPrice" data-index="{{index}}" class="sorting-item  {{idxPrice==index?'cur':''}}" hover-class="click-once">{{item.value}}</view>
+        </view>
+        <view class="sorting-list{{chioceHl?' chioce-list-show':' chioce-list-hide'}}">
+          <view style='width:100%;height:658rpx;overflow-y:auto;'>
+            <view catchtap="selectHl" data-index="-1" class="sorting-item  {{idxHl==indexHl?'cur':''}}" hover-class="click-once" data-community=''>小区</view>
+            <view wx:for="{{communityList}}" catchtap="selectHl" data-index="{{index}}" class="sorting-item  {{idxHl==index?'cur':''}}" hover-class="click-once" data-community='{{item}}'>{{item}}</view>
+          </view>
+        </view>
+        <view class="sorting-list{{chioceTime?' chioce-list-show':' chioce-list-hide'}}">
+          <view class='priceList'>
+            <input type='text' placeholder='最低价格' bindinput="priceBottom"></input>
+            <text>至</text>
+            <input type='text' placeholder='最高价格' bindinput="priceTop"></input>
+          </view>
+          <view class='priceBtn' bindtap='priceBtnTap'>
+            <text>确定</text>
+          </view>
+        </view>
+      </view>
+      <view bindtap="hideAllChioce" class="mask" hidden="{{!chiocePrice&&!chioceTime&&!chioceHl}}">
+        <input type="hidden" hidden='{{true}}' name="priceKey" id="priceKey" value="{{priceKey}}" />
+        <input type="hidden" hidden='{{true}}' name="HlKey" id="HlKey" value="{{HlKey}}" />
+        <input type="hidden" hidden='{{true}}' name="TimeKey" id="TimeKey" value="{{TimeKey}}" />
+      </view>
+    </view>
+  </view>
+  <!--空列表-->
+  <view style="padding-top:{{type==6?'116rpx':'196rpx'}};" wx:if="{{houseListLength==0}}">
+    <view class='kongListPd' wx:if="{{type==0}}">
+      <image src='/images/list/house_manage_default_pic.png'></image>
+      <text>Hi，现在开始发布你的房源吧!</text>
+      <view bindtap='tsTanTap'>免费发布</view>
+    </view>
+    <view class='kongListPd' wx:else>
+      <image src='/images/list/house_manage_default_pic_empty.png'></image>
+      <text>~~ 暂无房源 ~~</text>
+    </view>
+  </view>
+  <!--列表-->
+  <view style="padding-top:{{type==6?'116rpx':'196rpx'}};" wx:else>
+    <view wx:for="{{house_list}}" wx:for-item="item" wx:for-index="index">
+      <view class='listTipBtn' data-id='{{index}}' bindtap='listTipTap'>
+        <view class='listTipPd'>{{item.community}}
+          <view>{{item.house.length}}个
+            <!--<image src="{{num==index?'/images/list/renter_arrow_off.png':'/images/list/renter_arrow_open.png'}}"></image>-->
+          </view>
+        </view>
+      </view>
+      <view class="houseListPd">
+        <view class="listPdBg" wx:for="{{item.house}}" wx:for-item="item1" wx:for-index="index1" data-houseid='{{item1.house_id}}' data-check='{{item1.check_status}}' data-upon='{{item1.upon_status}}' data-status='{{item1.status}}' data-name='{{item1.house_name}}' data-checkmemo='{{item1.check_memo}}'
+          data-removalreason='{{item1.removal_reason}}' data-removaluser='{{item1.removal_user}}' data-pic='{{item1.pic}}' data-price='{{item1.price}}' data-updatetime='{{item1.update_time}}' bindtap="houseListTap">
+          <view class='listPd'>
+            <view class='listHouse' data-price='{{item1.price}}' data-houseid='{{item1.house_id}}' data-name='{{item1.house_name}}' bindtap="{{type==6?'houseListForm1Tap':'chooseSezi'}}">
+              <image src='{{imgUrl}}{{item1.pic}}{{imgUrlLast}}' mode='aspectFill'></image>
+              <view class='listHouseMessage'>
+                <text class='listHouseTitle'>{{item1.house_name}}</text>
+                <text class='listHouseNumber'>房源编号：{{item1.house_id}}</text>
+                <text class='listHousePrice'>{{item1.price}}<!--<text>/月</text>--></text>
+                <text class='listHouseTime'>更新时间：{{item1.update_time}}</text>
+                <text class='listHouseStatus'>
+                  <block wx:if="{{item1.check_status==1}}">待审核</block>
+                  <block wx:elif="{{item1.check_status==3}}">审核拒绝</block>
+                  <block wx:else>
+                    <block wx:if="{{item1.upon_status==2}}">下架</block>
+                    <block wx:else>
+                      <block wx:if="{{item1.status==1}}">已租</block>
+                      <block wx:elif="{{item1.status==2}}">在租</block>
+                    </block>
+                  </block>
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--发布房源弹框-->
+<view class='maskLayer' hidden='{{tsShow}}' bindtap='hideTs'></view>
+<view class='ts' hidden='{{tsShow}}'>
+  <view class='title'>
+    <image src='/images/list/kindly_reminder.png'></image>温馨提示</view>
+  <text class='messageTs'>手机端房源发布功能待开放，请移步到公寓家电脑端官网中发布，谢谢!</text>
+  <text class='tsBtn' bindtap='hideTs'>我知道了</text>
+</view>
+<!--底部弹框  -->
+<view class='maskLayer' wx:if="{{chooseSize}}" bindtap='hideModal'></view>
+<view class='choose' wx:if="{{chooseSize}}" animation='{{animationData}}'>
+  <!--<view class='redChooseBg' hidden='{{choodeMessageHidden}}'>
+    <block wx:if="{{check_status==3}}">
+      <image src='/images/list/house_manage_no_pass_cause_w.png' />
+      <text style="line-height:{{check_memo.length>25?'36rpx':'64rpx'}};">{{check_memo}}</text>
+    </block>
+    <block wx:elif="{{upon_status==2}}">
+      <image src='/images/list/house_manage_under_cause_w.png' />
+      <text style="line-height:{{check_memo.length>25?'36rpx':'64rpx'}};" wx:if="{{removal_user==0}}">无</text>
+      <text style="line-height:{{check_memo.length>25?'36rpx':'64rpx'}};" wx:else>{{removal_reason}}</text>
+    </block>
+  </view>-->
+  <view class='chooseTop'>
+    <view>{{house_name}}</view>
+    <text>
+      <block wx:if="{{check_status==1}}">待审核</block>
+      <block wx:elif="{{check_status==3}}">审核拒绝</block>
+      <block wx:else>
+        <block wx:if="{{upon_status==2}}">下架</block>
+        <block wx:else>
+          <block wx:if="{{status==1}}">已租</block>
+          <block wx:elif="{{status==2}}">在租</block>
+        </block>
+      </block>
+    </text>
+  </view>
+  <view class='chooseMiddle one' wx:if="{{check_status==1}}">
+    <view bindtap='preview'>
+      <image src="/images/list/house_manage_browse.png" />预览</view>
+  </view>
+  <view class='chooseMiddle three' wx:elif="{{check_status==3}}">
+    <view bindtap='editViewTap'><image src="/images/list/house_manage_ed.png" />编辑</view>
+    <view bindtap='reasonTap' data-reasonkey='1'>
+      <image src="/images/list/house_manage_no_pass_cause.png" />未通过原因</view>
+    <view bindtap='preview'><image src="/images/list/house_manage_browse.png" />预览</view>
+  </view>
+  <block wx:else>
+    <block wx:if="{{upon_status==2}}">
+      <view class='chooseMiddle three' wx:if="{{removal_user==0}}">
+      <view bindtap='editViewTap'><image src="/images/list/house_manage_ed.png" />编辑</view>
+        <view data-type='2' bindtap='reasonTap' data-reasonkey='0'><image src="/images/list/house_manage_again_let.png" />再次出租</view>
+        <view bindtap='preview'><image src="/images/list/house_manage_browse.png" />预览</view>
+      </view>   
+      <view class='chooseMiddle two' wx:else>
+        <view bindtap="reasonTap" data-reasonkey='2'><image src="/images/list/house_manage_under_cause.png" />下架原因</view>
+        <!--<view data-type='2' bindtap='reasonTap' data-reasonkey='0'><image src="/images/list/house_manage_again_let.png" />再次出租</view>-->
+        <view bindtap='preview'><image src="/images/list/house_manage_browse.png" />预览</view>
+      </view>
+    </block>
+    <block wx:else>
+        <view class='chooseMiddle' wx:if="{{status==1}}">
+          <view bindtap='editViewTap'><image src="/images/list/house_manage_ed.png" />编辑</view>
+          <view data-type='2' bindtap='reasonTap' data-reasonkey='0'><image src="/images/list/house_manage_again_let.png" />再次出租</view>
+          <view bindtap='preview'><image src="/images/list/house_manage_browse.png" />预览</view>
+          <view bindtap='addRegisterBtnTap'><image src="/images/list/house_manage_register.png" />租客登记</view>
+        </view>        
+        <view class='chooseMiddle' wx:elif="{{status==2}}">
+          <view bindtap='editViewTap'><image src="/images/list/house_manage_ed.png" />编辑</view>
+          <view data-type='1' bindtap='upDownTap'><image src="/images/list/house_manage_under.png" />下架</view>
+          <view data-type='3' bindtap='upDownTap'><image src="/images/list/house_manage_leased.png" />修改为已租</view>
+          <view bindtap='preview'><image src="/images/list/house_manage_browse.png" />预览</view>
+          <view bindtap='addRegisterBtnTap'><image src="/images/list/house_manage_register.png" />租客登记</view>
+        </view>
+    </block>
+  </block>
+  <text class='cancleBtn' bindtap='hideModal'>取消</text>
+</view>
+<view class='whiteTanBg' hidden='{{tanShowNum}}'></view>
+<view class='sendFy' animation="{{animation}}" bindtap="{{tanShowNum?'tanShow':'tanHidden'}}"><image src='/images/list/icon_house_manage_more.png'></image></view>
+<view class='sendFy1' animation="{{animation1}}" bindtap='tsTanTap'><text>发布房源</text><image src='/images/list/publish_house.png'></image></view>

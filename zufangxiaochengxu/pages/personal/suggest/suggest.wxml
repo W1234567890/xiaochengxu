@@ -1,0 +1,7 @@
+<form bindsubmit="formSubmit">
+<view class="suggestPd">
+  <textarea name="content" placeholder='如果您在使用公寓家的过程中，遇到什么问题；或者对公寓家有任何建议、意见，欢迎给我们留言。(必填)'></textarea>
+  <input placeholder='您的手机号(必填)' name="mobile"></input>
+  <button formType="submit">立即提交</button>
+</view>
+</form>

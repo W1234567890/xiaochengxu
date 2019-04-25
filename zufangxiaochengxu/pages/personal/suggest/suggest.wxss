@@ -1,0 +1,19 @@
+.suggestPd {
+  margin: 0 28rpx;
+}
+
+.suggestPd textarea, .suggestPd input {
+  padding: 30rpx 0;
+  color: #000;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  width: 100%;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.suggestPd button {
+  margin-top:30rpx;
+  background: #000;
+  color: #fff;
+  width: 100%;
+}

@@ -1,0 +1,67 @@
+<form bindsubmit="formSubmit">
+  <input type="hidden" hidden="true" name="house_id" id="house_id" value="{{house_id}}" />
+  <view class='listBg'>
+    <view class='listImgList'>
+      <view class='listBanner'>
+        <image src='{{listBannerImg}}'></image>
+      </view>
+      <view class='listBrand'>
+        <text class='listTitle'>{{title}}</text>
+        <view class='listAddress'>{{subtitle}}</view>
+        <view class='listNumText'>{{price}}<text>/月</text></view>
+      </view>
+    </view>
+  </view>
+  <view class='listBg'>
+    <view class='onlineMsgContainer'>
+      <view class='onlineMsgContainerMlr'>
+        <view class='imgLeft'>
+          <text class='onlineFormTitle'>看房时间</text>
+          <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+            <view wx:if="{{changeDataKey==1}}" class="tui-picker-detail">
+              {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
+            </view>
+            <view wx:else class='tui-picker-detail grey'>请选择您方便的时间</view>
+            <image src='/images/listDetail/right.png'></image>
+          </picker>
+          <input type='text' value='{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00' hidden='true' name="pickerTime"></input>
+        </view>
+      </view>
+      <view class='onlineMsgContainerMlr'>
+        <view class='imgLeft'>        
+          <text class='onlineFormTitle'>联系人</text>
+          <input type='text' name="real_name" id="real_name" placeholder="您的姓名" placeholder-style='color:#ccc;'></input>
+          <view class='onlineSex'>
+            <text class="{{idx==2?'active':''}}" data-id='2' bindtap='onlineSexTap' style='border-top-left-radius:10px;border-bottom-left-radius:10px;'>女士</text>
+            <text class="{{idx==1?'active':''}}" data-id='1' bindtap='onlineSexTap' style='border-top-right-radius:10px;border-bottom-right-radius:10px;'>男士</text>
+          </view>
+          <input type='text' name="sex" id="sex" value='{{sex}}' hidden='true'></input>
+        </view>
+      </view>
+      <view class='onlineMsgContainerMlr'>
+        <view class='imgLeft'>       
+          <text class='onlineFormTitle'>联系方式</text>
+          <input disabled type='text' name="mobile" id="mobile" value="{{mobile}}" style='text-align:right;width:auto;right:0;'></input>
+        </view>
+      </view>
+      <!--<view class='onlineMsgContainerMlr'>
+        <view class='imgLeft'>
+          <radio-group class="radio-group" name="time_type" bindchange="radioChange">
+            <label class="radio">
+              <radio value="1" />男士
+            </label>
+            <label class="radio">
+              <radio value="2" />女士
+            </label>
+          </radio-group>
+        </view>
+      </view>-->
+      <!--<view class='imgLeft'>
+  <image src='/images/onlineMsg/onlineMsg.png' style='width:34rpx;height:34rpx;float:left;'></image>
+    <textarea placeholder="我对这个房源比较感兴趣，请联系我"></textarea>
+  </view>-->
+      <!--<input type="hidden" hidden="true" name="time_type" id="time_type" value="{{time_type}}"/>-->
+      <button class='button-hover onlineMsgBtn' formType="submit">提交约看</button>
+    </view>
+    </view>
+</form>

@@ -1,0 +1,25 @@
+<view wx:if="{{list.length==0}}" class='noInformation'>{{noMessage}}</view>
+<view wx:else>
+  <view class='searchConaiver'>
+    <view class='listImgList' wx:for="{{list}}" wx:for-item="item" wx-for-index="index"  bindtap='onListDetailTap'data-idx='{{index}}' data-id='{{item.house_id}}'>
+	    <view class='listBanner'>
+	      <image src='{{imgUrl}}{{item.cover_pic}}{{imgUrlLast}}'></image>
+	      <!--<image src='/images/list/soldOut.png' class="soldOut"></image>-->     
+	    </view>
+	    <view class='listBrand'>
+	      <text class='listTitle'>{{item.title}}</text>	     
+	      <view class='listAddress'>{{item.subtitle}}</view>
+	      <view class='listAddGPS'><image src='/images/list/addressIconGrey.png'></image>{{item.address}}</view>
+	      <view class='listNumText'>
+	      	<view class='compare' hidden='{{item.price_count==-1?true:false}}'><text class='nub'>{{item.price_count}}</text>个比价</view> 
+	      	<view class='priceStyle'>{{listPriceList[index]}}<text>/月</text></view>
+	      </view>
+	    </view>    
+  	</view>
+  </view>
+  <view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+      加载中...
+    </loading>
+  </view>
+</view>

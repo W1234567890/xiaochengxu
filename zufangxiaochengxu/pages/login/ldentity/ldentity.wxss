@@ -1,0 +1,7 @@
+.ldentityPd{ margin:60rpx 28rpx;}
+.ldentityTitle{ color:#000; font-size:50rpx; margin-bottom: 80rpx; font-weight: bold;}
+.ldentityIcon{ width: 664rpx; margin:60rpx auto;height: 235rpx; border-radius:16px; }
+.ldentityIcon image{ width: 664rpx; height: 235rpx; display: block; border-radius:16px;}
+/*.ldentityIconYellow{ box-shadow: 0 0 50rpx #fe9e3d;}
+.ldentityIconBlue{ box-shadow: 0 0 50rpx #126dee;}
+.ldentityIconGreen{ box-shadow: 0 0 50rpx #34d0c7;}*/

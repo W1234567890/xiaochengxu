@@ -1,0 +1,121 @@
+
+/*banner样式*/
+.bannerList{ position: relative;}
+.bannerNum{ position: absolute; z-index: 11; right: 28rpx; bottom: 50rpx; background: rgba(0, 0, 0, 0.5); padding:10rpx 20rpx; font-size: 26rpx; color: #fff; border-radius:100rpx; }
+swiper.swiperListDetailConaiver {
+  width: 100%;
+  height: 570rpx;
+   position: relative;
+}
+
+.swiperListDetailConaiver image {
+  width: 100%;
+  height: 570rpx;
+}
+swiper.swiperListConaiver {
+  width: 100%;
+  height: 650rpx;
+}
+
+.swiperListConaiver image {
+  width: 100%;
+  height: 500rpx;
+}
+.scImgPd{ width: 70rpx; height:70rpx; position: absolute; right:20rpx; top:20rpx; z-index: 10; }
+/*房屋基础信息列表*/
+.listStatusImg{position: absolute; right: 0; top: 0; width: 80rpx; height: 85rpx; z-index: 10;}
+.listDetailLine{ border-bottom: 20rpx solid #f5f5f5; padding:34rpx 0 34rpx; position: relative;}
+.listDetailTitle{ color: #333;font-size: 42rpx; position: relative; /*padding-left: 90rpx;*/}
+.listDetailTitle text{ background: #20b7b6; font-size: 22rpx; color: #fff; padding:10rpx 0rpx; width: 80rpx; text-align: center; border-radius:4px; display: inline-block; margin-right:12rpx; position: absolute; left: 0; top:7rpx; }
+.listDetailPrice{ color: #20b7b6; font-size: 40rpx; margin-top: 30rpx; font-weight: bold;}
+.listDetailPrice text{ font-size: 26rpx; display: inline-block; margin-left: 5rpx;}
+.listDetailMessage{ margin-right: -26rpx;}
+.listDetailMessage text{ display: inline-block; margin:0 26rpx 26rpx 0; color: #ff656a; font-size: 28rpx; border: 1px solid #ff656a; padding:0 15rpx; height: 56rpx; line-height: 56rpx; }
+.listDetailMessageTwo view.listDetailMessageTwoNone{ display: none;}
+
+.listDetailMessageTwo{ }
+.listDetailMessageTwo view{ width: 50%; display: inline-block; color: #333; font-size: 30rpx; margin: 14rpx 0;}
+.listDetailMessageTwo view text{ color: #999999; font-size: 30rpx; margin-right:23rpx; }
+
+.trafficList{ display: block; }
+.trafficList view.trafficListView{ width: 100%; margin-top:20rpx; display:block; vertical-align:middle; position: relative;}
+.trafficList view.trafficListView image{ display: inline-block; vertical-align:middle; margin-right: 20rpx; width: 32rpx; height: 32rpx;}
+.trafficList view.trafficListView view{ display: inline-block;color: #333; font-size:26rpx; width: 525rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: middle; }
+.trafficList view.trafficListView text{ display:block; color: #999; font-size:24rpx; position: absolute; right: 0; top:14rpx;}
+.introduceMessage{ color: #999; font-size: 26rpx; line-height: 40rpx; }
+
+.listDetailPriceList{ color: #666666; font-size: 26rpx; position: relative;}
+.listDetailPriceList view{ position: absolute; right: 0; bottom: 0; color: #333; font-size:32rpx; }
+.listDetailPriceList view text{ font-size: 24rpx;}
+.listDetailPriceList.mb30{ margin-bottom: 30rpx;}
+/*小区*/
+.listDetailMapList{position: relative;}
+.listDetailMapList view{ color: #999; font-size: 30rpx;}
+.listDetailMapList view text{ display: inline-block; margin-left:10rpx; color: #20b7b6}
+.listDetailMapList image{ width: 15rpx; height: 28rpx; position: absolute; right: 0; top:6rpx;}
+/*服务设施*/
+.facilitiesPd view{ display: inline-block; width: 20%; color: #999; font-size:22rpx; text-align: center;margin-bottom: 20rpx; }
+.facilitiesPd view.facilitiesGreen{ color: #20b7b6;}
+.facilitiesPd view image{ width: 50rpx; height: 50rpx; display: block; margin: 0 auto 10rpx;}
+
+/*同小区房源*/
+.houseListPd{ display: flex; flex-direction: row; width:100%;overflow-x: auto;}
+.swiperImgList{ position: relative; display: flex; flex-direction: column; margin-left: 28rpx; margin-bottom: 15rpx;}
+.swiperImgList image{ width:573rpx; height: 310rpx; }
+.swiperTitle{ color: #666; font-size:30rpx; margin: 10rpx 28rpx; text-align: left; }
+.swiperDetail{color: #b6b6b6; font-size: 26rpx; text-align: left; margin:0 28rpx 10rpx;}
+.swiperPrice{ color: #333; font-size: 30rpx; margin: 0 28rpx;}
+.swiperPrice text{ font-size: 22rpx; margin-left: 15rpx;  }
+.MoreRight{ position:absolute; right: 0; bottom:0; color: #333;  font-size: 36rpx;  }
+.MoreRight image{ width: 15rpx; height: 28rpx; vertical-align:middle; margin-left: 5rpx; }
+
+.greyNum{ background: #f5f5f5; padding: 10rpx 28rpx 30rpx; color: #afafb7; font-size: 26rpx;}
+.greyNum view{ padding-top:26rpx; line-height: 36rpx; }
+.greyNum view text{ display: inline-block; margin: 0 5rpx; color: #20b7b6;}
+
+.cwp28 {
+  background: #fff;
+  padding: 0rpx 28rpx 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/*页面模块标题*/
+.pieceTitle { position: relative; color: #000;  font-size: 36rpx;  margin: 44rpx 0 30rpx;}
+/*位置及交通*/
+.trafficMMap{ position: relative;}
+.trafficMMap .coverMapView{ background: none; position: absolute; left: 0; top: 0; width: 100%; height: 365rpx;}
+.trafficAddress{ font-size: 26rpx; color: #999; margin-top: 20rpx;  width: 530rpx;vertical-align: middle;}
+.trafficAddress image{ width: 26rpx; height: 32rpx; display: inline-block; margin-right:4rpx; vertical-align: middle; margin-top: -4rpx;}
+.trafficAddress view{ position: absolute; right: 0; top:70rpx;}
+.trafficAddress view image{width: 15rpx; height: 21rpx; vertical-align: middle; margin: -5rpx 0 0 10rpx;}
+.listDetailConaiver {
+  display: flex;
+  flex-direction: column;
+}
+.moreBtn {
+  color: #b69a80;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+}
+/*底部浮动框*/
+.diList{background: #fff;box-shadow: #f5f5f5 0 -5px 5px -4px; position: fixed; bottom: 0; left: 0; width: 100%; height: 88rpx; z-index: 2;}
+.cur{ height: 118rpx!important;}
+.louFourwhite{  display: flex; flex-direction: row;}
+.louFourwhiteSingle{ width: 288rpx; text-align: center; position: relative; }
+.lineBorderRight{ height: 100%; width: 1px; background: #e5e5e5; position: absolute; top: 0; right: 0;}
+.lineBorderTop{width: 100%; height: 1px; background: #e5e5e5; position: absolute; top: 0; left: 0;}
+.louFourwhiteSingle cover-view.coverView01{ height: 88rpx; line-height: 88rpx;  text-align: center; vertical-align: middle;}
+.louFourwhiteSingle cover-view.coverView01 cover-view{ display: inline-block; line-height: auto;}
+.redBtn{ background: #20b7b6;}
+.louFourwhiteSingle .telImg{ height: 39rpx; margin-right: 14rpx; vertical-align: middle; display: inline-block;}
+.louFourwhiteSingle .aplayImg{ height: 39rpx; margin-right: 14rpx; vertical-align: middle; margin-top: -2px;display: inline-block;}
+.onlineWord{ color: #fff; font-size: 30rpx;vertical-align: middle;}
+.blueBtn{ color: #000000;}
+.blueBtn .onlineWord{color: #666; height: 88rpx; line-height: 88rpx; vertical-align: middle;}
+.louFourwhiteDouble{ text-align: center;width: 181rpx; vertical-align: middle; line-height: 80rpx; position: relative;}
+.louFourwhiteDouble view,.louFourwhiteDouble button{ padding: 0; margin: 0; background-color: #fff; border:none; text-align: center; }
+.louFourwhiteDouble cover-view.collectBtn{ color: #666; font-size: 30rpx; display:inline-block; height: 88rpx; line-height: 88rpx; vertical-align: middle;}
+.louFourwhiteDouble .coverimage01{ height: 40rpx; margin-right: 10rpx; display: inline-block; vertical-align: middle;}
+cover-image{ display: inline-block; line-height:auto; overflow: auto; vertical-align: middle; background: none;}
+

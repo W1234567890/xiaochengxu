@@ -1,0 +1,33 @@
+@import "../login/login.wxss";
+.login-top1{ position: relative;} 
+.login-top1 input{width: 415rpx;}
+.login-top1 button{width: 250rpx; position: absolute; right: 0; top:15rpx; font-size: 24rpx; height: 60rpx;}
+
+
+/*  重写 checkbox 样式  */
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+   width: 32rpx; /* 背景的宽 */
+   height: 32rpx; /* 背景的高 */
+   border: 1px solid #e5e5e5;
+}
+/* 选中后的 背景样式 （绿色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: 1px solid #20b7b6;
+   background: #20b7b6;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border: 1px solid #20b7b6;
+   width: 32rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 32rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height:32rpx;
+   text-align: center;
+   font-size:20rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+}
+
+
+.checkboxService{ margin-top: 20rpx; position: relative;}
+.checkboxService view{ font-size: 24rpx; position: absolute; left: 45rpx; top:15rpx;}
+.checkboxService span{ display: inline-block; color: #20b7b6; position: relative; z-index: 10;}

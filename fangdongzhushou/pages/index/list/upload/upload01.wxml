@@ -1,0 +1,126 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<scroll-view scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" bindscrolltolower="getMore" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+<view class="cw50">
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>所在城市</text>
+    <view class='cityView'>
+      <input type="text" name="city_name" placeholder='选择市-选择区' placeholder-class='uploadplaceholder' focus="{{focus}}"  bindtap="open" disabled='true' wx:if="{{!city}}" />
+      <input type="text"  value="{{city}}-{{county}}" focus="{{focus}}"  bindtap="open" disabled='true' wx:else />
+      <input type="text" name="city_id" value="{{cityNum}}" focus="{{focus}}" hidden='true' />
+      <input type="text" name="district_id" value="{{countyNum}}" focus="{{focus}}"  hidden='true' />
+      <image src='/images/upload/house_mg_down_arrow.png'></image>
+    </view>
+    <view class='pointText' hidden='{{cityShow}}'>请选择</view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>小区名称</text>
+    <view><input type='text' name="community_name" placeholder='例如：静安豪景苑' placeholder-class="uploadplaceholder" value='{{community_name}}'></input></view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText' style='font-size:24rpx;'>详细地址</text>
+    <view><input type='text' name="address" placeholder='例如：静安区静安豪景苑1号楼' placeholder-class="uploadplaceholder" value='{{address}}'></input></view>
+    <view class='pointText' hidden='{{addressShow}}'>请填写</view>
+  </view> 
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>楼栋门牌</text>
+    <view class='flowView flowViewWhith3'>
+      <view><input type='text' name="building" placeholder='请输入' placeholder-class="uploadplaceholder" value='{{building}}' />栋      
+        <text class='pointText3' hidden='{{buildingShow}}'>请填写</text>
+      </view>
+      <view><input type='text' name="unit" placeholder='（选填）' placeholder-class="uploadplaceholder" value='{{unit}}' />单元 
+      </view>
+      <view><input type='text' name="room_number" placeholder='请输入' placeholder-class="uploadplaceholder" value='{{room_number}}' />室    
+        <text class='pointText3' hidden='{{roomNumberShow}}'>请填写</text>
+      </view>
+    </view>
+  </view> 
+  <view class='uploadLine uploadLineFlex'>
+    <view class='threeWidth'>
+      <text class='upLoadTitleText'>户型</text>
+      <view>
+        <picker
+          mode="multiSelector"
+          bindchange="bindMultiPickerChange"
+          bindcolumnchange="bindMultiPickerColumnChange"
+          value="{{multiIndex}}"
+          range="{{multiArray}}"
+        >
+          <view class="picker uploadplaceholder" wx:if="{{multiIndex[0]==0||multiIndex[2]==0||multiIndex[4]==0}}" style='text-align:center;'>请选择<image src='/images/upload/house_mg_down_arrow.png' /></view>
+          <view class="picker phcolorPreHover" wx:else style='text-align:center;'>
+            {{multiArray[0][multiIndex[0]]}}室{{multiArray[2][multiIndex[2]]}}厅{{multiArray[4][multiIndex[4]]}}卫<image src='/images/upload/house_mg_down_arrow.png' style='right:-10rpx;'></image>    
+          </view>
+        </picker>
+        <input type="text" name="room" value="{{multiArray[0][multiIndex[0]]}}" hidden='true' />
+        <input type="text" name="living" value="{{multiArray[2][multiIndex[2]]}}"  hidden='true' />
+        <input type="text" name="washing" value="{{multiArray[4][multiIndex[4]]}}" hidden='true' />
+      </view>
+      <view class='pointText2' hidden='{{roomShow}}'>请选择</view>
+    </view>
+    <view class='threeWidth'>
+      <text class='upLoadTitleText'>朝向</text>
+      <view>
+        <picker bindchange="bindDateLookChange" value="{{lookIndex}}" range="{{lookData}}">
+          <view class="picker uploadplaceholder" wx:if="{{lookIndex==0}}" style='text-align:center;'>{{lookData[lookIndex]}}<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+          <view class="picker phcolorPreHover" wx:else style='text-align:center;'>{{lookData[lookIndex]}}<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+        </picker>
+        <input type="text" name="direction" value="{{directionNum}}" hidden='true' />
+      </view>
+      <view class='pointText2' hidden='{{directionShow}}'>请选择</view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>楼层</text>
+    <view class='flowView'>
+      <view>第<input type='number' maxlength='-1' name="on_floor" placeholder='请输入' placeholder-class="uploadplaceholder" value='{{on_floor}}' />层  
+        <text class='pointText22' style='display:{{onFloorShow}};'>请填写</text>
+      </view>
+      <view>共<input type='number' maxlength='-1' name="total_floor" placeholder='请输入' placeholder-class="uploadplaceholder" value='{{total_floor}}' />层
+          <text class='pointText22' style='display:{{totalFloorShow}};'>请填写</text>
+        </view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>面积</text>
+    <view class='areaView'><input type='number' name="building_area" placeholder='请输入' placeholder-class="uploadplaceholder" value='{{building_area}}'></input><text>㎡</text></view>
+    <view class='pointText' hidden='{{buildingAreaShow}}'>请填写</view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>装修情况</text>
+    <view>
+      <picker bindchange="bindDateDecorationChange" value="{{decorationIndex}}" range="{{decorationData}}">
+        <view class="picker uploadplaceholder" wx:if="{{decorationIndex==0||!decorationIndex}}">请选择<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+        <view class="picker phcolorPreHover" wx:else>{{decorationData[decorationIndex]}}<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+      </picker>
+        <input type="text" name="decoration_type" value="{{decorationIndex}}" hidden='true' />
+    </view>
+    <view class='pointText' hidden='{{decorationTypeShow}}'>请选择</view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText' style='margin-bottom:0;'>电梯房</text>
+    <switch bindchange="switch2Change" checked="{{switchElvator}}" color='#5876AB' />
+        <input type="text" name="elvator" value="{{elvator}}" hidden='true' />
+  </view>
+  <view class='btnPd'>
+      <view class='resetBtn' bindtap='resetTap' hidden='{{house_id&&!houseId?false:true}}'><image src="/images/upload/icon_re_house_message.png"/>重置</view>
+      <button class='btn' formType="submit">下一步</button>
+  </view>
+</view>
+<view wx:if="{{condition}}" class='maskLayer1' bindtap="open"></view>
+<view wx:if="{{condition}}" class="citypickers">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="cityTap" class="citybody">
+      <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+      </view>
+        <picker-view-column>
+          <view  wx:for="{{cityArray}}" wx:key="item" wx:for-index="index" style="line-height: 50px;padding-left:10px;text-align:center;">{{item.label}}</view>
+        </picker-view-column>
+        <picker-view-column>
+        <block  wx:for="{{cityArray[index].children}}" wx:for-item="item1">
+          <view style="line-height: 50px;padding-left:10px;text-align:center;">{{item1.label}}</view>
+        </block>
+        </picker-view-column>
+    </picker-view>
+  </view>
+  </scroll-view>
+</form>

@@ -1,0 +1,135 @@
+<view class="listDetailConaiver" style='padding-bottom:88rpx；'>
+  <view class='bannerList'>
+    <view class='scImgPd'>
+      <image wx:if="{{is_collect==1 && collected==true}}" src='/images/listDetail/collectionIcon1H.png' style='width:70rpx; height:70rpx;' catchtap="onPersonalBtn" ></image>
+      <image wx:else src='/images/listDetail/collectionIcon1.png' style='width:70rpx; height:70rpx;' catchtap="onPersonalBtn" ></image>
+      <input type="hidden" hidden="true" name="is_collect" id="is_collect" value="{{is_collect}}"/>
+    </view>
+    <swiper class='swiperListDetailConaiver' autoplay='{{autoplay}}' circular="true"  current='index' bindchange='swiperChange'>
+      <swiper-item wx:for="{{listBanner}}" wx:for-index="idx">
+        <image src='{{item}}' data-id='{{idx}}' mode='aspectFill' bindtap='previewImage' lazy-load='true'></image>
+      </swiper-item>
+    </swiper> 
+    <text class='statusText' style='top:290rpx;' hidden='{{status==1?false:true}}'>已租</text>
+    <text class='bannerNum'>{{indexNum}}/{{totalNum}}</text>  
+  </view>
+  <view class='listDetailLine'>
+    <image src='/images/list/detailxj.png' class='listStatusImg' wx:if="{{upon_status==2}}"></image>
+    <image src='/images/list/detailyz.png' class='listStatusImg' wx:elif="{{upon_status==1}}"></image>
+    <image class='listStatusImg' wx:else></image>
+    <view class='cwp28'>
+      <view class='listDetailTitle'><!-- style="padding-left:{{isautotrophy==1?'90rpx':'0'}}"<text style="display:{{isautotrophy==1?'inline-block':'none'}}">公寓家</text>-->{{title}}</view>
+      <view class='listDetailPrice'>{{price}}<text>/月</text></view>
+    </view>
+  </view>
+  <view class='listDetailLine'>
+    <view class='cwp28'>
+      <view hidden='{{tagList.length==0?true:false}}' class='listDetailMessage'>
+        <text wx:for="{{tagList}}" wx:for-iten="item">{{item}}</text>
+      </view>
+      <view class='listDetailMessageTwo'>
+        <view class="{{rent_mode!=1&&rent_mode!=0?'listDetailMessageTwoNone':''}}"><text>类型</text>{{rent_mode==1?'整租':'合租'}}</view>
+        <view class="{{!building_area?'listDetailMessageTwoNone':''}}"><text>面积</text>{{building_area}}</view>
+        <view class="{{!house_type?'listDetailMessageTwoNone':''}}"><text>户型</text>{{house_type}}</view>
+        <view class="{{!orientation?'listDetailMessageTwoNone':''}}"><text>朝向</text>{{orientation}}</view>
+        <view class="{{!total?'listDetailMessageTwoNone':''}}"><text>楼层</text>{{total}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='listDetailLine' hidden='{{!community_name?true:false}}'>
+    <view class='cwp28'>
+      <view class='listDetailMapList' bindtap='communityTap' data-communityid='{{community_id_v2}}'>
+        <view>小区<text>{{community_name}}</text></view><image src='/images/listDetail/right.png'></image>
+      </view>
+    </view>
+  </view>
+  <!--<view class='listDetailLine' hidden='{{compareLists.length==0?true:false}}'>
+    <view class='cwp28'>
+      <view class="listDetailPriceList {{index==0?'mb30':''}}" wx:for="{{compareLists}}" wx:for-item="item" wx:for-index="index">{{item.title}}<view>{{item.price}}</view></view>
+    </view>
+  </view>-->
+  <view  hidden='{{latitude==0&&longitude==0?true:false}}'>
+    <view class='cwp28'bindtap="{{latitude==0&&longitude==0?'':'listDetailMapTap'}}" data-la='{{latitude}}' data-lo='{{longitude}}'>
+      <view class='pieceTitle'>位置及交通
+        <view class='trafficAddress'>
+          <image src='/images/listDetail/addressIcon.png'></image>
+          {{address}}
+          <!--<view hidden='{{latitude==0&&longitude==0?true:false}}'>周边配套<image src='/images/listDetail/right.png'></image></view>-->
+        </view>
+      </view>
+    </view>
+    <view class='trafficMMap'>
+      <map id="myMap" enable-zoom="false" show-location latitude='{{latitude}}' longitude='{{longitude}}' markers='{{markers}}' include-points="true" coord_type="3" style='height:365rpx; width:100%;'/>
+      <cover-view class='coverMapView' bindtap="{{latitude==0&&longitude==0?'':'listDetailMapTap'}}" data-la='{{latitude}}' data-lo='{{longitude}}'></cover-view>
+    </view>
+  </view>
+  <view class='cwp28'>   
+    <view class='trafficList'>
+      <view class='trafficListView' wx:for="{{trafficList}}" wx:for-item="item" wx:for-index="idx">
+        <image src='{{item.icon}}'></image>
+        <view>{{item.title}}</view>
+        <text>步行{{item.subtitle}}</text>
+      </view>
+    </view>   
+    <view class='pieceTitle' hidden='{{!houseMessage?true:false}}'>房源介绍</view>
+    <view class='introduceMessage' hidden='{{!houseMessage?true:false}}'>{{houseMessage}}</view>    
+    <view class='pieceTitle' style="display:{{furnitureList.length==0?'none':'block'}}">服务设施</view>
+    <view class='facilitiesPd' style="display:{{furnitureList.length==0?'none':'block'}}">
+      <view wx:for="{{furnitureList}}" wx:for-item="item" wx:for-index="idx">
+        <image src='{{furnitureList[idx].icon}}'></image>{{furnitureList[idx].title}}
+      </view>
+      <view style='display:{{facilitiesGreenHidden}};' class='facilitiesGreen' bindtap='facilitiesGreenTap'><image src='/images/listDetail/moreIcon.png'></image>更多</view>
+    </view>
+    <!--<view  style="display:{{listTImg.length==0?'none':'block'}}" class='pieceTitle'>同小区房源<view class='MoreRight'>（{{house_countT}}套）<image src='/images/listDetail/right.png'></image></view></view>-->
+  </view>
+  <!--<view class='houseListPd'  style="display:{{listTImg.length==0?'none':'flex'}}">
+    <view class='swiperImgList' wx:for="{{listTImg}}" wx:for-item="item" wx:for-index="idx">
+      <image src='{{imgUrl}}{{listTImg[idx].cover_pic}}{{imgUrlLast}}' id='{{listTImg[idx].house_id}}'  mode='aspectFill' bindtap='onListDetailTap'></image>
+      <text class='swiperTitle'>{{listTImg[idx].title}}</text>
+      <text class='swiperDetail'>{{listTImg[idx].subtitle}}</text>
+      <view class='swiperPrice'>{{listTImg[idx].price}}</view>
+    </view>
+  </view>
+  <view class='cwp28'  style="display:{{listZImg.length==0?'none':'block'}}">   
+    <view class='pieceTitle'>周边同类型房源<view class='MoreRight'>（{{house_countZ}}套）<image src='/images/listDetail/right.png'></image></view></view>
+  </view>
+  <view class='houseListPd'  style="display:{{listZImg.length==0?'none':'flex'}}">
+    <view class='swiperImgList' wx:for="{{listZImg}}" wx:for-item="item" wx:for-index="idx">
+      <image src='{{imgUrl}}{{listZImg[idx].cover_pic}}{{imgUrlLast}}' id='{{listZImg[idx].house_id}}'  mode='aspectFill' bindtap='onListDetailTap'></image>
+      <text class='swiperTitle'>{{listZImg[idx].title}}</text>
+      <text class='swiperDetail'>{{listZImg[idx].subtitle}}</text>
+      <view class='swiperPrice'>{{listZImg[idx].price}}</view>
+    </view>
+  </view>-->
+  <view class='greyNum' style="margin-bottom:88rpx; padding-top:30rpx;margin-top:{{latitude==0&&longitude==0?0:40}}rpx;">房源编号：{{house_number}}
+    <view hidden='{{isautotrophy==1?true:false}}'>本平台旨在为用户提供无偿信息服务，本房源信息及图片均来自于<text>{{src_name}}</text> ，信息以原信息为准。本平台仅对相关房源信息进行归集与展示，如您发下相关信息有误或缺失，你可以向我们反馈，我们将第一时间核实更正。</view>
+  </view>
+  <cover-view class="diList {{isIpx?'cur':''}}">
+    <cover-view class='louFourwhite'>
+      <cover-view class="louFourwhiteDouble {{isIpx?'cur':''}}" style="width:{{!tel_num?'50%':''}}">
+          <cover-image wx:if="{{is_collect==1 && collected}}" src='/images/listDetail/collectionIconH.png' style='width:36rpx; height:36rpx; margin-right:14rpx;' catchtap="onPersonalBtn" ></cover-image>
+          <cover-image class='coverimage01' wx:else src='/images/listDetail/collectionIcon.png' style='width:36rpx; height:36rpx; margin-right:14rpx;' catchtap="onPersonalBtn" ></cover-image>
+          <cover-view class='onlineWord collectBtn' catchtap="onPersonalBtn">收藏</cover-view>
+          <cover-view class='lineBorderRight'></cover-view>
+          <cover-view class='lineBorderTop' hidden='{{isIpx}}'></cover-view>
+      </cover-view>
+      <cover-view class="louFourwhiteSingle {{isIpx?'cur':''}}" catchtap='onTelTap' hidden='{{!tel_num?true:false}}'>
+        <cover-view class='blueBtn coverView01'>
+          <cover-image class='telImg' src='/images/listDetail/telIcon.png' style='width:38rpx;'></cover-image>
+          <cover-view class='onlineWord'>电话联系</cover-view>
+        </cover-view>
+          <cover-view class='lineBorderTop' hidden='{{isIpx}}'></cover-view>
+      </cover-view>
+      <cover-view class="louFourwhiteSingle {{isIpx?'cur':''}}" catchtap='onlineMsgTap' style="width:{{!tel_num?'50%':''}}">
+        <cover-view class="redBtn coverView01 {{isIpx?'cur':''}}">
+          <cover-image class='aplayImg' src='/images/listDetail/onlineIcon.png' style='width:35rpx;'></cover-image>
+          <cover-view class='onlineWord'>预约看房</cover-view>
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+  <input type="hidden" hidden="true" name="is_collect" id="is_collect" value="{{is_collect}}"/>
+  <input hidden='false' name="brands" id="brands" value="{{contact_phone}}" />
+  <input hidden='false' name="onlineMsg" id="onlineMsg" value="{{postid}}" />
+</view>
+<cover-view bindtap='backHome' style='display:inline-block;border-radius:100px;position:fixed; right:28rpx;bottom:15%;text-align:center;ooverflow:hidden;'><cover-image src='/images/list/home.png' style='width:120rpx;height:120rpx;display:block;'></cover-image> </cover-view>

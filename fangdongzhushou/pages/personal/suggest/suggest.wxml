@@ -1,0 +1,11 @@
+<view class="telBg">
+  <image src='/images/personal/suggestion_re_phone.png'></image>
+  您的联系电话
+  <text>{{mobile}}</text>
+</view>
+<view class='w30'>
+  <view class='telTextarea'>
+    <textarea placeholder-class='placeholdercss' placeholder='您的反馈是我们前进的动力，请详细描述您的问题…' bindinput="textareaTap"></textarea>
+  </view>
+  <button class="submitBtn" bindtap='suggestTap'>立即提交</button>
+</view>

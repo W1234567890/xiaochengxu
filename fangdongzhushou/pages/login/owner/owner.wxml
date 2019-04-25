@@ -1,0 +1,100 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="cw50">
+  <view class='ownerTitle'>业主身份认证<text>（请提交以下资料完成认证）</text></view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>您的姓名</text>
+    <view><input type='text' name="real_name" placeholder='填写姓名' placeholder-class="uploadplaceholder" value='{{real_name}}' bindinput='realNameTap'></input></view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>证件类型</text>
+    <view>
+      <picker bindchange="bindDateDecorationChange" value="{{decorationIndex}}" range="{{decorationData}}">
+        <view class="picker uploadplaceholder" wx:if="{{decorationIndex==0}}">{{decorationData[decorationIndex]}}<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+        <view class="picker phcolorPreHover" wx:else>{{decorationData[decorationIndex]}}<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+      </picker>
+        <input type="text" name="credent_type" value="{{decorationIndex}}" hidden='true' />
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText' style='font-size:24rpx;'>证件号码</text>
+    <view><input type='text' name="credent_num" placeholder='请填写' placeholder-class="uploadplaceholder" value='{{credent_num}}' bindinput='credentnNumTap'></input></view>
+  </view> 
+  <view class='uploadLine'>
+    <text class='upLoadTitleText' style='font-size:24rpx;'>证件照</text>
+    <view>   
+    <view class='ownerPhoto'>  
+      <!--正面照--> 
+      <view class='photoList' bindtap='idCardTap' data-num='2' wx:if="{{!imgList}}">
+        <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image><text>证件正面照</text></view>
+      </view> 
+      <view class='photoList' bindtap='idCardTap' data-num='2' wx:else>
+        <image src='{{imgUrl}}{{imgList}}' mode='aspectFill' class='photoImgBig'></image>
+      </view>
+      <!--反面照-->
+      <view class='photoList' bindtap='idCardTap' data-num='3' wx:if="{{!imgList1}}">
+        <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image><text>证件反面照</text></view>
+      </view>
+      <view class='photoList' bindtap='idCardTap' data-num='3' wx:else>
+        <image src='{{imgUrl}}{{imgList1}}' mode='aspectFill' class='photoImgBig'></image>
+      </view>
+    </view>
+    </view>
+    <view class='ownerPhotoText'>支持jpg/png，大小不超过5M</view>
+  </view> 
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>所在城市</text>
+    <view class='cityView'>
+      <input type="text" name="city_name" placeholder='选择市-选择区' placeholder-class='uploadplaceholder' focus="{{focus}}"  bindtap="open" disabled='true' wx:if="{{!city}}" />
+      <input type="text"  value="{{city}}-{{county}}" focus="{{focus}}"  bindtap="open" disabled='true' wx:else />
+      <input type="text" name="city_id" value="{{cityNum}}" focus="{{focus}}" hidden='true' />
+      <input type="text" name="district_id" value="{{countyNum}}" focus="{{focus}}"  hidden='true' />
+      <image src='/images/upload/house_mg_down_arrow.png'></image>
+    </view>
+  </view>
+  
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>您要出租的房子有多少套</text>
+    <view>
+      <picker bindchange="bindDateHouseCountChange" value="{{houseCountIndex}}" range="{{houseCountData}}">
+        <view class="picker uploadplaceholder" wx:if="{{houseCountIndex==0}}">{{houseCountData[houseCountIndex]}}<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+        <view class="picker phcolorPreHover" wx:else>{{houseCountData[houseCountIndex]}}<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+      </picker>
+        <input type="text" name="house_count" value="{{houseCountIndex}}" hidden='true' />
+    </view>
+  </view>  
+  <view class='uploadLine' style='border-bottom:0px;'>
+    <text class='upLoadTitleText' style='font-size:24rpx;'>请上传房产证照片（一套即可）</text>
+    <view>   
+    <view class='ownerPhoto'>  
+      <view class='photoList1' data-num='4' bindtap='deedImgTap' wx:if="{{!deedImg}}">
+        <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg1'></image><text>房产证照片</text></view>
+      </view>  
+      <view class='photoList1' data-num='4' bindtap='deedImgTap' wx:else>
+        <image src='{{imgUrl}}{{deedImg}}' mode='aspectFill' class='photoImgBig' data-src='{{imgList[idx]}}' bindtap='photoImgBigTap'></image>
+      </view>
+    </view>
+    </view>
+    <view class='ownerPhotoText'>支持jpg/png，大小不超过5M</view>
+  </view> 
+  <view class='btnPd'>
+      <button class='btn' formType="submit">提交</button>
+  </view>
+</view>
+<view wx:if="{{condition}}" class='maskLayer1' bindtap="open"></view>
+<view wx:if="{{condition}}" class="citypickers">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="cityTap" class="citybody">
+      <view class="cityheader">
+        <view bindtap="open" class="city-cancel">取消</view>
+        <view bindtap="open" class="city-true">确定</view>
+      </view>
+        <picker-view-column>
+          <view  wx:for="{{cityArray}}" wx:key="item" wx:for-index="index" style="line-height: 50px;padding-left:10px;text-align:center;">{{item.label}}</view>
+        </picker-view-column>
+        <picker-view-column>
+        <block  wx:for="{{cityArray[index].children}}" wx:for-item="item1">
+          <view style="line-height: 50px;padding-left:10px;text-align:center;">{{item1.label}}</view>
+        </block>
+        </picker-view-column>
+    </picker-view>
+  </view>
+</form>

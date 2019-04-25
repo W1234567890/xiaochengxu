@@ -1,0 +1,148 @@
+page{ border-top: none;}
+.searchConaiver{display: flex; flex-direction: column; /*border-top: 1px solid #eaeaea; padding-top: 85rpx;*/}
+.searchList{ position: relative; margin: 15rpx 28rpx 0; /*padding-bottom:15rpx;border-bottom: 1px solid #eaeaea;*/text-align: center}
+.searchList input{ border-radius:45rpx; background: #f6f6f6;width: 87%; padding:15rpx 0; color: #333; font-size: 30rpx; padding-left: 13%; text-align: left;}
+.searchList .searchListImg/*icon*/{ position:absolute;top:50%; margin-top:-16rpx;color:#B2B2B2;z-index:10;left:5%; width: 31rpx; height:33rpx; }
+.selectList{/*border-top: 1px solid #eaeaea;*/ position: fixed; left: 0; top: 0; width: 100%; z-index: 10; background: #fff;}
+
+/*条件选择*/
+.product-list {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  position: relative;border-bottom:20px solid #f4f4f4;
+}
+.choice-bar {
+  display: flex;
+  width: 100vw;
+  font-size: 16px;
+  background-color: #fff;
+  z-index: 9;
+}
+
+.chioce-item {
+  background-color: #fff;
+  display:inline-block;
+  align-items: center;
+  /*justify-content: space-between;*/
+  height: 34rpx; line-height: 34rpx;
+  padding: 0 5rpx;
+  width: 33.3333%;
+  margin: 40rpx 0 23rpx;
+  font-size: 26rpx;
+  color: #666;
+  overflow: hidden;
+  z-index: 10;
+  text-align: center;
+}
+
+.chioce-item-last {
+  width: 8%;
+}
+
+.chioce-item-first {
+  width: 12%;
+}
+
+.icon-chioce {
+  width: 14rpx;
+  height: 7rpx;
+  vertical-align: middle; margin-left: 5rpx;
+}
+.icon-chioces {
+  width:30rpx;
+  height:25rpx;
+
+}
+.mask{
+  position:fixed;
+  top:220rpx;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.5;
+}
+.district-list,.sorting-list,.filter-list {
+  margin-top: 2rpx;
+  position: absolute;
+  top: 96rpx;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 8;
+  font-size: 14px;
+  border-bottom: 1rpx solid #eaeaea;
+}
+
+.chioce-list-show {border-top: 1px solid #eaeaea;
+  top: 96rpx;
+  animation: slide 500ms;
+  text-align:center;
+}
+
+@keyframes slide {
+  0% {
+    top: 75rpx;
+  }
+
+  100% {
+    top: 101rpx;
+  }
+}
+
+.chioce-list-hide {
+  display: none !important;
+}
+
+
+
+/*综合排序*/
+
+.sorting-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #eaeaea;
+}
+.sorting-item.cur{ color: #20b7b6;}
+
+/*筛选*/
+.filter-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-selected {
+  width: 28rpx;
+   height: 14rpx;
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-footer button {
+  margin: 20rpx 80rpx;
+  border-radius: 0 !important;
+}
+
+.button-reset {
+  border: 1rpx solid #eaeaea !important;
+  color: #666 !important;
+}
+/*列表*/
+.brandPd{ border-bottom: 1px solid #ededed; padding: 30rpx; display: flex; 
+flex-direction: row;}
+.brandPd image{ width: 100rpx; height: 100rpx;vertical-align: middle; margin-top: 8rpx;}
+.brandChangeMessage{ width: 410rpx; color: #333; font-size: 30rpx; margin-left: 30rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;margin-top:20rpx;}
+.brandChangeMessage view{color: #333; font-size: 30rpx;}
+.brandChangeMessage text{ color: #666; font-size: 22rpx; display: block; overflow: hidden;white-space: nowrap;text-overflow: ellipsis; margin-top: 6rpx;}
+.brandChangeEnter{margin-left: 10rpx; color: #999; font-size: 22rpx; text-align: center;margin-top:18rpx;}
+.brandChangeEnter text{ color: #20b7b6; font-size: 28rpx; border:1px solid #20b7b6; width: 116rpx; height: 40rpx; line-height: 40rpx; display: block; margin-bottom: 6rpx;}
+

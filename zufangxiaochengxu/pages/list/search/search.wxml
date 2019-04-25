@@ -1,0 +1,170 @@
+<swiper bindchange="swiperChange" style='width:750rpx; height:500rpx;' hidden='{{is_show==1?false:true}}'>
+  <swiper-item  wx:for="{{bannersList}}" wx:for-item="item" data-id="{{item.action_type}}" data-action="{{item.action}}" data-img="{{item.poster}}" bindtap="bannersListTap">
+    <image src='{{item.poster}}' class='bannersListImg'></image>
+  </swiper-item>  
+</swiper>
+<view class='searchConaiver'>
+<view class='selectList' hidden='{{is_show==1?true:false}}'>
+  <view class='searchList'>
+    <input type='text' name="keywords" id="keywords" placeholder='请输入小区/商圈/地铁站' placeholder-style='color:#ccc;' value="{{keywords}}" bindinput="keywordsInputEvent" bindconfirm="onSearchBtn" confirm-type="search" bindfocus='searchFocus'></input>
+    <image src='/images/list/searchList.png' bindtap='onSearchBtn' class='searchListImg'></image>
+    <!--<icon type='search' color='#ccc' bindtap='onSearchBtn'></icon>-->
+  </view>
+  <view class="product-list">
+    <!--条件选择-->
+    <view class="choice-bar" >
+      <view bindtap="choiceItem" data-item="1" class="chioce-item" hover-class="click-once-opaque">
+        {{activeTimeName}}
+        <image class="icon-chioce" src="{{timeChioceIcon}}"></image>
+      </view>
+      <view bindtap="choiceItem" data-item="2" class="chioce-item" hover-class="click-once-opaque">
+        {{activeDistrictName}}
+        <image class="icon-chioce" src="{{districtChioceIcon}}"></image>
+      </view>
+      <view bindtap="choiceItem" data-item="3" class="chioce-item" hover-class="click-once-opaque">
+        {{activePriceName}}
+        <image class="icon-chioce" src="{{priceChioceIcon}}"></image>
+      </view>
+      <view bindtap="choiceItem" data-item="4" class="chioce-item" hover-class="click-once-opaque">
+        {{activeTypeName}}
+        <image class="icon-chioce" src="{{typeChioceIcon}}"></image>
+      </view>      
+      <view bindtap="choiceItem" data-item="5" class="chioce-item chioce-item-first" hover-class="click-once-opaque">
+        <image class="icon-chioces icon-chioce" src="{{HLChioceIcon}}"></image>
+      </view> 
+      <view class="district-list {{!chioceDistrict?' chioce-list-hide':'chioce-list-show'}}">
+        <view class="{{width100==0?'qsWidth50':'district-left'}}">
+          <view catchtap="selectDistrictParent" data-index="1" class="district-children{{activeDistrictParentIndexNum==1||!activeDistrictParentIndexNum?' district-parent-active':''}}" hover-class="click-once">区域</view>
+          <view catchtap="selectDistrictParent" data-index="2" class="district-children{{activeDistrictParentIndexNum==2?' district-parent-active':''}}" hover-class="click-once">地铁</view>
+        </view>
+        <view class="othersList {{width100==0?'qsWidth50':'qsWidth80'}}" wx:if='{{activeDistrictParentIndexNum==2}}'>
+          <view class="district-right {{width100==0?'qsWidth100':'qsWidth50'}}">
+            <scroll-view scroll-y class="scroll-district" scroll-top="{{scrollTop}}" scroll-into-view="{{scrollIntoView}}">
+              <view catchtap="selectDistrictChildrenSubwayNo" data-index="-1" class=" district-parent {{selectDistrictChildrenSubwayNo==-1?' district-parent-active':''}}" hover-class="click-once">不限</view>
+              <view wx:for="{{subway}}" catchtap="selectDistrictChildrenSubway"  wx:for-index="idx" data-index="{{idx}}" class=" district-parent {{idx==activeDistrictParentIndexSubway&&selectDistrictChildrenSubwayNo!=-1?' district-parent-active':''}}" hover-class="click-once">{{item.subwayline}}</view>
+            </scroll-view>
+          </view>
+          <view class="district-right2" style="width:50%;display: {{width100==0?'none':'block'}}">
+            <scroll-view scroll-y class="scroll-district" scroll-top="{{scrollTop}}" scroll-into-view="{{scrollIntoView}}">
+              <view data-index="-1" class="district-children {{districtNo==-1?' district-parent-active':''}}" catchtap="selectDistrictChildrenOneSubway" hover-class="click-once">不限</view>
+              <view id="{{idx}}"  wx:for="{{subway[activeDistrictParentIndexSubway==-1?0:activeDistrictParentIndexSubway].station}}" wx:for-index="idx" catchtap="selectDistrictChildrenOneSubway" data-index="{{idx}}" class="district-children {{idx==district&&districtNo!=-1?' district-parent-active':''}}" hover-class="click-once">{{item.station_name}}</view>
+            </scroll-view>
+          </view>
+        </view>
+        <view class="othersList {{width100==0?'qsWidth50':'qsWidth80'}}" wx:else>
+          <view class="district-right {{width100==0?'qsWidth100':'qsWidth50'}}">
+            <scroll-view scroll-y class="scroll-district" scroll-top="{{scrollTop}}" scroll-into-view="{{scrollIntoView}}">
+              <view catchtap="selectDistrictChildrenNo" data-index="-1" class=" district-parent {{activeDistrictParentIndex1No==-1?' district-parent-active':''}}" hover-class="click-once">不限</view>
+              <view wx:for="{{districtList}}" catchtap="selectDistrictChildren"  wx:for-index="idx" data-index="{{idx}}" class=" district-parent {{idx==activeDistrictParentIndex1&&activeDistrictParentIndex1No!=-1?' district-parent-active':''}}" hover-class="click-once">{{item.district_name}}</view>
+            </scroll-view>
+          </view>
+          <view class="district-right2" style='width:50%;' hidden="{{width100==0?true:false}}">
+            <scroll-view scroll-y class="scroll-district" scroll-top="{{scrollTop}}" scroll-into-view="{{scrollIntoView}}">
+              <view catchtap="selectDistrictChildrenOne" data-index="-1" class="district-children {{currentIdxNo==-1?' district-parent-active':''}}" hover-class="click-once">不限</view>
+              <view id="{{idx}}"  wx:for="{{districtList[activeDistrictParentIndex1==-1?0:activeDistrictParentIndex1].business_name}}" wx:for-index="idx" catchtap="selectDistrictChildrenOne" data-index="{{idx}}" class="district-children {{idx==currentIdx&&currentIdxNo!=-1?' district-parent-active':''}}" hover-class="click-once">{{item.name}}</view>
+            </scroll-view>
+          </view>
+        </view>
+      </view>
+      <view class="sorting-list{{!chiocePrice?' chioce-list-hide':' chioce-list-show'}}">
+        <view wx:for="{{priceList}}" catchtap="selectPrice" data-index="{{index}}" class="sorting-item" hover-class="click-once">{{item.value}}</view>
+      </view>
+      <view class="sorting-list{{!chioceType?' chioce-list-hide':' chioce-list-show'}}">
+        <view wx:for="{{typeList}}" catchtap="selectType" data-index="{{index}}" class="sorting-item" hover-class="click-once">{{item.value}}</view>
+      </view>
+      
+      <view class="sorting-list{{!chioceTime?' chioce-list-hide':' chioce-list-show'}}">
+        <view wx:for="{{timeList}}" catchtap="selectTime" data-index="{{index}}" class="sorting-item" hover-class="click-once">{{item.value}}</view>
+      </view>
+      
+      <view class="sorting-list{{!chioceHL?' chioce-list-hide':' chioce-list-show'}}">
+        <view wx:for="{{height_lowList}}" catchtap="HLTime" data-index="{{index}}" class="sorting-item" hover-class="click-once">{{item.value}}</view>
+      </view>
+      
+      
+    </view>
+    <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chiocePrice&&!chioceType&&!chioceTime&&!chioceHL}}">
+    <input type="hidden" name="city" id="city" value="{{city}}" />
+    <input type="hidden" name="district" id="district" value="{{district}}" />
+    <input type="hidden" name="price" id="price" value="{{price}}" />
+    <input type="hidden" name="houseType" id="type" value="{{houseType}}" />
+    <input type="hidden" name="rent_date" id="price" value="{{rent_date}}" />
+    <input type="hidden" name="hl_data" id="hl" value="{{hl_data}}" />
+    </view>
+  </view>
+  </view>
+  <view class='setsNum' hidden='{{is_show==1?true:false}}'>
+    <!--<text class='setsNumColor'>可租房源<text>{{day_rent_count}}</text></text>
+    <text class='setsNumColor'>今日新增<text>{{day_new_count}}</text></text>-->
+  </view>
+  <view class='noHouseList' hidden='{{noHouseListHidden}}'>小主，你的搜索暂无结果，为你推荐以下房源</view>
+  <view wx:for="{{list}}" wx:for-item="item" wx:for-index="index" data-id="{{item.house_id}}" data-pricecount='{{item.price_count}}' catchtap='onListDetailTap'>
+    <view class='listImgList'>
+      <view class='listBanner'>
+        <image src="/images/list/listxj.png" class='listStatusImg' wx:if="{{item.status=='下架'}}"></image>
+        <image src="/images/list/listyz.png" class='listStatusImg' wx:elif="{{item.status=='已租'}}"></image>
+        <image src="" class='listStatusImg' wx:else></image>
+        <image mode='aspectFill' src='{{imgUrl}}{{item.cover_pic}}{{imgUrlLast}}'></image>
+        <text class='listNumText'></text>
+        <!--<text class='statusText' hidden='{{item.status==1?false:true}}'>已租</text>-->
+        <image src='/images/list/maskBg.png' class='maskBg'></image>
+        <!--<image src="{{isCollect[index]==1?'/images/listDetail/collectionIcon1H.png':'/images/listDetail/collectionIcon1.png'}}" class='collect' catchtap="onPersonalBtn" data-idx='{{index}}' data-pricecount='{{item.price_count}}' data-id="{{item.house_id}}"></image>-->
+      </view>
+      <view class='listBrand'>
+        <view class='listTitle'><text style="display:{{!item.pre?'none':'inline-block'}}">{{item.pre}}</text>{{item.title}}</view>
+        <view class='listAddress'>{{item.subtitle}}</view>
+        <view class='listAddress'>
+          <view class="listAddressWidth"><image src='/images/list/addressIconGrey.png'></image>{{item.address}}</view>   
+        </view> 
+        <view class='srcListPd' hidden='{{item.src_type.length==0&&item.tag_name.length==0?true:false}}'>
+          <text wx:for="{{item.src_type}}" wx:for-item="item01">{{item01}}</text>
+          <text wx:for="{{item.tag_name}}" wx:for-item="item02">{{item02}}</text>
+        </view>
+        <view class='classHouePd'>
+            <view class='listNumText'>
+              <view hidden='{{item.price_count<=1?true:false}}'><text>{{item.price_count}}</text>个报价</view>
+              <view class='listPrice'>{{listPriceList[index]}}<text>/月</text></view>
+            </view>
+        </view>
+      </view>    
+    </view>  
+  </view>
+  <!--房源推荐-->
+  <view wx:for="{{recommendList}}" wx:for-item="item" wx:for-index="index" data-id="{{item.house_id}}" data-pricecount='{{item.price_count}}' catchtap='onListDetailTap'>
+    <view class='listImgList'>
+      <view class='listBanner'>
+        <image mode='aspectFill' src='{{imgUrl}}{{item.cover_pic}}{{imgUrlLast}}'></image>
+        <text class='listNumText'></text>
+        <text class='statusText' hidden='{{item.status==1?false:true}}'>已租</text>
+        <image src='/images/list/maskBg.png' class='maskBg'></image>
+        <!--<image src="{{recommendIsCollect[index]==1?'/images/listDetail/collectionIcon1H.png':'/images/listDetail/collectionIcon1.png'}}" class='collect' catchtap="onPersonalBtn" data-idx='{{index}}' data-pricecount='{{item.price_count}}' data-id="{{item.house_id}}"></image>-->
+      </view>
+      <view class='listBrand'>
+        <view class='listTitle'><text style="display:{{!item.pre?'none':'inline-block'}}">{{item.pre}}</text>{{item.title}}</view>
+        <!--<text class='listBrandText' id="{{partner_id}}" catchtap='brandsTap'>{{partner_name}}</text>-->
+        <view class='listAddress'>{{item.subtitle}}</view>
+        <view class='listAddress'>
+          <view class="listAddressWidth"><image src='/images/list/addressIconGrey.png'></image>{{item.address}}</view> 
+        </view> 
+        <view class='srcListPd' hidden='{{item.src_type.length==0&&item.tag_name.length==0?true:false}}'>
+          <text wx:for="{{item.src_type}}" wx:for-item="item01">{{item01}}</text>
+          <text wx:for="{{item.tag_name}}" wx:for-item="item02">{{item02}}</text>
+        </view>
+        <view class='classHouePd'>            
+            <view class='listNumText'>
+              <view hidden='{{item.price_count<=1?true:false}}'><text>{{item.price_count}}</text>个报价</view>
+              <view class='listPrice'>{{recommendPriceList[index]}}<text>/月</text></view>
+            </view>
+        </view>
+      </view>    
+    </view>  
+  </view>
+</view>
+<view class="body-view">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+</view>
+  <view hidden="{{hiddenSearch}}" class='hiddenSearchView'>
+    <text>为您找到 {{house_total}} 套房源</text>
+  </view>

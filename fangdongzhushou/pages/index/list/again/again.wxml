@@ -1,0 +1,29 @@
+<view class="againw50" wx:if='{{type==2}}'>
+  <view class='againTitle'>上架房源
+    <text>（确认可入住时间后点击确定继续上架）</text>
+  </view>
+  <text class='againTime'>可入住时间</text>
+  <view class='selectTime'>
+    <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+      <view wx:if="{{changeDataKey==1}}" class="tui-picker-detail">
+        {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}}
+      </view>
+      <view wx:else class='tui-picker-detail grey'>请选择您方便的时间</view>
+      <image src='/images/list/house_date.png' class='dataImg'></image>
+    </picker>
+  </view>
+</view>
+<view class='reasonBorder' wx:else>
+  <block wx:if="{{reasonKey==1}}">{{check_memo}}</block>
+  <block wx:if="{{reasonKey==2}}">{{removal_reason}}</block>
+</view>
+<view class='greyBg'>
+  <image src='{{imgUrl}}{{pic}}{{imgUrlLast}}' mode='aspectFill'></image>
+  <view class='greyMessage'>
+    <text class='greyTitle'>{{house_name}}</text>
+    <text class='houseNum'>房源编号：{{houseId}}</text>
+    <view class='housePrice'>{{price}}<text>/{{priceD}}</text></view>
+    <text class='houseTime'>更新时间：{{update_time}}</text>
+  </view>
+</view>
+<view class='btn' hidden='{{type==2?false:true}}' data-time='{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}}' bindtap='upDownTap'>确定</view>

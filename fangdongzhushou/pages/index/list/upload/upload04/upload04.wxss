@@ -1,0 +1,5 @@
+@import "/pages/index/list/upload/upload02/upload02.wxss";
+page{background:#001629; text-align: center;}
+.imageList{ width: 100%; height: 563rpx; margin: 160rpx 0 230rpx;}
+.imageBtn{width:518rpx;height:72rpx;line-height:72rpx; background:rgba(88,118,171,1);border-radius:36rpx;border:1px solid rgba(244,245,247,0.4); margin: 0 auto; color: #fff; font-size: 32rpx;}
+.imageBtnCur{width:518rpx;height:72rpx;line-height:72rpx;background:rgba(244,245,247,0.12);border-radius:36rpx;border:1px solid rgba(244,245,247,0.4); margin: 0 auto;color: #fff; font-size: 32rpx;}

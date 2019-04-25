@@ -1,0 +1,6 @@
+<view class="w30">
+  <view class='settingPd'>
+    <view bindtap='editTap'><image src="/images/personal/set_ed.png " class='icon'/>编辑资料<image src='/images/personal/arrow_list.png ' class='right'/></view>
+    <view bindtap='aboutTap'><image src="/images/personal/house_manage_ed.png " class='icon'/>关于公寓家<image src='/images/personal/arrow_list.png ' class='right'/></view>
+  </view>
+</view>

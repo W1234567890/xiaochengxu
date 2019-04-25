@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/list/list",
+    "pages/personal/personal",
+    "pages/login/login/login",
+    "pages/list/search/search",
+    "pages/list/listDetail/listDetail",
+    "pages/activity",
+    "pages/list/listDetailOthers/listDetailOthers",
+    "pages/list/onlineMsg/onlineMsg",
+    "pages/list/listDetailOthers/listDetailMap/listDetailMap",
+    "pages/login/ldentity/ldentity",
+    "pages/login/forget/forget",
+    "pages/login/bindMobile/bindMobile",
+    "pages/login/loginTel/loginTel",
+    "pages/login/registerNext/registerNext",
+    "pages/login/serviceMessage/serviceMessage",
+    "pages/login/zjRegister/zjRegister",
+    "pages/login/register/register",
+    "pages/personal/suggest/suggest",
+    "pages/personal/about/about",
+    "pages/personal/collect/collect",
+    "pages/list/newsList/newsList",
+    "pages/personal/activeH5/activeH5",
+    "pages/list/listDetailOthers/h5/h5"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx7d5f9c72c8a60afe",
+    "wx0abe913781110fb2"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "公寓家",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  }
+}

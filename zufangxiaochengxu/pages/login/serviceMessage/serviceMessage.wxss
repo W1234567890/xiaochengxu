@@ -1,0 +1,4 @@
+.serviceMessagePd{ margin: 20rpx 28rpx; line-height: 40rpx;}
+.serviceMessagePd view{ color: #666; font-size: 24rpx; margin-top: 20rpx; }
+.serviceMessagePd view.titleOne{ font-size: 30rpx; color: #000; text-align: center; padding-bottom: 20rpx;}
+.serviceMessagePd view.messageTitle{ color: #000; padding: 30rpx 0 10rpx;}

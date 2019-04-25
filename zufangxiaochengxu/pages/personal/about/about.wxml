@@ -1,0 +1,8 @@
+<view class="aboutConatiner">
+  <view class='aboutImg'>
+    <image src='/images/personal/aboutLogo.png' width="80rpx"></image>
+    <view>公寓家</view>
+  </view>
+  <text class='aboutNR'>
+公寓家是一个专注于租住运营服务的互联网厂商，旨在建立一个连接线上线下、公开透明的租住信息服务平台，让用户更快租到理想的房子，让房东更快出租空置的房源。公寓家将为租客及房东打造一片租房净土，让租房变得更轻松，这是我们希望塑造的未来！</text>
+</view>

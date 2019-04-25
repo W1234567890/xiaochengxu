@@ -1,0 +1,27 @@
+@import "../listDetail/listDetail.wxss";
+.listDetailTitle { padding-left: 0;}
+.listDetailConaiver {
+  width: 100%; overflow-x: hidden;
+}
+.listDetailMapList{ min-height: 92rpx; color: #666;font-size: 30rpx; text-align: right; position: relative;}
+.listDetailMapList view{ position: absolute; left: 0; top:24rpx;width: 584rpx; display: -webkit-box;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align: left;}
+.listDetailMapList image.icon01{ vertical-align: middle; margin-right: 10rpx; width: 25rpx; height: 31rpx;  position: initial; right: auto; display: inline-block;}
+.listDetailMapList image.icon02{ width:91rpx; height: 92rpx; }
+
+.mt44{ margin-top: 44rpx;}
+.allWebMessage{ color: #b6b6b6; font-size: 22rpx; line-height: 30rpx; margin-top:20rpx;}
+.allWebListPd{margin: 50rpx 0;}
+.allWebList{ margin: 25rpx 0; display: flex; flex-direction: row; position: relative;}
+.allWebListOne{display: flex; flex-direction: row; position: relative;}
+text.leftCard{ position: absolute; left: 0; top: -10rpx; border-radius:100px; border-bottom-left-radius: 0; width: 73rpx; height:36rpx; color: #fff; font-size: 20rpx; text-align: center; line-height: 36rpx; }
+text.leftCard.Green{ background: #20b7b6;}
+text.leftCard.Red{ background: #ff656a;}
+.allWebList image{ width:261rpx; height: 186rpx; border-radius:6rpx;}
+.allWebListRight{ width: 410rpx; margin-left: 20rpx; position: relative; height: 186rpx;}
+.allWebListRight .allWebListTitle{ color: #333; font-size: 18rpx; display: block;}
+.allWebListRight .allWebListLow{color: #b6b6b6; font-size: 24rpx; margin:5rpx 0 5rpx;display: block; }
+.allWebListCard{ margin:0 -19rpx 0 0; display: block;}
+.allWebListCard text{ color: #b6b6b6; font-size: 22rpx; display: inline-block; padding:3rpx 5rpx; border: 1px solid #b6b6b6; margin-right:19rpx;  }
+.allWebListPrice{ color: #20b7b6; font-size:30rpx; position: absolute; left: 0; bottom: 0; }
+.allWebListPrice text{ display: inline-block; font-size: 20rpx;}
+.listDetailMessageTwo view.listDetailMessageTwoNone{ display: none;}

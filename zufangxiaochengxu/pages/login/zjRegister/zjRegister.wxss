@@ -1,0 +1,10 @@
+@import "../registerNext/registerNext.wxss";
+.login-top1{ position: relative;} 
+.login-top1 input{width: 415rpx;}
+.login-top1 button{width: 250rpx; position: absolute; right: 0; top:15rpx; font-size: 24rpx; height: 60rpx;}
+.cardPd{ padding: 0 0 20rpx; border-bottom: 1px solid #d8d8d8;}
+.cardTitle{ color:#000; font-size: 30rpx; margin-top:30rpx; display: block;}
+.cardTitleBottom20{ margin-bottom: 20rpx;}
+.cardTitleBottom10{ margin-bottom: 10rpx;}
+.cardUpload{ width:340rpx; height: 219rpx; margin-right:50rpx; display: inline-block;}
+.cardSample{ width: 280rpx; height: 219rpx;}

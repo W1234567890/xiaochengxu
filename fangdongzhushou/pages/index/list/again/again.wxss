@@ -1,0 +1,20 @@
+.againw50{margin: 0 50rpx;}
+.againTitle{ color: #001629; font-size: 40rpx; margin: 50rpx 0 60rpx;}
+.againTitle text{ color: #E3C190; font-size: 20rpx;}
+.againTime{ display: block; color: #001629; font-size: 22rpx; margin-bottom: 10rpx;}
+.selectTime{ padding: 20rpx 0; border-bottom: 1px solid #EEF0F4;}
+.reasonBorder{border-radius:4px;border:1px solid rgba(238,240,244,1); padding: 16rpx; margin: 50rpx; color: #8A8E98; font-size: 28rpx;}
+
+.tui-picker-detail{ color: #C0C2C7; font-size: 28rpx;}
+picker{ position: relative;}
+image.dataImg{ width: 38rpx; height: 38rpx; position: absolute; right: 0; top: 0;}
+
+.greyBg{ background: #EEF0F4; padding: 33rpx 50rpx; margin-top: 50rpx; display: flex; flex-direction: row;}
+.greyBg image{ border-radius:4px; width: 232rpx; height: 174rpx; margin-right:24rpx; background: #fff; }
+.greyMessage{ display: flex; flex-direction: column; width: 394rpx;}
+.greyTitle{ color: #001629; font-size: 32rpx; margin-bottom: 5rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.houseNum{font-size: 20rpx; color:#5C6068; margin-bottom: 5rpx;}
+.housePrice{ color: #B2161A; font-size: 32rpx; margin-bottom: 20rpx;}
+.housePrice text{ font-size: 20rpx;}
+.houseTime{color:#C0C2C7; font-size: 20rpx;}
+.btn{width:188rpx;height:72rpx; line-height: 72rpx; background:rgba(88,118,171,1);box-shadow:0px 8rpx 20rpx 0px rgba(96,147,236,0.5);border-radius:36rpx; display: block; position: fixed; bottom:100rpx; right: 50rpx; font-size: 32rpx; color: #fff;text-align: center; }

@@ -1,0 +1,42 @@
+<view class="w30">
+  <view class='recedePd'>
+    <view class='w30'>
+      <view class='recedeTitle'><text></text>静安豪景苑三房一厅巴拉巴拉</view>
+      <view class='recedeMsg'>租约编号：ZY20170202123456789</view>
+      <view class='recedeMsg'>租约周期：2018.03.30~2019.03.30</view>
+      <view class='recedeTenant'>租客：张丽</view>
+    </view>
+  </view>
+  <view class='recedeView'>是否需要重新出租
+    <view class='recedeViewRight'>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" style='margin-left:60rpx;'>
+          <radio color='#5876AB' value="{{item.id}}" checked="{{item.checked}}" />
+          {{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='recedeView'>预计可入住时间
+    <view class='recedeViewRight'>
+      <picker mode="date" name="s" value="{{latest_date1}}" start="2019-01-01" end="2030-01-01" bindchange="bindDateStartChange1">
+        <view class="picker uploadplaceholder" wx:if="{{timesEnter=='请选择'}}">
+          {{timesEnter}}
+          <image src='/images/bill/arrow_list.png'></image>
+        </view>
+        <view class="picker phcolorPreHover" wx:else>
+          {{timesEnter}}
+          <image src='/images/bill/arrow_list.png'></image>
+        </view>
+      </picker>
+    </view>
+    <view class='pointText' hidden='{{setInShow}}' style='bottom:-32rpx;'>请选择</view>
+  </view>
+</view>
+<view class='btnBillBg'>
+  <view class='pbillPointText'>温馨提示：退房后不可撤销</view>
+  <view class='btnBill'>
+    <view class='btnBillLeft' bindtap='recedeTap'>暂不退房</view>
+    <view class='btnBillRight' bindtap='quitTap'>退房</view>
+  </view>
+</view>

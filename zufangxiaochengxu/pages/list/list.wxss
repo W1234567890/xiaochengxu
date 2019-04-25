@@ -1,0 +1,332 @@
+.niceHouseTitle{ margin: 42rpx 0 0;}
+.niceHouseTitle text{ display:block; text-align: center; font-size:42rpx; margin: 0 28rpx; color: #333;}
+.littleDian{ position: fixed; top: 635rpx; right:7%;}
+.littleDian text{ display: inline-block; margin-left: 10rpx; width: 20rpx; height: 20rpx; border-radius:100px; background: #fff;}
+.littleDian text.activeText{ background: #20b7b6;}
+.bannerListTop{ position: relative; width: 100%;}
+image.bannerListTopImg{ width: 100%; height:1334rpx; display: block; }
+.searchMessagePd{ margin:1110rpx 0 -100rpx; padding-bottom: 110rpx; position: relative;z-index: 1;  background: #fff;}
+.newsListPdTop{ position: relative; padding-top: 20rpx;}
+.searchBgWhite{ width: 86%; position: absolute; top:730rpx; left: 7%; background: #fff; border-radius:10rpx;  }
+.searchBgWhitePd{ padding: 35rpx 28rpx; }
+.listImgBannerConaiver {
+  position:fixed;
+  left: 0;
+  height: 400rpx;
+  width: 100%;
+  z-index: 8;
+}
+.newsListPd{ margin: 28rpx 28rpx 14rpx; display: flex; flex-direction: row; position: relative; }
+.newsRight{ width: 339rpx; margin-left: 24rpx; text-align: right;}
+.newsListPd image{ display: block;}
+.newsListPd .newsRight image{ width:339rpx; height: 180rpx;}
+.newsRightLastPd{ margin-top:14rpx;}
+.addressTopPd{ position: relative; padding:0rpx 0rpx 30rpx; margin-bottom: 30rpx; border-bottom: 1px solid #eaeaea;}
+.addressTopPd .picker{ color: #333; font-size: 30rpx;}
+.picker image{ width: 21rpx; height: 14rpx; vertical-align: middle; margin-left:10rpx;}
+.postPd{ position: absolute; right: 0; top: 0; color: #ccc; font-size: 24rpx;}
+.postPd image{ width:30rpx; height: 30rpx; vertical-align: middle; margin:-5rpx 0 0 10rpx; }
+.searchList { width: 100%; }
+
+.searchList input {
+  background: #fff;
+  color: #333;
+  font-size: 30rpx;
+  width: 100%;
+  height: 70rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.searchList input:placeholder {
+  color: #ccc;
+}
+
+.searchBtn {
+  background: #20b7b6;
+  padding: 5rpx 10rpx;
+  height: 70rpx;
+  line-height: 65rpx;
+   text-align: center;
+    border-radius:10rpx;
+}
+
+.searchBtn text {
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.searchIcon {
+  vertical-align: middle;
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 6rpx;
+}
+.listConaiver {
+  display: flex;
+  flex-direction: column;
+  width: 750rpx;
+}
+
+.addressConaiver {
+  display: flex;
+  flex-direction: row;
+  padding: 23rpx 28rpx 24rpx;
+  background: #f6f6f6;
+}
+
+.addressConaiver image {
+  width: 26rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  margin-top: 2px;
+}
+
+.addressTextYellow {
+  color: #b69b7d;
+  font-size: 30rpx;
+  margin-left: 15rpx;
+}
+
+.addressTextBlack {
+  color: #333;
+  font-size: 30rpx;
+  margin-left: 15rpx;
+}
+
+.listImgBanner {
+  width: 100%;
+  height: 400rpx;
+}
+
+.houseListContainer{ height: 890rpx;}
+.factorList{ padding:0 28rpx; margin: 20rpx 0;}
+.factorList view{ width: 24%; text-align: center; display: inline-block;}
+.factorList view.borderRight{border-right: 1px solid #d8d8d8;}
+.factorList view text{ font-size: 26rpx; color: #888;}
+.factorList view image{ width: 28rpx; height: 14rpx; margin-left:10rpx; vertical-align: middle;}
+
+.listAddressWidth{ width: 470rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.classHouePd{ margin:20rpx 0 0; display: flex; flex-direction: row; position: relative;}
+.setsNum{padding: 20rpx 28rpx; background: #f6f6f6; }
+.setsNumColor{color: #000; font-size: 30rpx; width:50%; display: inline-block;}
+.setsNumColor text{ margin-left:15rpx; color: #b69a80;}
+.factorListLa{ padding: 20rpx 28rpx;border-top: 1px solid #d8d8d8; background: #fff; position: absolute; top:200rpx; width: 694rpx;  z-index: 10;}
+.factorListLa text{ padding: 15rpx 0; border-bottom: 1px solid #d8d8d8; display: block; font-size: 30rpx; color: #888;}
+.selectList{border-top: 1px solid #d8d8d8; position: fixed; left: 0; width: 100%; z-index: 10; background: #fff;}
+.mask{
+  position:fixed;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.5;
+}
+.district-list,.sorting-list,.filter-list {
+  margin-top: 2rpx;
+  position: absolute;
+  top: 98rpx;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 8;
+  font-size: 14px;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.chioce-list-show {border-top: 1px solid #d8d8d8;
+  top: 98rpx;
+  animation: slide 500ms;
+}
+
+@keyframes slide {
+  0% {
+    top: 0rpx;
+  }
+
+  100% {
+    top: 101rpx;
+  }
+}
+
+.chioce-list-hide {
+  display: none !important;
+}
+
+/*区域位置*/
+
+.district-list {
+  display: flex;
+}
+
+.district-left {
+  flex-grow: 1;
+}
+
+.district-right {
+  flex-grow: 4;
+}
+.scroll-district{
+  height: 500rpx;
+}
+.district-parent {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+  border-right: 1rpx solid #ddd;
+  background-color: #f0f0f0;
+}
+
+.district-parent-active {
+  background-color: #fff;
+}
+
+.district-children {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+/*综合排序*/
+
+.sorting-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+/*筛选*/
+
+.filter-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-selected {
+  width: 28rpx;
+   height: 14rpx;
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-footer button {
+  margin: 20rpx 80rpx;
+  border-radius: 0 !important;
+}
+
+.button-reset {
+  border: 1rpx solid #ddd !important;
+  color: #666 !important;
+}
+
+/*房源列表*/
+.listImgList {
+  padding: 30rpx 0 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+.tagList{ width:470rpx; height: 58rpx; overflow: hidden;}
+.listBanner {
+  position: relative;
+  width: 100%;
+}
+
+.listBanner image {
+  width:100%;
+  height: 456rpx;
+  display: block;
+}
+.listBanner image.maskBg {
+  width:100%;
+  height: 166rpx;
+  display: block;
+  position: absolute; left: 0; bottom: 0;
+}
+.listNum{
+position:absolute;
+z-index:2;
+right:0;
+top: 0;
+padding:0;
+color: #333;
+font-size: 28rpx;
+}
+.classHoue{
+  display: inline-block;
+  color:#20b7b6;
+  border: 1px solid #20b7b6;
+  padding: 0rpx 10rpx 0;
+  font-size: 22rpx;
+  margin-right:10rpx;
+  height: 34rpx; line-height: 34rpx;
+  margin-bottom: 10rpx;
+}
+.houseNub{
+  color: #20b7b6;
+  font-size: 28rpx;
+}
+.listNumText {
+  font-weight: bold;
+  display: block;
+position:absolute;
+z-index:2;
+right:0;
+bottom: 0;
+/*padding:20rpx 20rpx 10rpx;*/
+color:#20b7b6;
+font-size:32rpx;
+line-height: 58rpx;
+}
+
+.listNumText text {
+  font-size: 26rpx;display: inline-block; margin-left: 5rpx;
+}
+
+.listBrand {
+   padding: 30rpx 28rpx;
+   margin: -49rpx 28rpx 0; background: #fff; position: relative; z-index: 1;
+   box-shadow:0 5rpx 30rpx rgba(0, 0, 0, 0.2);
+    border-radius:10rpx;
+}
+
+.listTitle {
+  vertical-align: middle;
+  display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.listTitle text.brandList{ background:#d7ba82; display:inline-block; font-size: 23rpx; color: #fff; margin-right: 12rpx; border-radius:4px; padding:4rpx 6rpx; position: relative; top:-3rpx; }
+.listTitle text.titleList{color: #333;font-size: 34rpx; display: inline-block;}
+
+.listBrandText {
+  font-size: 22rpx;
+  color: #000;
+  float: right;
+  padding: 8rpx 15rpx;
+  border: 1px solid #000;
+}
+.listAddress {
+  position: relative;
+  color: #666;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.listAddBottom{
+  margin-bottom: 60rpx;
+}
+.listAddress image{width: 22rpx; height: 28rpx; vertical-align: middle; margin-right:12rpx; margin-top: -4rpx; }
+.statusText{ width: 100%; text-align: center; color: #fff; font-size: 30rpx; padding:15rpx 0;  background:rgba(0, 0, 0, 0.6); position: absolute; left: 0; top:200rpx; z-index: 3; 
+}

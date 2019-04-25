@@ -1,0 +1,27 @@
+<!-- 使用wxs 手机号码中间四位显示为*号 -->
+<wxs module="phone">
+var toHide = function(array) {
+  var mphone = array.substring(0, 3) + '****' + array.substring(7);
+  return mphone;
+}
+module.exports.toHide = toHide;
+</wxs>
+<!---->
+<view class="w30">
+  <image src='{{imgUrl}}{{pic_path}}{{imgUrlLast}}' mode='aspectFill' class='reserviceImg'></image>
+  <text class='detailTitle'>{{house_name}}</text>
+  <text class='detailMessage'>{{subtitle}}</text>
+  <view class='detailPrice'>{{price}}<text>/{{priceUnit}}</text></view>
+  <view class='reserveDetailPd'>
+    <view class='reserveDetailList'><text>看房时间：</text>{{reserve_time}}</view>
+    <view class='reserveDetailList'><text>租客姓名：</text>{{contact_name}}</view>
+    <view class='reserveDetailList'><text>联系方式：</text>{{phone.toHide(mobile)}}</view>
+    <image src='/images/reserve/renter_details_cancel.png' wx:if="{{confirm==4}}" class='cancleImg'></image>
+    <view class='telBtn'  bindtap='telBtnTap' wx:else><image src='/images/reserve/renter_phone_yes.png'></image>拨打电话</view>
+  </view>
+</view>
+<view class='reserveDetailBtn' wx:if="{{confirm==0}}">
+  <text data-type='2' bindtap='reserveDetailCancleBtnTap' style='border-top-left-radius:24rpx;'>取消</text>
+  <text class='blueBg' data-type='1' bindtap='reserveDetailBtnTap' style='border-top-right-radius:24rpx;'>确定</text>
+</view>
+<block wx:else></block>

@@ -1,0 +1,51 @@
+<view class="billDetailRedBg">
+  <image src='/images/bill/bill_details_bg.png'></image>
+  <view class="billDetailTop">
+    <view class='billPrice'>¥{{price_total}}
+      <view wx:if="{{overdue>=1}}">逾期{{overdue}}天</view>
+      <view wx:else>
+        <block wx:if="{{statusNum==1}}"><image src='/images/bill/bill_manage_defray_white.png'></image></block>
+        <block wx:elif="{{statusNum==2}}">已作废</block>
+      </view>
+    </view>
+    <view class='billDate'><text>账单周期</text>{{bill_period}}<view><text>收款日</text>{{bill_date}}</view></view>
+  </view>
+</view>
+<view class='billDetailW40'>
+  <view class='billList'>{{house_name}}<view class='billBase billGrey' bindtap='registerTap'>租约详情<image src='/images/bill/arrow_list.png'></image></view></view>
+  <view class='billList'>姓名<view class='billBase'>{{tenant_name}}</view></view>
+  <view class='billList'>租客手机号码<view class='billBase'>{{mobile}}</view></view>
+</view>
+<view class='billDetailList'><view class='billBase billDetailW40'>账单明细</view></view>
+<view class="billDetailW40 {{statusNum!=0?'':'pdb190'}}">
+  <view class='billList'>租金<view class='billBase'>¥{{rent_price}}</view></view>
+  <view class='billList'>押金<view class='billBase'>¥{{deposit_price}}</view></view>
+  <view class='billListTitle' hidden='{{one_time_fee.length==0}}'>一次性费用</view><!-- hidden='{{!one_time_fee[0].onePrice}}'-->
+  <view class='billListPriceLine' hidden='{{one_time_fee.length==0}}'>
+    <view class='billListPrice' wx:for="{{one_time_fee}}" wx:for-item="item">
+      <block wx:if='{{item.oneName==0}}'>物业费</block>
+      <block wx:elif='{{item.oneName==1}}'>宽带费</block>
+      <block wx:elif='{{item.oneName==2}}'>其他</block>
+      <view class='billBase'>¥{{item.onePrice}}</view>
+    </view>
+  </view>
+  <view class='billListTitle' hidden='{{circle_fee.length==0}}'>周期性费用</view>
+  <view class='billListPriceLine' hidden='{{circle_fee.length==0}}'>
+    <view class='billListPrice' wx:for="{{circle_fee}}" wx:for-item="item1">
+      <block wx:if='{{item1.circleName==0}}'>物业费</block>
+      <block wx:elif='{{item1.circleName==1}}'>宽带费</block>
+      <block wx:elif='{{item1.circleName==2}}'>其他</block>
+      <view class='billBase'>¥{{item1.circlePrice}}</view>
+    </view>
+  </view>
+  <view class='billList'>期数<view class='billBase'>第{{period_num}}期/共{{period_total}}期</view></view>
+</view>
+<view class='billDetailBtnListBg' hidden='{{statusNum!=0}}'>
+  <view class='billDetailW40'>
+    <view class='billDetailBtnList'>
+      <view class='billBtn01' bindtap='invalidTap'>作废</view>
+      <view class='billBtn02' bindtap='urgeTap'>催租</view>
+      <view class='billBtn03' bindtap='receiptTap'>确认收款</view>
+    </view>
+  </view>
+</view>

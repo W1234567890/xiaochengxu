@@ -1,0 +1,148 @@
+<view class='registerViewGreyBg'>
+  <view class='w30'>
+    <view class='registerViewBg'>
+      <image src='/images/register/renter_details_bg.png' class='registerImgBg'></image>      
+      <view class="reservePd">
+        <view class="{{reserve0?'':'cur'}}" bindtap='allTab' data-id='0'>租约<text></text></view>
+        <view class="{{reserve0?'cur':''}}" bindtap='allTab' data-id='1'>账单<text></text></view>
+      </view>
+      <view class='registerViewMsg'>
+        <view class="registerViewMsgTitle">{{house_name}}</view>
+        <view class="registerViewMsgNei">租约编号：{{id}}</view>
+      </view>
+      <image src='/images/register/renter_details_phone_icon.png' class='registerImgTel' bindtap='registerImgTelTap'></image>
+    </view>
+  </view>
+</view>
+<view class="w60" wx:if="{{reserve0==false}}">
+  <view class='registerViewTitle'>{{tenant_name}}<text>租客姓名</text></view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>身份证号码</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{identify_num}}</view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>身份证照片（选填）</text>
+    <view class='photoPd'>
+        <view class='photoConatiner'>
+          <view class='photoList' wx:if="{{identify_pic}}">
+            <image src='{{imgUrl}}{{identify_pic}}' mode='aspectFill' class='photoImgBig'></image>
+          </view>
+          <view class='photoList' wx:else>
+            <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image></view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>起租日期</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{timestampStart}}</view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>到租日期</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{timestampEnd}}</view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>付款方式</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{pay_type}}</view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>每期租金</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{price}}元</view>
+    </view>
+  </view>
+  <view class='registerTwo'>    
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>押金方式</text>
+      <view class='enterHouse'>
+        <view class='phcolorPreHover'>{{deposit_type}}</view>
+      </view>
+    </view>  
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>押金金额</text>
+      <view class='enterHouse'>
+        <view class='phcolorPreHover'>{{deposit_price}}元</view>
+      </view>
+    </view>
+  </view>
+  <view class='uploadLine' hidden='{{!circleFeeListName[0]||!oneTimeFeeListName[0]?true:false}}'>
+    <view class='upLoadTitleTextBlue'><view></view>其他费用</view>
+    <view class='registerViewOtherPricePd' hidden='{{!circleFeeListName[0]||circleFeeListName.length==0?true:false}}'>
+      <text class='upLoadTitleText registerViewText'>周期性费用</text>
+      <view class='registerViewOtherPrice' wx:for="{{circleFeeListName}}" wx:for-item="item" wx:for-index="index">
+        <text class='upLoadTitleText' wx:if="{{item==0}}">物业费</text>
+        <text class='upLoadTitleText' wx:elif="{{item==1}}">宽带费</text>
+        <text class='upLoadTitleText' wx:elif="{{item==2}}">其他</text>
+        <view class='enterHouse registerPrice'>
+          <view class='phcolorPreHover'>{{circleFeeListPrice[index]}}</view>元
+        </view>
+      </view>
+    </view>
+    <view class='registerViewOtherPricePd' hidden='{{!oneTimeFeeListName[0]||oneTimeFeeListName.length==0?true:false}}'>
+      <text class='upLoadTitleText registerViewText' style="{{!circleFeeListName[0]||circleFeeListName.length==0?'':'border-top:1px solid #EEF0F4; padding-top:40rpx;margin-top:30rpx;'}}">一次性费用</text>
+      <view class='registerViewOtherPrice' wx:for="{{oneTimeFeeListName}}" wx:for-item="item1" wx:for-index="index1"> 
+        <text class='upLoadTitleText' wx:if="{{item1==0}}">物业费</text>
+        <text class='upLoadTitleText' wx:elif="{{item1==1}}">宽带费</text>
+        <text class='upLoadTitleText' wx:elif="{{item1==2}}">其他</text>
+        <view class='enterHouse registerPrice'>
+          <view class='phcolorPreHover'>{{oneTimeFeeListPrice[index1]}}</view>元
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>收租日</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{receiveTypeName}}{{receive_date}}{{receiveTypeUnit}}</view>
+    </view>
+  </view>
+  <view class='btnPd' bindtap='editBtnTap'><button class='btn'>编辑</button></view>
+</view>
+<view wx:else>
+  <view class='billListPd'>
+    <view class='billList' wx:for="{{bill_list}}" wx:for-item="item" wx:for-index="index">
+      <view class='billListPrice'>        
+        <text class='billLine'></text>
+        <view class='billPrice'>
+          ¥{{item.period_total}}
+          <view>账单周期：{{item.bill_period}}</view>
+        </view>
+        <view class='dateList'>第{{item.period_num}}期<view>共{{item.period_total}}期</view></view>
+      </view>
+      <view class='billPriceListPd' style="padding-bottom:{{item.overdue==0&&item.pay_status==0&&item.status==0?'30':'76'}}rpx;">
+        <view class='billPriceList'>租金<text>¥{{item.rent_price}}</text></view>
+        <view class='billPriceListTiltle' hidden="{{!bill_list[index].one_time_fee[0].onePrice?true:false}}">一次性费用</view>
+        <view class='billPriceList' hidden="{{!bill_list[index].one_time_fee[0].onePrice?true:false}}" wx:for="{{bill_list[index].one_time_fee}}" wx:for-item1="item1" wx:for-index='index1' >
+          <block wx:if="{{bill_list[index].one_time_fee[index1].oneName==0}}">物业费</block>
+          <block wx:if="{{bill_list[index].one_time_fee[index1].oneName==1}}">宽带费</block>
+          <block wx:if="{{bill_list[index].one_time_fee[index1].oneName==2}}">其他</block>
+          <text>¥{{bill_list[index].one_time_fee[index1].onePrice}}</text>
+        </view>
+        <view class='billPriceListTiltle' hidden="{{!bill_list[index].circle_fee[0].circlePrice?true:false}}">周期性费用</view>
+        <view class='billPriceList' wx:for="{{bill_list[index].circle_fee}}" wx:for-item1="item2" wx:for-index='index2'  hidden="{{!bill_list[index].circle_fee[0].circlePrice?true:false}}">        
+          <block wx:if="{{bill_list[index].circle_fee[index2].circleName==0}}">物业费</block>
+          <block wx:if="{{bill_list[index].circle_fee[index2].circleName==1}}">宽带费</block>
+          <block wx:if="{{bill_list[index].circle_fee[index2].circleName==2}}">其他</block>
+          <text>¥{{bill_list[index].circle_fee[index2].circlePrice}}</text>
+        </view>
+        <view class='billCard billCardBlue' wx:if="{{item.pay_status==1}}">已付款</view>
+        <block wx:else>
+          <view class='billCard billCardGrey' wx:if="{{item.status==1}}">已作废</view>
+          <view class='billCard billCardRed' wx:else hidden='{{item.overdue==0?true:false}}'>逾期{{item.overdue}}天</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='btnBill'>
+    <view class="btnBillLeft {{status==1?'greyBtn':''}}" bindtap="{{status==1?'':'recedeTap'}}">退房</view>
+    <view class='btnBillRight' bindtap='renewalTap'>续租</view>
+  </view>
+</view>

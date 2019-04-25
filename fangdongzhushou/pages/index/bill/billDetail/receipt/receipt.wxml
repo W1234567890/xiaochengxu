@@ -1,0 +1,51 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='billDetailW40'>
+  <view class='billList'>收款方式
+    <view class='billBase billGrey'>
+      <picker bindchange="bindDateLookChange" value="{{lookIndex}}" range="{{lookData}}">
+        <view class="picker uploadplaceholder" wx:if="{{lookIndex==-1}}">请选择类型<image src='/images/upload/house_mg_down_arrow.png'></image></view>
+        <view class="picker phcolorPreHover" wx:else>{{lookData[lookIndex]}}<image src='/images/bill/arrow_list.png'></image></view>
+      </picker>
+      <input type='text' name="pay_type" value='{{lookIndex}}' hidden='true'></input>
+    </view>
+    <view class='pointText' hidden='{{payTypeShow}}'>请选择</view>
+  </view>
+  <view class='billList'>收款金额
+    <view class='billBase'><input type='text' placeholder='请填写' placeholder-class='uploadplaceholder' name="money" disabled="true" value='{{money}}'></input></view>
+  </view>
+  <view class='billList'>收款日期
+    <view class='billBase' style='top:32rpx;'>
+      <picker mode="date" name="s" value="{{latest_date1}}" start="2019-01-01" end="2030-01-01" bindchange="bindDateStartChange1">
+        <view class="picker uploadplaceholder" wx:if="{{timesEnter=='请选择'}}">
+          {{timesEnter}}
+          <image src='/images/bill/arrow_list.png'></image>
+        </view>
+        <view class="picker phcolorPreHover" wx:else>
+          {{timesEnter}}
+          <image src='/images/bill/arrow_list.png'></image>
+        </view>
+      </picker>
+      <input type='text' name="pay_time" value='{{pay_time}}' hidden='true'></input>
+    </view>
+  </view>
+  <view class='billList'>上传收款凭证（选填）
+    <view class='photoConatiner'>
+      <view class='photoList' wx:for="{{imgList}}" wx:for-index="idx">
+        <image src='{{imgUrl}}{{imgList[idx]}}{{imgUrlLast}}' mode='aspectFill' class='photoImgBig' data-src='{{imgList[idx]}}' data-num="{{house_cover==imgList[idx]?'1':'0'}}" bindtap='photoImgBigTap'></image>
+        <image wx:if="{{house_cover==''&&idx==0}}" src='/images/upload/house_message_set_page.png' class='photoFm' />
+        <image wx:elif="{{imgList[idx]==house_cover}}" src='/images/upload/house_message_set_page.png' class='photoFm' />
+        <image wx:else src="" class='photoFm' />
+        <image src='/images/upload/house_message_delete.png' class='photoClose' data-id='{{idx}}' data-num='0' data-src='{{imgList[idx]}}' bindtap='imgCloseTap'></image>
+      </view>
+      <view class='photoList' bindtap='uploadImgTap'>
+        <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image></view>
+      </view>
+    </view>
+    <view class='pointText' hidden='{{attachFilesShow}}'>最多上传三张凭证</view>
+    <input type='text' name="attach_files" value='{{imgList}}' hidden='true'></input>
+  </view>
+  <view class='btnPd'>
+    <button class='btn' formType="submit" disabled="{{btnShow}}">完成</button>
+  </view>
+</view>
+</form>

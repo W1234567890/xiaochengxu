@@ -1,0 +1,121 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<scroll-view scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" bindscrolltolower="getMore" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+  <view class="cw50">
+    <view class='uploadLine'>
+      <view class='upLoadTitleText'>房源图片
+        <text>房源图片最少上传3张，最多上传10张，照片最好横版，每张最大5M， 尺寸不低于800*600px</text>
+      </view>
+      <view class='photoPd'>
+        <view class='photoConatiner'>
+          <view class='photoList' wx:for="{{imgList}}" wx:for-index="idx">
+            <image src='{{imgUrl}}{{imgList[idx]}}{{imgUrlLast}}' mode='aspectFill' class='photoImgBig' data-src='{{imgList[idx]}}' data-num="{{house_cover==imgList[idx]?'1':'0'}}" bindtap='photoImgBigTap'></image>
+            <image wx:if="{{house_cover==''&&idx==0}}" src='/images/upload/house_message_set_page.png' class='photoFm' />
+            <image wx:elif="{{imgList[idx]==house_cover}}" src='/images/upload/house_message_set_page.png' class='photoFm' />
+            <image wx:else src="" class='photoFm' />
+            <image src='/images/upload/house_message_delete.png' class='photoClose' data-id='{{idx}}' data-num='0' data-src='{{imgList[idx]}}' bindtap='imgCloseTap'></image>
+          </view>
+          <view class='photoList' bindtap='uploadImgTap'>
+            <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image></view>
+          </view>
+        </view>
+      </view>
+      <view class='pointText' hidden='{{photoImgShow}}'>请选择</view>
+      <view class='pointText' hidden='{{photoImgShow1}}'>房源图最少3张</view>
+      <view class='pointText' hidden='{{photoImgShow2}}'>房源图最多10张</view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>房源配置</text>
+      <view class='textList'>
+        <text wx:for="{{deviceData}}" wx:for-index="index" class="{{item.isSelected?'cur':''}}" data-index='{{index}}' data-id='{{item.id}}' bindtap='deviceBtnTap'>{{item.device}}</text>
+        <input type='text' name="device_id" value='{{device_id}}' hidden='true'></input>
+      </view>
+      <view class='pointText' hidden='{{deviceIdShow}}'>请选择</view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>房源特色</text>
+      <view class='textList'>
+        <text bindtap='tsBtnTap' class="{{tsNum==1?'cur':''}}" data-index='0'>首次出租</text>
+        <text bindtap='tsBtnTap' class="{{tsNum1==1?'cur':''}}" data-index='1'>出租超1年</text>
+        <text bindtap='tsBtnTap' class="{{tsNum2==1?'cur':''}}" data-index='2'>房东直租</text>
+        <input type='text' name="first_rent" value='{{first_rent}}' hidden='true'></input>
+        <input type='text' name="one" value='{{one}}' hidden='true'></input>
+        <input type='text' name="direct_rent" value='{{direct_rent}}' hidden='true'></input>
+      </view>
+      <view class='lineView'></view>
+      <view class='upload03title' bindtap='safeTap'><text class="{{safeShow?'':'cur'}}">安心住</text>(有甲醛质检合格报告)</view>
+      <view hidden='{{safeShow}}'>
+        <view class='photoConatiner'>
+          <view class='photoList1' wx:for="{{imgList01}}" wx:for-index="idx">
+            <image src='{{imgUrl}}{{imgList01[idx]}}{{imgUrlLast}}' mode='aspectFill' class='photoImgBig'></image>
+            <image src='/images/upload/house_message_delete.png' class='photoClose' data-id='{{idx}}' data-num='1' data-src='{{imgList01[idx]}}' bindtap='imgCloseTap'></image>
+          </view>
+          <view class='photoList1' data-num='0' bindtap='deedImgTap'>
+            <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image><text>甲醛质检报告照片</text></view>
+          </view>
+        </view>
+      </view>
+
+      
+      <view class='lineView'></view>
+      <view class='upload03title' bindtap='safeNoTap'><text class="{{safeNoShow?'':'cur'}}">真房源</text>(上传房产证照片)</view>
+      <view hidden='{{safeNoShow}}'>
+        <view class='photoConatiner'>
+          <view class='photoList1' wx:for="{{imgList02}}" wx:for-index="idx">
+            <image src='{{imgUrl}}{{imgList02[idx]}}{{imgUrlLast}}' mode='aspectFill' class='photoImgBig'></image>
+            <image src='/images/upload/house_message_delete.png' class='photoClose' data-id='{{idx}}' data-num='2' data-src='{{imgList02[idx]}}' bindtap='imgCloseTap'></image>
+          </view>
+          <view class='photoList1' data-num='1' bindtap='deedImgTap'>
+            <view class='photoImgView'><image src='/images/upload/pic_add.png' class='photoImg'></image><text>房产证照片</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>房源描述</text>
+      <view class='descriptionPd'>
+        <view class='textareaBorder'><textarea maxlength="-1" wx:if="{{isShow==false}}" name="house_desc" placeholder='该描述将展示在APP品牌主页中，详细的描述有利于增加租客的了解与信任' placeholder-class="uploadplaceholder" value='{{house_desc}}'></textarea></view>
+        <view class='descriptionBtn' bindtap='textareaTap'>自动生成</view>
+      </view>
+      <view class='pointText' hidden='{{houseDescShow}}'>请填写</view>
+    </view>
+    <view class='uploadLine'>
+      <view class='upLoadTitleText'>芝麻信用推广<image src='/images/upload/wechat_empowe_query.png' class='helpIcon' bindtap='helpTap'></image></view>
+      <view>       
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox" wx:for="{{rentData}}">
+            <checkbox color='#5876AB' value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>带看联系人</text>
+      <view class='areaView'>
+        <input type='text' name="user_name" placeholder='请输入看房联系人' placeholder-class="uploadplaceholder" value='{{user_name}}'></input>
+      </view>
+      <view class='pointText' hidden='{{userNameShow}}'>请填写</view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>联系电话</text>
+      <view class='areaView'>
+        <input type='number' maxlength='-1' name="user_phone" placeholder='请输入手机号码/座机号码/400电话' placeholder-class="uploadplaceholder" value='{{user_phone}}'></input>
+      </view>
+      <view class='pointText' hidden='{{userPhoneShow}}'>请填写</view>
+    </view>
+    <view class='btnPd'>
+      <view class='resetBtn' bindtap='resetTap' hidden='{{house_id&&!houseId?false:true}}'><image src="/images/upload/icon_re_house_message.png"/>重置</view>
+      <button class='btn' formType="submit" disabled="{{btnShow}}">提交</button>
+    </view>
+  </view>
+  </scroll-view>
+</form>
+<view class='maskLayer' hidden='{{zmxyMessageHidden}}' bindtap='zmxyMessageHiddenTap' style='z-index:999;'></view>
+<view class='zmxyMessageWidth' hidden='{{zmxyMessageHidden}}'>
+  <view class='zmxyBgPd'>
+    <view class='zmxyTitle'>蚂蚁信用推广说明</view>
+    <text>1. 选择“免押金”即表示您同意芝麻分达到600分以上“信用较好”的支付宝用户享受免押金服务。</text> 
+    <text>2. 选择“押一付一”即表示您同意芝麻分为600分以下“信用一般”的支付宝用户享受押一付一服务。</text> 
+    <text>3. 审核通过后，房源即可出现在支付宝APP“信用生活”进行推广。支付宝将通过芝麻信用分数帮您筛选高素质租客。</text>
+  </view>
+  <image src='/images/upload/window_close.png' bindtap='zmxyMessageHiddenTap'></image>
+</view>

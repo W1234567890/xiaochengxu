@@ -1,0 +1,8 @@
+
+<form bindsubmit="formSubmit">
+  <view class='loginConaiver'>
+    <view class='loginMessage'>推荐用微信直接登录</view>{{res}}
+    <button class='wxLoginBtn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信账号登录</button>
+    <view class='accountBtn' bindtap='accountTap'>账号登录</view>
+  </view>
+</form>

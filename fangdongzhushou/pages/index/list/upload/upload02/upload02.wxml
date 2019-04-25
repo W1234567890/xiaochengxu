@@ -1,0 +1,142 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+<scroll-view scroll-y="true" bindscroll="scroll" scroll-top="{{scrollTop}}" bindscrolltolower="getMore" style="position:absolute; top:0; left:0; right:0; bottom:0;">
+  <view class="cw50">
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>出租类型</text>
+      <view class='radioPd'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{rentData}}" wx:for-index="index">
+            <radio value="{{item.name}}" color='#5876AB' checked="{{index+1==rentDataIndex?'checked':''}}" /> {{item.value}}
+          </label>
+        </radio-group>
+        <input type='text' name="rent_mode" value='{{rentDataIndex}}' hidden='true'></input>
+      </view>
+      <view class='pointText' hidden='{{rentModeShow}}' style='right:0;left:auto;'>请选择</view>
+    </view>
+    <view class='uploadLine uploadLineFlex'>
+      <view class='threeWidth'><!--style=' margin: 0 10rpx; width: 220rpx;'-->
+        <text class='upLoadTitleText'>房源类型</text>
+        <view>
+          <picker bindchange="bindDateRentChange" value="{{houseTypeIndex}}" range="{{houseTypeData}}">
+            <view class="picker uploadplaceholder" wx:if="{{houseTypeIndex==-1}}" style='text-align:center;'>请选择
+              <image src='/images/upload/house_mg_down_arrow.png' style='right:-21rpx;'></image>
+            </view>
+            <view class="picker phcolorPreHover" wx:else style='text-align:center;'>{{houseTypeData[houseTypeIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png' style='right:-21rpx;'></image>
+            </view>
+            <input type='text' name="tag" value='{{houseTypeDataValue[houseTypeIndex]}}' hidden='true'></input>
+          </picker>
+        </view>   
+        <text class='pointText22' style='display:{{tagShow}};'>请选择</text>
+      </view>
+      <view class='threeWidth'><!-- style=' margin: 0 10rpx; width: 170rpx;'-->
+        <text class='upLoadTitleText'>起租租期</text>
+        <view>
+          <picker bindchange="bindDateTimeChange" value="{{timeIndex}}" range="{{timeData}}">
+            <view class="picker uploadplaceholder" wx:if="{{timeIndex==0}}" style='text-align:center;'>{{timeData[timeIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png' style='right:-21rpx;'></image>
+            </view>
+            <view class="picker phcolorPreHover" wx:else style='text-align:center;'>{{timeData[timeIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png' style='right:-21rpx;'></image>
+            </view>
+          </picker>
+          <input type='text' name="rent_period" value='{{timeIndex}}' hidden='true'></input>
+        </view>
+        <text class='pointText22' style='display:{{rentPeriodShow}};'>请选择</text>
+      </view>
+      <view class='threeWidth'><!-- style=' margin: 0 10rpx; width: 170rpx;'-->
+        <text class='upLoadTitleText'>付款方式</text>
+        <view>
+          <picker bindchange="bindDatePayChange" value="{{payIndex}}" range="{{payData}}">
+          <view class="picker uploadplaceholder" wx:if="{{payIndex==0}}" style='text-align:center;'>{{payData[payIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png' style='right:-21rpx;'></image>
+            </view>
+          <view class="picker phcolorPreHover" wx:else style='text-align:center;'>{{payData[payIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png' style='right:-21rpx;'></image>
+            </view>
+          </picker>
+          <input type='text' name="pay_type" value='{{payIndexNum}}' hidden='true'></input>
+        </view>
+        <text class='pointText22' style='display:{{payTypeShow}};'>请选择</text>
+      </view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>租金</text>
+      <view class='areaView'>
+        <input type='number' bindinput="priceTap" name="price" placeholder='请输入' placeholder-class="uploadplaceholder" value='{{price}}'></input>
+        <text>元</text>
+      </view>
+      <view class='pointText' hidden='{{priceShow}}'>请填写</view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>押金方式</text>
+      <view>
+        <view bindtap='depositTap' wx:if="{{price==''}}" value="{{depositIndex}}" range="{{depositData}}">
+          <view class="picker uploadplaceholder">请选择
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+        </view>
+        <block wx:else>
+          <picker bindchange="bindDateDepositChange" wx:if="{{payIndexNum==5}}" value="{{depositIndex}}" range="{{depositDataDay}}">
+            <view class="picker phcolorPreHover">{{depositDataDay[depositIndex]}}
+              <image src='/images/upload/house_mg_down_arrow.png'></image>
+            </view>
+          <input type='text' name="deposit_type" value='{{depositIndex5}}' hidden='true'></input>
+          </picker>
+          <picker bindchange="bindDateDepositChange" wx:else value="{{depositIndex}}" range="{{depositData}}">
+          <view class="picker phcolorPreHover">{{depositData[depositIndex]}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+        <input type='text' name="deposit_type" value='{{depositIndex}}' hidden='true'></input>
+        </picker>
+        </block>
+      </view>      
+      <view class='pointText' hidden='{{depositTypeShow}}'>请选择</view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>押金金额</text>
+      <view class='areaView'>
+        <input type='number' wx:if="{{payIndexNum==5}}" name="deposit_price" placeholder='请输入' placeholder-class="uploadplaceholder" disabled='{{depositIndex==1?false:true}}' value='{{deposit_price}}'></input>
+        <input type='number' wx:else name="deposit_price" placeholder='请输入' placeholder-class="uploadplaceholder" disabled='{{depositIndex==4?false:true}}' value='{{deposit_price}}'></input>
+        <text>元</text>
+      </view>  
+      <view class='pointText' hidden='{{depositPriceShow}}'>请选择</view>
+    </view>
+    <view class='uploadLine'>
+      <view class='upLoadTitleText'>佣金比例<text>(支付佣金更有利于您的销房)</text></view>
+      <view>
+        <picker bindchange="bindDateCommissionRateChange" value="{{commissionRateIndex}}" range="{{commissionRateData}}">
+          <view class="picker uploadplaceholder" wx:if="{{commissionRateIndex==0}}">{{commissionRateData[commissionRateIndex]}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+          <view class="picker phcolorPreHover" wx:else>{{commissionRateData[commissionRateIndex]}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+        </picker>
+        <input type='text' name="commission_price" value='{{commission_price}}' hidden='true'></input>
+      </view>
+    </view>
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>最早可入住时间</text>
+      <view>        
+        <picker mode="date" name="s" value="{{latest_date}}" start="2018-01-01" end="2030-01-01" bindchange="bindDateStartChange">
+          <view class="picker uploadplaceholder" wx:if="{{date=='请选择'}}">
+            {{date}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+          <view class="picker phcolorPreHover" wx:else>
+            {{date}}
+            <image src='/images/upload/house_mg_down_arrow.png'></image>
+          </view>
+        </picker>
+        <input type='text' name="checkin_time" value='{{date}}' hidden='true'></input>
+      </view>
+      <view class='pointText' hidden='{{checkinTimeShow}}'>请选择</view>
+    </view>
+    <view class='btnPd'>
+      <view class='resetBtn' bindtap='resetTap' hidden='{{house_id&&!houseId?false:true}}'><image src="/images/upload/icon_re_house_message.png"/>重置</view>
+      <button class='btn' formType="submit" bindtap='nextTap'>下一步</button>
+    </view>
+  </view>
+  </scroll-view>
+</form>

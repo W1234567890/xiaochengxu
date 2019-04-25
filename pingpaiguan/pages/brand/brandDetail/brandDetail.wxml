@@ -1,0 +1,95 @@
+<!--pages/brand/brandDetail/brandDetail.wxml-->
+<view class='brandBanner'>
+  <image src='{{topBanner}}' class='bannerImg'></image>
+  <view class='box'></view>
+  <view class='zanTopView' wx:if="{{dz==0}}">
+    <image  src='/images/brandDetail/zanWhite.png' bindtap='like' class='zanTop' data-id="{{item.house_id}}"></image>
+  </view>
+  <image  wx:else="{{dz==1}}"  src='/images/brandDetail/zanRed.png' class='zanTop'></image>
+  <view class='BrandMessage'>
+    <image src='{{brand_logo}}'></image>
+    <view>
+      <view class='brandDetailTitle'>{{brand_name}}</view>
+      <view class='brandDetailSlogen'>{{brand_slogen}}</view>
+      <view class='brandDetailMessage'>赞 {{like}}{{likeNum==0?'':'万'}}   <text>|</text>   访客 {{visitor}}</view>
+    </view>
+  </view>
+</view>
+<view class='brandDetailNum'>
+  <!-- <view style='border-right:1px solid #dcdbdb;' ></view>
+  <view><text>{{house_online}}</text>可租房源/套<image src='/images/index/greyRight.png'></image></view> -->
+  <navigator target="miniProgram" hover-class="none"path="pages/list/search/search?brandType=1&areaCode={{areaCode}}&brandId={{brandId}}" app-id="wxc29624069daf8890"><text>{{house_total}}</text>累计经营房源/套<image src='/images/index/greyRight.png'></image></navigator><!-- version="trial"-->
+  <navigator target="miniProgram" hover-class="none" path="pages/list/search/search?brandType=2&areaCode={{areaCode}}&brandId={{brandId}}" app-id="wxc29624069daf8890"><text>{{house_online}}</text>可租房源/套<image src='/images/index/greyRight.png'></image></navigator><!-- version="trial"-->
+  
+</view>
+<view class='brandListLine' style='padding-bottom:{{isIpx?118:88}}rpx;'>
+  <view class='cw30'>
+  <view hidden='{{brand_intro.length==0?true:false}}'>
+    <view class="brandDetail {{brandDetailBtn==0?'':'cur'}}" >{{brand_intro}}</view>
+    <view hidden='{{brand_intro.length<=108?true:false}}' class='brandDetailBtn' bindtap='brandDetailBtnTap'>{{brandDetailBtn==0?'收起':'展开'}}<image src="/images/brandDetail/{{brandDetailBtn==0?'up':'down'}}.png"></image></view>
+  </view>
+  <view class='pieceTitle' style="display:{{furnitureList.length==0?'none':'block'}}">服务设施</view>
+    <view class='facilitiesPd' style="display:{{furnitureList.length==0?'none':'block'}}">
+      <view wx:for="{{furnitureList}}" wx:for-item="item" wx:for-index="idx">
+        <image src='{{furnitureList[idx].icon}}'></image>{{furnitureList[idx].name}}
+      </view>
+        <view style='display:{{facilitiesGreenHidden}};' class='facilitiesGreen' bindtap='facilitiesGreenTap'><image src='/images/brandDetail/moreIcon.png'></image>更多</view>  
+    </view>  
+    <view class='brandDetailTitleBlack' style="display:{{recommendList.length==0?'none':'block'}}">主打房源</view>
+  </view>
+  <view wx:for="{{recommendList}}" wx:for-item="item" wx:for-index="index" data-id="{{item.house_id}}" data-pricecount='{{item.price_count}}' catchtap='onListDetailTap'>
+    <view class='listImgList'>
+      <navigator target="miniProgram" hover-class="none" path="{{item.action_type==2?'/pages/list/listDetail/listDetail?id=':'/pages/list/search/search?communityid='}}{{item.action}}" app-id="wxc29624069daf8890" wx:if="{{item.action_type==2||item.action_type==3}}"  data-adnum='0' data-url='{{item.action}}' data-adent='{{item.action_type}}'><!-- version="trial"-->
+        <view class='listBanner'>
+          <image mode='aspectFill' src='{{imgUrl}}{{item.cover_pic}}{{imgUrlLast}}'></image>
+          <text class='listNumText'></text>
+          <!-- <text class='statusText' hidden='{{item.status==1?false:true}}'>已租</text> -->
+          <image src='/images/list/maskBg.png' class='maskBg'></image>
+          <!--<image src="{{recommendIsCollect[index]==1?'/images/listDetail/collectionIcon1H.png':'/images/listDetail/collectionIcon1.png'}}" class='collect' catchtap="onPersonalBtn" data-idx='{{index}}' data-pricecount='{{item.price_count}}' data-id="{{item.house_id}}"></image>-->
+        </view>
+        <view class='listBrand'>
+          <view class='listTitle'><text style="display:{{!item.pre?'none':'inline-block'}}">{{item.pre}}</text>{{item.title}}</view>
+          <!--<text class='listBrandText' id="{{partner_id}}" catchtap='brandsTap'>{{partner_name}}</text>-->
+          <view class='listAddress'>{{item.subtitle}}</view>
+          <view class='listAddress'>
+            <view class="listAddressWidth"><image src='/images/brand/addressIconGrey.png'></image>{{item.address}}</view> 
+          </view> 
+          <view class='srcListPd' hidden='{{item.src_type.length==0&&item.tag_name.length==0?true:false}}'>
+            <text wx:for="{{item.src_type}}" wx:for-item="item01">{{item01}}</text>
+            <text wx:for="{{item.tag_name}}" wx:for-item="item02">{{item02}}</text>
+          </view>
+          <view class='classHouePd'>            
+              <view class='listNumText'>           
+                <view class='listPrice'>{{recommendList[index].price}}<text></text></view>
+              </view>
+          </view>
+        </view>  
+      </navigator>  
+    </view>  
+  </view>
+</view>
+
+<view class="diList {{isIpx?'cur':''}}">
+  <view class='louFourwhite'>
+    <view class="louFourwhiteDouble {{isIpx?'cur':''}}"><!--style="width:{{!tel_num?'50%':''}}"-->
+        <image wx:if="{{dz==1}}" src='/images/brandDetail/zanRed.png' style='width:36rpx; height:36rpx; margin-right:14rpx;' catchtap="like"></image>
+        <image bindtap='like' class='coverimage01' wx:else="{{dz==0}}" src='/images/brandDetail/zanGrey.png' style='width:36rpx; height:36rpx; margin-right:14rpx;' catchtap="like" ></image>
+        <view class='onlineWord collectBtn' catchtap="like"></view>
+        <view class='lineBorderRight'></view>
+        <!--<view class='lineBorderTop' hidden='{{isIpx}}'></view>-->
+    </view>
+    <view class="louFourwhiteSingle {{isIpx?'cur':''}}" catchtap='onTelTap'><!-- hidden='{{!tel_num?true:false}}'-->
+      <view class='blueBtn coverView01'>
+        <image class='telImg' src='/images/brandDetail/telIcon.png' style='width:38rpx;'></image>
+        <view class='onlineWord'>电话联系</view>
+      </view>
+      <!--<view class='lineBorderTop' hidden='{{isIpx}}'></view>-->
+    </view>
+    <view class="louFourwhiteSingle {{isIpx?'cur':''}}" catchtap='onlineMsgTap' style="width:{{!tel_num?'50%':''}}">  
+      <view class="redBtn coverView01 {{isIpx?'cur':''}}">
+        <image class='aplayImg' src='/images/brandDetail/eye.png' style='width:46rpx;height:32rpx;'></image>
+        <view class='onlineWord'>查看在租房源</view>
+      </view>
+    </view>
+  </view>
+</view>

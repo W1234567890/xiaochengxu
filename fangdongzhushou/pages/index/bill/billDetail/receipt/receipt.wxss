@@ -1,0 +1,16 @@
+@import "/pages/index/bill/billDetail/billDetail.wxss";
+picker{ width:300rpx;}
+picker view.picker{ top: 0; text-align: right;}
+.billList view input{ text-align: right;}
+.billList view.billBase{ top: 27rpx;}
+.picker image{ width:40rpx; height: 40rpx; vertical-align: middle;margin-top: -5rpx; }
+input,.phcolorPreHover,textarea{ color:#8A8E98; font-size: 28rpx;}
+
+.billList view.photoConatiner{ margin:20rpx -3rpx; position: relative;right: auto; top: auto;}
+.photoList{ border: 1px solid #5876AB;  border-radius:4rpx; width:150rpx;height:112rpx; display:inline-block; margin:5rpx 3rpx; position: relative; line-height: 112rpx;}
+.photoImgBig{ width: 150rpx; height:112rpx;}
+.photoImgView{ width: 150rpx; height:112rpx; position: relative; display: inline-block;}
+.photoImg{ width: 36rpx; height: 36rpx;position: absolute; left: 50%; top: 38rpx; margin: 0 0 0 -18rpx;}
+.photoFm{ width: 36rpx; height: 38rpx; position: absolute; left:8rpx; top: 0;}
+.photoClose{ position: absolute; right:-11rpx; top:-17rpx; width: 34rpx; height: 34rpx;}
+.btn{width:518rpx;height:72rpx;line-height:72rpx; text-align: center; background:linear-gradient(219deg,rgba(238,98,97,1) 0%,rgba(221,71,70,1) 100%);box-shadow:0px 8rpx 20rpx 0px rgba(221,71,70,0.4);border-radius:36rpx; position: fixed; left: 116rpx; bottom: 200rpx; font-size:30rpx; color:#fff;}

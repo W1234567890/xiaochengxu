@@ -1,0 +1,80 @@
+<view class="listDetailConaiver">
+  <view class='bannerList'>
+    <view class='scImgPd'>
+      <image wx:if="{{is_collect==1 && collected==true}}" src='/images/listDetail/collectionIcon1H.png' style='width:70rpx; height:70rpx;' catchtap="onPersonalBtn" ></image>
+      <image wx:else src='/images/listDetail/collectionIcon1.png' style='width:70rpx; height:70rpx;' catchtap="onPersonalBtn" ></image>
+      <input type="hidden" hidden="true" name="is_collect" id="is_collect" value="{{is_collect}}"/>
+    </view>
+    <swiper class='swiperListDetailConaiver' autoplay='{{autoplay}}' circular="true"  current='index' bindchange='swiperChange'>
+      <swiper-item wx:for="{{listBanner}}" wx:for-index="idx">
+        <image src='{{item}}' data-id='{{idx}}' mode='aspectFill' bindtap='previewImage' lazy-load='true'></image>
+      </swiper-item>
+    </swiper> 
+    <text class='statusText' style='top:290rpx;' hidden='{{status==1?false:true}}'>已租</text>
+    <text class='bannerNum'>{{indexNum}} / {{totalNum}}</text>  
+  </view>
+  <view class='listDetailLine'>
+    <image src='/images/list/detailxj.png' class='listStatusImg' wx:if="{{upon_status==2}}"></image>
+    <image src='/images/list/detailyz.png' class='listStatusImg' wx:elif="{{upon_status==1}}"></image>
+    <image class='listStatusImg' wx:else></image>
+    <view class='cwp28'>
+      <view class='listDetailTitle'>{{title}}</view>
+      <view class='listDetailPrice'>{{price}}<text>/月</text></view>
+    </view>
+  </view>
+  <view class='listDetailLine'>
+    <view class='cwp28'>
+      <view hidden='{{tagList.length==0?true:false}}' class='listDetailMessage'>
+        <text wx:for="{{tagList}}" wx:for-iten="item">{{item}}</text>
+      </view>
+      <view class='listDetailMessageTwo'>
+        <view class="{{rent_mode!=1&&rent_mode!=0?'listDetailMessageTwoNone':''}}"><text>类型</text>{{rent_mode==1?'整租':'合租'}}</view>
+        <view class="{{!building_area?'listDetailMessageTwoNone':''}}"><text>面积</text>{{building_area}}</view>
+        <view class="{{!house_type?'listDetailMessageTwoNone':''}}"><text>户型</text>{{house_type}}</view>
+        <view class="{{!orientation?'listDetailMessageTwoNone':''}}"><text>朝向</text>{{orientation}}</view>
+        <view class="{{!total?'listDetailMessageTwoNone':''}}"><text>楼层</text>{{total}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='listDetailLine'>
+    <view class='cwp28'>
+      <view class='listDetailMapList' bindtap="{{latitude==0&&longitude==0?'':'listDetailMapTap'}}" data-la='{{latitude}}' data-lo='{{longitude}}'>
+        <view><image src='/images/listDetail/addressIcon.png' class='icon01'></image>{{address}}</view>
+        <image src='/images/listDetail/addressOthersIcon.png' class='icon02'  hidden='{{latitude==0&&longitude==0?true:false}}'></image>
+      </view>
+    </view>
+  </view>
+  <view class='greyNum'>房源编号：{{house_number}}</view>
+  <view class='cwp28' hidden='{{compareListAll.length==0?true:false}}'>
+    <view class='niceHouseTitle mt44'>
+      <text>全网比价</text>
+      <view class='allWebMessage'>以下房源信息来自第三方，我们仅提供同地点、户型、面积、朝向的房
+源比价功能，租房交易请点击跳转到第三方页面完成。 </view>
+    </view>
+    <view class='allWebListPd'>
+      <view class='allWebList' wx:for="{{compareListAll}}" wx:for-item='item' wx:for-index='index' bindtap='compareListTap' data-idx='{{index}}'>
+        <navigator wx:if="{{item.action_type==3}}" target="miniProgram" path="{{actionSmalle[index][1]}}" app-id="{{actionSmalle[index][0]}}" bindtap='jumpSmall' style=' display: flex; flex-direction: row; '>
+          <text class='leftCard Green' wx:if="{{item.tag_style==1}}">推荐{{item.actionType}}</text>
+          <text class='leftCard Red' wx:if="{{item.tag_style==2}}">最低价</text>
+          <image src='{{imgUrl}}{{item.poster}}{{imgUrlLast}}'></image>
+          <view class='allWebListRight'>
+            <text class='allWebLListTile'>{{item.title}}</text>
+            <text class='allWebListLow'>{{item.subtitle}}</text>
+            <view class='allWebListPrice'>{{priceBJ[index]}}<text>/月</text></view>
+          </view>
+        </navigator>
+        <view class='allWebListOne' wx:else>
+          <text class='leftCard Green' wx:if="{{item.tag_style==1}}">推荐</text>
+          <text class='leftCard Red' wx:if="{{item.tag_style==2}}">最低价</text>
+          <image src='{{imgUrl}}{{item.poster}}{{imgUrlLast}}'></image>
+          <view class='allWebListRight'>
+            <text class='allWebLListTile'>{{item.title}}</text>
+            <text class='allWebListLow'>{{item.subtitle}}</text>
+            <view class='allWebListPrice'>{{priceBJ[index]}}<text>/月</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<cover-view bindtap='backHome' style='display:inline-block;border-radius:100px;position:fixed; right:28rpx;bottom:15%;text-align:center;ooverflow:hidden;'><cover-image src='/images/list/home.png' style='width:120rpx;height:120rpx;display:block;'></cover-image> </cover-view>

@@ -1,0 +1,40 @@
+.bannerBg{ position: relative;}
+.bannerImg{ width: 100%; height:374rpx; display: block;}
+.bannerMessage{ position: absolute; width: 100%;left: 0; top: 0; z-index: 2;}
+.bannerTitle{ color: #fff; font-size: 38rpx; display: block; margin-top: 42rpx;}
+.weatherPd{ margin: 20rpx 0 57rpx; position: relative; }
+.weatherPd image{ position: absolute; left: 0; top: 0; width: 36rpx; height: 36rpx; vertical-align: middle; margin-right:9rpx;}
+.weatherPd view{ padding-left:45rpx;color: #fff; font-size: 24rpx;overflow: hidden;
+text-overflow:ellipsis;white-space: nowrap;opacity:0.6; }
+
+.upcomingPd{ margin-top: -170rpx; position: relative;z-index: 5;}
+.upcomingTitle{ color: #fff; font-size:40rpx; margin-bottom:26rpx; display: block; font-weight: bold;}
+.threeList{ display: flex; flex-direction: row; padding: 44rpx 0; background: #fff; border-radius:8px;box-shadow:0px 0px 24px 0px rgba(96,147,236,0.24);}
+.threeMessage{ display:flex; flex-direction: column; margin: 0 37rpx; text-align: center; position: relative;}
+.threeMessage image{ width:60rpx; height: 60rpx; display: block; margin: 0 auto 18rpx; }
+.threeMessage .threeName{ color: #001629; font-size: 24rpx;}
+.threeRedCard{width:32rpx;height:32rpx;background:rgba(241,114,118,1);border-radius:100rpx;border:3rpx solid rgba(255,255,255,1); position: absolute; right: 0; top:-5rpx; text-align: center; line-height: 32rpx; color: #fff; font-size: 20rpx;}
+
+.managementTitle{ color: #001629; font-size: 40rpx; margin-top: 60rpx; display: block;font-weight:bold;
+}
+.managementList{ margin: 24rpx -7rpx;}
+.managementList view{ display: inline-block; margin:7rpx; position: relative;
+box-shadow:0px 0px 24px 0px rgba(177,198,234,0.3);
+border-radius:8px;}
+.managementList view image{ width:220rpx; height: 190rpx; display: block; }
+.managementList view view.managementNei{ position: absolute; margin: 0; left: 0; width: 100%; box-shadow: none; }
+.managementList view view.managementNei.top30{ top: 30rpx;}
+.managementList view view.managementNei.top20{ top: 20rpx;}
+.managementNei text{ display: block; width: 100%; text-align: center;}
+.numWhite{ color: #fff; font-size: 80rpx; font-family: Arial; font-weight: bold;}
+.numNameWhite{ color: #fff; font-size:28rpx;  margin-top: 5rpx;}
+.numBlack{ color: #001629; font-size: 80rpx;}
+.numNameBlack{ color: #001629; font-size:28rpx;  margin-top: 5rpx;}
+
+.recruitBg{background:rgba(177,206,231,0.2); padding: 19rpx 0; border-top: 1px solid #fff;}
+.recruitPd{ display: flex; flex-direction: row; font-weight: bold;}
+.recruitPd image{ width: 40rpx; height: 40rpx; vertical-align: middle; margin-top: 20rpx;}
+.recruitMessage{ width: 576rpx; display:flex; flex-direction: column; margin-left: 34rpx;}
+.recruitMessage text{ display: block;}
+.recruitMessageTitle{ color: #001629; font-size: 26rpx; margin-bottom: 8rpx;}
+.recruitTime{ color: #94AABD; font-size: 22rpx;}

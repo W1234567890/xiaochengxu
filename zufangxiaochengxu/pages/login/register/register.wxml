@@ -1,0 +1,19 @@
+<view class='btnList'>
+  <view class='loginBtnOne'>
+    <text class='registerBtn' bindtap='zkBtnTap'>租 客</text>
+    <text class='registerWord'>专业服务团队实时对接<br/>
+及时高效解决租客问题</text>
+  </view>
+  <view class='loginBtnOne'>
+    <text class='registerBtn' bindtap='jjrBtnTap'>经 纪 人</text>
+    <text class='registerWord'>人工审核房源，100%真实<br/>
+可查看房东联系方式及佣金</text>
+  </view>
+  <view class='loginBtnOne'>
+    <navigator class='registerBtn' target="miniProgram" open-type="navigate" app-id="wx0abe913781110fb2" path="pages/list/list" version="release">房 东</navigator>
+    <!--<text class='registerBtn' bindtap='fdBtnTap'>房 东</text>-->
+    <text class='registerWord'>如果您是房东，请搜索小程序<br/>
+ “公寓家房东助手”</text>
+  </view>
+</view>
+<image src="/images/personal/loginBg.jpg" class="loginBg"></image>

@@ -1,0 +1,39 @@
+<!-- 使用wxs 手机号码中间四位显示为*号 -->
+<wxs module="phone">
+var toHide = function(array) {
+  var mphone = array.substring(0, 3) + '****' + array.substring(7);
+  return mphone;
+}
+module.exports.toHide = toHide;
+</wxs>
+<!---->
+<view class="reservePd">
+  <view class="{{reserve0?'':'cur'}}" bindtap='allTab' data-id='1'>未处理<text></text></view>
+  <view class="{{reserve0?'cur':''}}" bindtap='allTab' data-id='0'>全部预约<text></text></view>
+</view>
+<view class='noMessagePd' wx:if="{{noList==0}}">
+  <image src='/images/reserve/renter_appoint_def_pic.png'></image>
+  ~暂无预约~
+</view>
+<block wx:else>
+  <view class='reserveList' wx:for="{{list}}" wx:for-item="item">
+    <view class='w30'>   
+      <view class='reserveLine'>
+        <image src='/images/reserve/renter_appoint_dispose_no.png' wx:if="{{item.status==0}}"></image>
+        <image src='/images/reserve/renter_appoint_finish.png' wx:if="{{item.status==1}}"></image>
+        <image src='/images/reserve/renter_appoint_dispose_yes.png' wx:if="{{item.status==2}}"></image>
+        <image src='/images/reserve/renter_appoint_expire.png' wx:if="{{item.status==3}}"></image>
+        <image src='/images/reserve/renter_appoint_cancel.png' wx:if="{{item.status==4}}"></image>
+        <view class='reserveTitle' bindtap='reserveDetailTap'><view class='w30'>{{item.house_name}}</view></view>
+        <view class='reserveWhiteBg' data-id='{{item.id}}' data-confirm='{{item.status}}' bindtap='reserveDetailTap'>
+          <view class='w30'>
+            <view class='reserveWhiteList'><text>看房时间：</text>{{item.reserve_time}}</view>
+            <view class='reserveWhiteList'><text>租客姓名：</text>{{item.contact_name}}</view>
+            <view class='reserveWhiteList'><text>联系方式：</text>{{phone.toHide(item.mobile)}}</view>
+          </view>
+        </view>
+      </view>   
+    </view>
+  </view>
+</block>
+

@@ -1,0 +1,2 @@
+<!--pages/personal/personal.wxml-->
+<view bindtap='miniJumpTap'>111111111</view>

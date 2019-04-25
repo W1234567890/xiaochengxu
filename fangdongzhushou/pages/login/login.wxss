@@ -1,0 +1,24 @@
+.loginConaiver{ margin: 20rpx 70rpx; display: flex; flex-direction: column;}
+.loginConaiver input{ border-bottom: 1px solid #d8d8d8; padding: 10rpx 0; margin: 10rpx 0; font-size: 30rpx; color: #000;}
+.loginConaiver input:placeholder{ color: #888;}
+.forgetPassword{ color: #888; font-size: 30rpx; width: 100%; text-align: right; margin: 10rpx 0 20rpx;}
+.loginConaiver button{ width: 100%; text-align: center;  color: #fff; font-size: 30rpx;
+  background-color: #20b7b6;}
+.button-hover {
+  color: #fff;
+  background-color: #20b7b6;
+}
+.other-button-hover {
+  background-color: #20b7b6;
+}
+.loginConaiver button.wxLoginBtn{background: #27aa29; color: #fff; font-size:36rpx; text-align: center; }
+.loginConaiver button.wxLoginBtn text{ color:#666; font-size: 30rpx; text-align: center; display: block; margin-bottom: 20rpx;}
+.loginConaiver button.wxLoginBtn image{ width: 120rpx; height: 120rpx;}
+.loginConaiver button.wxLoginBtn::after{ border: none; }
+.lrPd{ text-align: center; color: #666; margin-top: 40rpx;}
+.lrPd .lrLine{ color:#e5e5e5; margin: 0 30rpx;} 
+
+.loginMessage{ text-align: center; color: #cacaca; font-size: 32rpx; margin: 175rpx 0 130rpx;}
+
+/*账号登录*/
+.accountBtn{height:92rpx; line-height:92rpx; font-size:34rpx; color:#999; text-decoration: underline; text-align: center; }

@@ -1,0 +1,33 @@
+<view class="w60">
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>姓名</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{tenant_name}}</view>
+    </view>
+  </view>
+  <view class='registerTwo'>    
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>性别</text>
+      <view class='enterHouse'>
+        <view class='phcolorPreHover'>{{sex}}</view>
+      </view>
+    </view>  
+    <view class='uploadLine'>
+      <text class='upLoadTitleText'>出生日期</text>
+      <view class='enterHouse'>
+        <view class='phcolorPreHover'>{{yearBirth}}-{{mounthBirth}}-{{dateBirth}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='uploadLine'>
+    <text class='upLoadTitleText'>身份证号码</text>
+    <view class='enterHouse'>
+      <view class='phcolorPreHover'>{{identify_num}}</view>
+    </view>
+  </view>
+  <view class='imageListPd'>
+    <image src="{{file==''?'/images/register/idcard_photograph.png':file}}" mode='aspectFill'></image>
+    <view>信息有误？<text bindtap='backformTap' data-num='0'>重新识别</text></view>
+  </view>
+  <view class='btnPd' bindtap='backformTap' data-num='1'><button class='btn' formType="submit">保存</button></view>
+</view>

@@ -1,0 +1,66 @@
+<swiper bindchange="swiperChange" style='width:750rpx; height:500rpx;' hidden='{{is_show==1?false:true}}'>
+  <swiper-item  wx:for="{{bannersList}}" wx:for-item="item" data-id="{{item.action_type}}" data-action="{{item.action}}" data-img="{{item.poster}}" bindtap="bannersListTap">
+    <image src='{{item.poster}}' class='bannersListImg'></image>
+  </swiper-item>  
+</swiper>
+<view class='searchConaiver'>
+<view class='selectList' hidden='{{is_show==1?true:false}}'>
+  <view class='searchList'>
+    <input type='text' name="keywords" id="keywords" placeholder='请输入品牌名称' placeholder-style='color:#ccc;' value="{{keywords}}" bindinput="keywordsInputEvent" bindconfirm="onSearchBtn" confirm-type="search" bindfocus="searchFocus"></input>
+    <image src='/images/brand/searchList.png' bindtap='onSearchBtn' class='searchListImg'></image>
+    <!--<icon type='search' color='#ccc' bindtap='onSearchBtn'></icon>-->
+  </view>
+  <view class="product-list">
+    <!--条件选择-->
+    <view class="choice-bar" >
+      <view bindtap="choiceItem" data-item="1" class="chioce-item" hover-class="click-once-opaque" style='text-align:left; padding-left:70rpx;'>
+        {{activePriceName}}
+        <image class="icon-chioce" src="{{timeChioceIcon}}"></image>
+      </view>
+      <view bindtap="choiceItem" data-item="2" class="chioce-item" hover-class="click-once-opaque">
+        {{activeHlName}}
+        <image class="icon-chioce" src="{{districtChioceIcon}}"></image>
+      </view>
+      <view bindtap="choiceItem" data-item="3" class="chioce-item" hover-class="click-once-opaque" style='text-align:right; padding-right:70rpx;'>
+        {{activeTimeName}}
+        <image class="icon-chioce" src="{{priceChioceIcon}}"></image>
+      </view>
+      <view class="sorting-list{{!chiocePrice?' chioce-list-hide':' chioce-list-show'}}">
+        <view wx:for="{{priceList}}" catchtap="selectPrice" data-index="{{index}}" class="sorting-item  {{idxPrice==index?'cur':''}}" hover-class="click-once">{{item.value}}</view>
+      </view>
+      <view class="sorting-list{{!chioceHl?' chioce-list-hide':' chioce-list-show'}}">
+        <view wx:for="{{HlList}}" catchtap="selectHl" data-index="{{index}}" class="sorting-item  {{idxHl==index?'cur':''}}" hover-class="click-once">{{item.value}}</view>
+      </view>
+      <view class="sorting-list{{!chioceTime?' chioce-list-hide':' chioce-list-show'}}">
+        <view wx:for="{{timeList}}" catchtap="selectTime" data-index="{{index}}" class="sorting-item  {{idxTime==index?'cur':''}}" hover-class="click-once">{{item.value}}</view>
+      </view>      
+    </view>
+    <view bindtap="hideAllChioce" class="mask" hidden="{{!chiocePrice&&!chioceTime&&!chioceHl}}">
+    <input type="hidden" name="priceKey" id="priceKey" value="{{priceKey}}" />
+    <input type="hidden" name="HlKey" id="HlKey" value="{{HlKey}}" />
+    <input type="hidden" name="TimeKey" id="TimeKey" value="{{TimeKey}}" />
+    </view>
+  </view>
+  </view>
+  <!--列表-->
+  <view style='padding-top:231rpx;'>   
+   <!-- -->
+     <view class='brandPd' bindtap='brandTap'  wx:for="{{list_brand}}" wx:for-item="item" wx:for-index="idx" data-url='{{item.action}}' data-adent='{{item.action_type}}'> 
+      <image src='{{item.logo}}'></image>
+      <view class='brandChangeMessage'>
+        <view>{{item.title}}</view><text>{{item.subtitle}}</text>
+      </view>
+      <view class='brandChangeEnter'>
+        <text>进入</text>在租{{item.online}}套
+      </view>
+    </view>
+  </view>
+  
+</view>
+ <view class="body-view">
+  <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+  </loading>
+</view>
+  <view hidden="{{hidden1}}" style='margin:30rpx 0 30rpx;color:#333;text-align:center; font-size:30rpx;'>别扯，到底了...</view>
+  <view hidden="{{hidden2}}" style='margin:30rpx 0 30rpx;color:#333;text-align:center; font-size:30rpx;'>暂无该品牌</view>

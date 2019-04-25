@@ -1,0 +1,64 @@
+<view class="w30">
+  <text class='roleTitle'>{{changeKey==0?'请选择你要认证的身份':'请选择你要切换的身份'}}</text>
+  <navigator class='roleBorder blue' hover-class="none" target="miniProgram" open-type="navigate"  app-id="wxc29624069daf8890" path="pages/list/list"  extra-data="" version="release" hidden='{{othersHidden}}'>
+    <view class='roleBg blueBg'>
+      <view class='messagePd'>
+        <text class='roleName'>我是租客</text>
+        <text class='roleMessage'>注册时默认身份</text>
+      </view>
+      <image src='/images/login/tenement_head_portrait.png'></image>
+    </view>
+  </navigator>
+  <view class='roleBorder blueLight' data-id='3' data-name='业主' bindtap='fbTap'>
+    <view class='roleBg blueLightBg'>
+      <view class='messagePd'>
+        <view class='roleName'>我是业主
+          <image src='/images/login/pass_no_tag.png'  style="width:93rpx;height:30rpx;right:-90rpx;display:{{haveRoles3==3?'block':'none'}}"></image>
+          <image src='/images/login/certified_tag.png'  style="display:{{haveRoles3==2?'block':'none'}}"></image>
+          </view>
+        <text class='roleMessage'>我拥有房子产权，我的房子我做主</text>
+      </view>
+      <image src='/images/login/individual_landlordI_head.png'></image>
+      <view class='roleZhao'  style="display:{{haveRoles3==1?'block':'none'}}">审核中…</view>
+    </view>
+  </view>
+  <view class='roleBorder pinkLight' data-id='4' data-name='职业房东' bindtap='fbTap'>
+    <view class='roleBg pinkLightBg'>
+      <view class='messagePd'>
+        <view class='roleName'>我是职业房东
+          <image src='/images/login/pass_no_tag.png' style="width:93rpx;height:30rpx;right:-90rpx;display:{{haveRoles4==3?'block':'none'}}"></image>
+          <image src='/images/login/certified_tag.png' style="display:{{haveRoles4==2?'block':'none'}}"></image>
+        </view>
+        <text class='roleMessage'>我包租了多套房，专注租房事业多年</text>
+      </view>
+      <image src='/images/login/specialty_landlordI_head.png'></image>
+      <view class='roleZhao' style="display:{{haveRoles4==1?'block':'none'}}">审核中…</view>
+    </view>
+  </view>
+  <view class='roleBorder yellow' data-id='2' hidden='{{othersHidden}}' bindtap='showAgent'>
+    <view class='roleBg yellowBg'>
+      <view class='messagePd' style='top:38rpx;'>
+        <view class='roleName'>我是经纪人 
+          <image src='/images/login/pass_no_tag.png'  style="width:93rpx;height:30rpx;right:-90rpx;display:{{haveRoles2==3?'block':'none'}}"></image>
+          <image src='/images/login/certified_tag.png'  style="display:{{haveRoles2==2?'block':'none'}}"></image>
+        </view>
+        <text class='roleMessage'>我是中介，帮助客户快速找到满意的房子</text>
+      </view>
+      <image src='/images/login/middleman_head.png'></image>
+      <view class='roleZhao' style="display:{{haveRoles2==1?'block':'none'}}">审核中…</view>
+    </view>
+  </view>
+</view>
+<!--发布房源弹框-->
+<view class='maskLayer' hidden='{{tsShow}}' bindtap='hideTs'></view>
+<view class='ts' hidden='{{tsShow}}'>
+  <view class='title'><image src='/images/list/kindly_reminder.png'></image>温馨提示</view>
+  <text class='messageTs'>手机端认证功能待开放，烦请先移步到公寓家电脑端官网中认证，谢谢！</text>
+  <text class='tsBtn' bindtap='hideTs'>我知道了</text>
+</view>
+<!--经纪人建设中-->
+<view class='maskLayer' hidden='{{agentShow}}' bindtap='hideAgent'></view>
+<view class='ts' hidden='{{agentShow}}'>
+  <view class='title'><image src='/images/login/middleman_developing.png' style='width:220rpx;height:220rpx;'></image></view>
+  <text class='messageTs'>经纪人身份的页面正在紧张开发中 敬请期待！</text>
+</view>

@@ -1,0 +1,8 @@
+/* pages/personal/setting/edit/edit.wxss */
+.editPd{ margin: 0 60rpx;}
+.editPd view{ position: relative; border-bottom: 1px solid #EEF0F4; font-size: 28rpx; color: #8A8E98; padding: 50rpx 0;}
+.editPd input{ position: absolute; right:0rpx; top: 40rpx; text-align: right;}
+.editPd image{width: 120rpx; height: 120rpx;  position: absolute; right:0rpx;top: 30rpx; border-radius:100px;}
+.editPd view.personalLogo{height: 84rpx; line-height: 84rpx;}
+
+.submitBtn{width:518rpx;height:72rpx;background:rgba(88,118,171,1);box-shadow:0px 8px 20px 0px rgba(96,147,236,0.5);border-radius:36px; margin-top: 200rpx;font-size: 32rpx; color: #fff; text-align: center; line-height: 72rpx;}

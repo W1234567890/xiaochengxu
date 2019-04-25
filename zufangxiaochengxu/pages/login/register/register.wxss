@@ -1,0 +1,6 @@
+page{ background: #fbfbfb;}
+.btnList{position: fixed; width: 100%; left: 0; top:20rpx; z-index: 10;}
+.loginBg{ width: 750rpx; height: 606rpx; position:fixed; bottom: 0; left: 0;}
+.loginBtnOne{ width: 362rpx; margin: 70rpx auto 0;}
+.registerBtn{ color: #b69b7d; font-size:40rpx; text-align: center; line-height: 72rpx; display: block; border: 4rpx solid #b69b7d; height: 72rpx; margin-bottom: 9rpx;}
+.registerWord{ color: #888; font-size: 26rpx; text-align: center; display: block;}

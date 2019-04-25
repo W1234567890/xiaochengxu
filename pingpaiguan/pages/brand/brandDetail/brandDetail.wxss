@@ -1,0 +1,137 @@
+/* pages/brand/brandDetail/brandDetail.wxss */
+/*banner*/
+.brandBanner{ position: relative;}
+.box{width:100%;height:330rpx;opacity: .3;position: absolute;top: 0;z-index: 10;background-color: #000}
+.bannerImg{ width: 100%; height:330rpx; display: block; }
+.zanTopView{ width: 70rpx; height: 70rpx;position: absolute; right:25rpx; top: 25rpx;z-index: 11;}
+.zanTopView .zanTop{width: 37rpx; height: 34rpx; position: absolute; right: 15rpx; top: 15rpx;}
+.zanTop{ width: 37rpx; height: 34rpx; position: absolute; right: 40rpx; top: 40rpx;z-index: 11;}
+.BrandMessage{ display: flex; flex-direction: row; position: absolute; left:30rpx; bottom: 20rpx;z-index: 11; }
+.BrandMessage image{ width:154rpx; height: 154rpx; border-radius:100rpx; vertical-align: middle; margin-right:20rpx;  background-color: #fff}
+.brandDetailTitle{ color: #fff; font-size:42rpx; }
+.brandDetailSlogen{ color: #fff; font-size:26rpx; margin: 10rpx 0 17rpx; }
+.brandDetailMessage{ color: #fff; font-size:24rpx; }
+.brandDetailMessage text{ font-size: 22rpx; margin:0 25rpx; }
+.brandDetailNum{padding:45rpx 0 40rpx; display: flex; flex-direction: row;}
+.brandDetailNum navigator{ width: 50%; position: relative; color: #999; font-size: 26rpx; text-align: center;}
+.brandDetailNum navigator image{ width:14rpx; height: 26rpx; position: absolute; right:60rpx; top: 50%; margin-top: -13rpx;  }
+.brandDetailNum navigator text{ display: block;  color: #333; font-size:42rpx; margin-bottom: 20rpx; }
+
+.brandDetail{ padding: 40rpx 0 0; margin-bottom: 35rpx; color: #999; font-size: 28rpx; line-height: 40rpx;}
+.brandDetail.cur{overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical;}
+.brandDetailBtn{ text-align: center; color: #999; font-size: 30rpx; margin-bottom: 30rpx;}
+.brandDetailBtn image{ vertical-align: middle; width: 26rpx; height: 26rpx; margin-left: 10rpx;}
+.brandDetailTitleBlack{ color: #333333; font-size: 36rpx; margin:60rpx 0 0;}
+.specialService{ margin: 0 -15rpx 0;}
+.specialService view{ display: inline-block; margin: 0rpx 0 28rpx; width: 20%; color: #999; font-size:30rpx; text-align: center; }
+.specialService view image{ width: 53rpx; height: 53rpx; margin: 0 auto 15rpx;display: block;}
+
+/*服务设施*/
+.facilitiesPd view{ display: inline-block; width: 20%; color: #999; font-size:22rpx; text-align: center;margin-bottom: 20rpx; margin-top: 20rpx;}
+.facilitiesPd view.facilitiesGreen{ color: #20b7b6;}
+.facilitiesPd view image{ width: 50rpx; height: 50rpx; display: block; margin: 0 auto 10rpx;}
+
+/*主打房源*/
+.listImgList navigator {padding: 20rpx 28rpx 20rpx;display: flex;flex-direction: row; border-bottom: 1px solid #ededed;}
+.listBanner {position: relative;width: 290rpx; height: 230rpx;}
+.listBanner image {width:100%;height: 230rpx;display: block;border-radius:10px;}
+.listBanner image.listStatusImg{ position: absolute; left: 0; top:-22rpx; width:73rpx; height: 36rpx; border-radius: 0; z-index: 2; }
+.listBanner image.maskBg {width:100%;height: 166rpx;display: none;position: absolute; left: 0; bottom: 0;}
+.listBanner image.collect{width: 50rpx;height: 50rpx;position: absolute;top: 15rpx;left:15rpx;}
+.collectPd{ width:80rpx; height: 80rpx;position: absolute;top: 0;left:0;}
+.compare{color: #333;float: right;font-size: 26rpx;}
+.nub{color: #20b7b6;font-weight: 600;}
+.listBrand {width: 380rpx; margin-left: 24rpx;}
+.listTitle text{ background:#d7ba82; display: inline-block; font-size: 22rpx; color: #fff; margin-right: 12rpx; border-radius:4px; padding:2rpx 6rpx; }
+.listTitle {color: #333;font-size: 30rpx;display: block;font-family:600;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.listBrandText {font-size: 22rpx;color: #000;float: right;padding: 8rpx 15rpx;border: 1px solid #000;}
+.listAddress {position: relative;color: #666;font-size: 22rpx;margin-top:8rpx;}
+.listAddressWidth{font-size: 22rpx; width: 100%;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.classHouePd{ margin:10rpx 0 0;}
+.listAddress image{width: 22rpx; height: 27rpx; vertical-align: middle; margin-right:12rpx; margin-top: -4rpx; }
+.statusText{ width: 100%; text-align: center; color: #fff; font-size: 30rpx; padding:15rpx 0;  background:rgba(0, 0, 0, 0.6); position: absolute; left: 0; top:200rpx; z-index: 3; }
+.classHoue{
+  float:left;
+  color:#20b7b6;
+  position: absolute;
+  bottom: 18rpx;
+  border: 1px solid #20b7b6;
+  padding: 5rpx 10rpx;
+  font-size: 28rpx;
+}
+.listNum{ display: none;
+position:absolute;
+z-index:2;
+right:0;
+top: 0;
+color: #333;
+font-size: 28rpx;
+}
+.houseNub{
+  color: #20b7b6;
+  font-size: 28rpx;
+}
+.listNumText{
+color:#20b7b6;
+font-size:30rpx;
+display: flex;
+flex-direction: row;
+}
+.listNumText view.listPrice {
+color:#20b7b6;
+font-size:29rpx!important;
+display: flex;
+flex-direction: row; font-weight: bold; margin: 0!important;
+}
+.listNumText view.listPrice text{ 
+color:#20b7b6;font-size: 24rpx; display: inline-block; margin: 5rpx 0 0 5rpx; }
+.listNumText view {
+  font-size: 24rpx;
+  color: #666; margin:5rpx 10rpx 0 5rpx;
+}
+.listNumText view text{
+  color: #333;
+}
+
+.classHoue{
+  float:left;
+  color:#20b7b6;
+  position: absolute;
+  bottom: 18rpx;
+  border: 1px solid #20b7b6;
+  padding: 5rpx 10rpx;
+  font-size: 28rpx;
+}
+.houseNub{
+  color: #20b7b6;
+  font-size: 28rpx;
+}
+.srcListPd{margin-top: 8rpx; height: 54rpx; width: 100%; overflow: hidden;}
+.srcListPd text{ display: inline-block; margin-right: 10rpx; padding:8rpx 6rpx; background: #f2f1f1; color: #858585; font-size: 20rpx; }
+.statusText{ width: 100%; text-align: center; color: #fff; font-size: 30rpx; padding:15rpx 0;  background:rgba(0, 0, 0, 0.6); position: absolute; left: 0; top:200rpx; z-index: 3; 
+}
+.hiddenSearchView{ position:fixed;z-index: 22; left: 0; top: 35%; width: 100%; text-align: center;}
+.hiddenSearchView text{ padding: 30rpx 20rpx; border-radius:10px; background: rgba(0, 0, 0, 0.7);  color: #fff; font-size: 30rpx; display: inline-block; margin: 0 auto;}
+
+/*底部浮动框*/
+.diList{background: #fff;box-shadow: #f5f5f5 0 -5px 5px -4px; position: fixed; bottom: 0; left: 0; width: 100%; height: 88rpx; z-index: 2;}
+.louFourwhite{  display: flex; flex-direction: row;}
+.cur{ padding-bottom: 30rpx!important;}
+.louFourwhiteSingle{ width: 290rpx; text-align: center; position: relative; }
+.lineBorderRight{ height: 100%; width: 1px; background: #e5e5e5; position: absolute; top: 0; right: 0;}
+.lineBorderTop{width: 100%; height: 1px; background: #e5e5e5; position: absolute; top: 0; left: 0;}
+.louFourwhiteSingle view.coverView01{ height: 88rpx; line-height: 88rpx;  text-align: center; vertical-align: middle;}
+
+.louFourwhiteSingle view.coverView01{ height: 88rpx; line-height: 88rpx;  text-align: center; vertical-align: middle;}
+.louFourwhiteSingle view.coverView01 view{ display: inline-block; line-height: auto;}
+.redBtn{ background: #20b7b6;}
+.louFourwhiteSingle .telImg{ height: 39rpx; margin-right: 14rpx; vertical-align: middle; display: inline-block;}
+.louFourwhiteSingle .aplayImg{ height: 39rpx; margin-right: 14rpx; vertical-align: middle; margin-top: -2px;display: inline-block;}
+.onlineWord{ color: #fff; font-size: 30rpx;vertical-align: middle;}
+.blueBtn{ color: #000000;}
+.blueBtn .onlineWord{color: #666; height: 88rpx; line-height: 88rpx; vertical-align: middle;}
+.louFourwhiteDouble{ text-align: center;width: 170rpx; vertical-align: middle; line-height: 80rpx; position: relative;border-right:1px solid #e5e5e5}
+.louFourwhiteDouble view,.louFourwhiteDouble button{ padding: 0; margin: 0; background-color: #fff; border:none; text-align: center; }
+.louFourwhiteDouble view.collectBtn{ color: #666; font-size: 30rpx; display:inline-block; height: 88rpx; line-height: 88rpx; vertical-align: middle;}
+.louFourwhiteDouble .coverimage01{ height: 40rpx; margin-right: 10rpx; display: inline-block; vertical-align: middle;}
+cover-image{ display: inline-block; line-height:auto; overflow: auto; vertical-align: middle; background: none;}

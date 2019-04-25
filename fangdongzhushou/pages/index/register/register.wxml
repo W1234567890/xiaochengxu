@@ -1,0 +1,31 @@
+<view class='searchList'>
+  <input type='text' name="keywords" id="keywords" placeholder='请输入租客名称/房源名' placeholder-style='color:#ccc;' value="{{keywords}}" bindinput="keywordsInputEvent" bindconfirm="onSearchBtn" confirm-type="search" bindfocus="searchFocus"></input>
+  <image src='/images/list/publish_house_manage_search_icon.png' bindtap='onSearchBtn' class='searchListImg'></image>
+  <!--<icon type='search' color='#ccc' bindtap='onSearchBtn'></icon>-->
+</view>
+
+<view class="reservePd">
+  <view class="{{reserve0?'cur':''}}" bindtap='allTab' data-id='0'>全部<text class="tabNum">{{total_num}}</text><text></text></view>
+  <view class="{{reserve1?'cur':''}}" bindtap='allTab' data-id='1'>即将到期<text class="tabNum">{{will_end}}</text><text></text></view>
+  <view class="{{reserve2?'cur':''}}" bindtap='allTab' data-id='2'>已到期<text class="tabNum">{{had_end}}</text><text></text></view>
+</view>
+<view class='noMessagePd' wx:if="{{noList==0}}"> <!---->
+  <image src='/images/coming/renter_phone_def_pic.png'></image>
+  ~暂无登记~
+</view>
+<view class='w30' wx:else>
+  <block wx:for="{{list}}" wx:for-item="item" wx:for-index="index">
+    <view class='registerTitle' data-num='{{index}}' bindtap='registerShowTap'>{{item.community}}<view>{{item.house_list.length}}个<image src="/images/list/{{index==registerShowNum?'renter_arrow_off':'renter_arrow_open'}}.png"></image></view></view>
+    <view class='registerPd' style="display:{{index==registerShowNum?'block':'none'}}">
+      <view class='registerList' wx:for="{{item.house_list}}" wx:for-item="item1" bindtap='registerListTap' data-id='{{item1.id}}' data-name='{{item1.house_name}}'>
+        <view class='registerLeft'>{{item1.family}}</view>
+        <view class='registerRight'>
+          <view class='rightTitle'>{{item1.tenant_name}}</view>
+          <view class='rightData'>{{item1.rent_date}}</view>
+          <view class='rightAddress'>{{item1.address}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='addRegisterBtn' bindtap='addRegisterBtnTap'><image src='/images/register/icon_renter_register_add.png'></image>添加租客登记</view>

@@ -1,0 +1,28 @@
+.billDetailRedBg{ position: relative;}
+.billDetailRedBg image{ width:750rpx; height: 220rpx;}
+.billDetailTop{ position: absolute; left:0; bottom: 56rpx; margin: 0 40rpx; width:670rpx;}
+.billPrice{ font-size: 82rpx; color: #fff; margin-bottom:20rpx;}
+.billPrice view{ display: inline-block; margin-left: 16rpx; font-size: 26rpx;}
+.billPrice view image{width: 110rpx;height: 110rpx; vertical-align: middle; margin-top: -50rpx;} 
+.billDate{ color:rgba(255,255,255,0.6); font-size: 22rpx; position: relative;}
+.billDate text{ display: inline-block; margin-right: 16rpx;}
+.billDate view{ position: absolute; right: 0; top: 0;}
+
+.billDetailW40{ margin: 0 40rpx;}
+.billDetailList .billDetailW40{ color:#8A8E98; font-size: 24rpx; }
+.billListPriceLine{padding: 0rpx 0 20rpx 30rpx; border-bottom: 1px solid #EEF0F4;}
+.billListPrice{ color: #001629; font-size: 28rpx; padding: 20rpx 0 0;position: relative;}
+.billListPrice view.billBase{ position: absolute; right: 0; top: 20rpx; color:#5C6068; font-size: 28rpx; }
+.billList{ color: #001629; font-size: 28rpx; padding: 34rpx 0; border-bottom: 1px solid #EEF0F4; position: relative;}
+.billList view.billBase{ position: absolute; right: 0; top: 34rpx; color:#5C6068; font-size: 28rpx; }
+.billList view.billBase.billGrey{ color:#C0C2C7; }
+.billList view.billBase.billGrey image{ width: 40rpx;height: 40rpx; vertical-align: middle; margin:-5rpx 0 0 4rpx;}
+.billDetailList{width:750rpx;height:62rpx;line-height:62rpx;  background:linear-gradient(270deg,rgba(255,255,255,1) 0%,rgba(238,240,244,1) 100%); margin-top: 60rpx;}
+.billDetailBtnListBg{background: #fff; padding:40rpx 0; position: fixed; left: 0; bottom: 0;background:linear-gradient(0deg,rgba(255,255,255,1),rgba(255,255,255,0.8));}
+.billDetailBtnList{ display: flex; flex-direction: row;}
+.billBtn01{width:160rpx;height:72rpx; text-align: center; line-height:72rpx;border-radius:36rpx;border:1px solid rgba(222,224,229,1); color: #8A8E98; font-size: 30rpx; margin-right: 30rpx;}
+.pdb190{ padding-bottom: 190rpx;}
+.billBtn02{width:240rpx;height:72rpx;text-align: center; line-height:72rpx;background:linear-gradient(133deg,rgba(253,176,169,1) 0%,rgba(249,120,112,1) 100%);border-radius:44rpx 0px 0px 44rpx;color: #fff; font-size: 30rpx;}
+.billBtn03{width:240rpx;height:72rpx;text-align: center; line-height:72rpx;background:linear-gradient(206deg,rgba(243,106,105,1) 0%,rgba(221,71,70,1) 100%);border-radius:0px 100rpx 100rpx 0px;color: #fff; font-size: 30rpx;}
+
+.billListTitle{ color: #001629; font-size: 22rpx; margin-top: 30rpx;}

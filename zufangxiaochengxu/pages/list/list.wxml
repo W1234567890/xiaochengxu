@@ -1,0 +1,92 @@
+
+<import src="/pages/template/tabBar.wxml" />
+<view class='searchConaiver'>
+  <view class='listImgBannerConaiver' style='top:{{topBanner}}rpx;' style='display:none;'>
+    <image src='/images/list/listBanner.jpg' class='listImgBanner'></image>
+  </view>
+  <view class='bannerListTop' style='height:1334rpx;position: fixed; left:0; top:0;' hidden='{{bannerImgHidden}}'>
+    <swiper style='height:1334rpx;' indicator-color="#fff" indicator-active-color="#20b7b6" current='{{num}}' bindchange="swiperChange">
+      <swiper-item  wx:for="{{banner_list}}" wx:for-item="item">
+        <image src='{{item.pic_url}}'  class='bannerListTopImg' data-adent="{{item.action_type}}" data-url='{{item.action}}' bindtap='newsListTap' data-adnum='0' ></image>
+      </swiper-item>  
+    </swiper>
+      <view class='littleDian' hidden='{{banner_list.length==1?true:false}}'><text wx:for="{{banner_list}}" wx:for-index='idx' class="{{num==idx?'activeText':''}}"></text></view>
+  </view>
+      <view class='searchBgWhite' id='searchBgWhite'>
+        <view class='searchBgWhitePd'>
+          <view class='addressTopPd'>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style='width:50%;'>
+              <view class="picker">
+                {{array[index]}}
+                <image src='/images/list/icon-go-blackS.png'></image>
+              </view>
+            </picker>
+            <view class='postPd' bindtap='postTap'>当前位置
+              <image src='/images/list/postIcon.png'></image>
+            </view>
+          </view>
+          <view class='searchList'>
+            <input name="keywords" id="keywords" placeholder-style='color:#ccc;' placeholder='你想住在哪？' value="{{addressPostKey==1?keywords:''}}" bindinput="keywordsInputEvent" bindconfirm="onSearchBtn" type='text' confirm-type="search"></input>
+            <view class='searchBtn' bindtap='onSearchBtn'>
+              <text>发现您的新家</text>
+            </view>
+          </view>
+        </view>
+      </view>
+  <view class='searchMessagePd'>
+    <view class='newsListPdTop'>  
+      <view class='newsListPd'>   
+        <navigator wx:if="{{action_openType==5}}" target="miniProgram" path="{{action_openurl}}" app-id="wxf2cc235b75b69cbe" bindtap='jumpSmall'><image src='{{poster_open}}' style='width:330rpx; height:379rpx;' data-adnum='1'></image></navigator> 
+        <image src="{{!poster_l?'/images/list/1.png':poster_l}}" style='width:330rpx; height:379rpx;' data-adnum='1' data-url='{{action_lurl}}' bindtap="{{!poster_l?'':'newsListTap'}}" data-adent="{{poster_lType}}"></image>
+        <view class='newsRight'>
+          <image src="{{!poster_rt?'/images/list/2.png':poster_rt}}" data-url='{{action_rturl}}' data-adnum='2' bindtap="{{!poster_rt?'':'newsListTap'}}" data-adent="{{poster_rtType}}"></image>
+          <image src="{{!poster_rb?'/images/list/2.png':poster_rb}}" class='newsRightLastPd' data-adnum='3' data-url='{{action_rburl}}' bindtap="{{!poster_rb?'':'newsListTap'}}" style='position: absolute; bottom:0;' data-adent="{{poster_rbType}}"></image>
+        </view>
+      </view>
+      <view class='niceHouseTitle'>
+        <text>精选好房</text>
+      {{modelmes}}
+      </view>
+      <view>
+        <view wx:if="{{list.length==0}}"  style='color:#666; font-size:30rpx; text-align:center; margin:40rpx 0;'>{{houseListNone}}</view>
+        <view wx:else>
+          <view wx:for="{{list}}" wx:for-item="item" wx:for-index="index" data-id="{{item.house_id}}" data-pricec='{{item.price_count}}' catchtap='onListDetailTap'>
+            <view class='listImgList'>
+              <view class='listBanner'>
+                <image mode='aspectFill' src='{{item.cover_pic}}' wx:if="{{item.cover_pic=='/images/list/im_eorr.png'}}"></image>
+                <image mode='aspectFill' src='{{imgUrl}}{{item.cover_pic}}{{imgUrlLast}}' wx:else></image>
+                <text class='listNumText'></text>
+                <!--<text class='statusText' hidden='{{status==1?false:true}}'>已租</text>-->
+                <image src='/images/list/maskBg.png' class='maskBg'></image>
+              </view>
+              <view class='listBrand'>
+                <view class='listTitle'><text style="display:{{!item.pre?'none':'inline-block'}}" class='brandList'>{{item.pre}}</text><text class='titleList'>{{item.title}}</text></view>
+                <view class='listAddress'>{{item.subtitle}}</view>
+                <view class='listAddress'>
+                  <view class="{{item.price_count != -1?'listAddressWidth':''}}"><image src='/images/list/addressIconGrey.png'></image>{{item.address}}</view>
+                  <view wx:if="{{item.price_count != -1}}" class='listNum'>全网<text class='houseNub'>{{item.price_count}}</text>个比价</view>
+                </view>
+                <view class='classHouePd'>
+                  <view class='tagList' hidden='{{!item.src_type?true:false}}'>
+                      <text class='classHoue' wx:for="{{item.src_type}}" wx:for-item="item1">{{item1}}</text>
+                  </view>
+                
+                  <view class='listNumText'>{{listPriceList[index]}}<text>/月</text></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="body-view" style='height:50rpx; background:#fff;'>
+  <text hidden="{{hidden}}" style='color:#000; margin:15rpx 0; font-size:30rpx; display:{{hidden}}; text-align:center;'>加载中...</text>
+  <!--<text hidden="{{hidden1}}" style='color:#000; margin:20rpx 0 0; font-size:30rpx; display:{{hidden1}};  text-align:center; position:relative; z-index:10;'>别扯了，到底啦！</text>
+  <loading bindchange="loadingChange">
+    加载中...
+  </loading>-->
+</view>
+  <view hidden="{{hidden1}}" style='margin:-30rpx 0  {{tabBar.isIpx?170:130}}rpx;color:#333;text-align:center; font-size:30rpx;'>别扯，到底了...</view>
+<template is="tabBar" data="{{tabBar:tabBar}}" />

@@ -1,0 +1,6 @@
+<view class="ldentityPd">
+  <view class='ldentityTitle'>请问您是？</view>
+  <view class='ldentityIcon ldentityIconYellow' data-id='1' bindtap='ldentityTap'><image src='/images/personal/zk.png'></image></view>
+  <view class='ldentityIcon ldentityIconBlue' data-id='2' bindtap='ldentityTap'><image src='/images/personal/jjr.png'></image></view>
+  <navigator class='ldentityIcon ldentityIconGreen' target="miniProgram" open-type="navigate" app-id="wx0abe913781110fb2" path="pages/login/login"><image src='/images/personal/fd.png'></image></navigator>
+</view>
